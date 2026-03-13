@@ -1,146 +1,161 @@
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import imgBr11 from '../assets/carpets/bedroom-guestroom/br-1.1.jpg';
+import imgBr12 from '../assets/carpets/bedroom-guestroom/br-1.2.jpg';
+import imgBr21 from '../assets/carpets/bedroom-guestroom/br-2.1.jpg';
+import imgBr22 from '../assets/carpets/bedroom-guestroom/br-2.2.jpg';
+import imgBr31 from '../assets/carpets/bedroom-guestroom/br-3.1.jpg';
+import imgBr32 from '../assets/carpets/bedroom-guestroom/br-3.2.jpg';
+import imgCh11 from '../assets/carpets/corridors-hallway/ch-1.1.jpg';
+import imgCr12 from '../assets/carpets/corridors-hallway/cr-1.2.jpg';
+import imgMs11 from '../assets/carpets/modern-style/ms-1.1.jpg';
+import imgMs12 from '../assets/carpets/modern-style/ms-1.2.jpg';
+import imgMd11 from '../assets/carpets/modern-design/md-1.1.jpg';
+import imgMd12 from '../assets/carpets/modern-design/md-1.2.jpg';
 
-// Masonry-style grid of carpet texture close-ups for a virtual showcase feel
-const galleryImages = [
+// .1 = Layout (design plan), .2 = Installed (final result)
+const rooms = [
     {
-        src: "https://images.unsplash.com/photo-1600166898405-da9535204843?q=80&w=1200&auto=format&fit=crop",
-        alt: "Close-up of hand-knotted silk threads",
-        label: "Hand-Knotted Silk",
-        size: "tall", // spans 2 rows
+        room: 'Bedroom / Guest Room',
+        images: [
+            { src: imgBr11, label: 'Layout' },
+            { src: imgBr12, label: 'Installed' },
+            { src: imgBr21, label: 'Layout' },
+            { src: imgBr22, label: 'Installed' },
+            { src: imgBr31, label: 'Layout' },
+            { src: imgBr32, label: 'Installed' },
+        ],
     },
     {
-        src: "https://frithrugs.co.uk/assets/Uploads/_resampled/FitWyI1NTUiLCIzMzMiXQ/psw429_rugspf63kdavjj_1.jpg",
-        alt: "Plush crimson wool pile",
-        label: "Mountain Wool Pile",
-        size: "wide",
+        room: 'Corridors & Hallways',
+        images: [
+            { src: imgCh11, label: 'Layout' },
+            { src: imgCr12, label: 'Installed' },
+        ],
     },
     {
-        src: "https://hugrug.co.uk/cdn/shop/files/Sienna-Weave-Lifestyle_01-120x170.jpg?v=1756902066&width=1024",
-        alt: "Intricate geometric weave pattern",
-        label: "Geometric Weave",
-        size: "normal",
-    },
-    {
-        src: "https://image.made-in-china.com/2f0j00jWUckNrMLboq/Custom-Hand-Tufted-Carpet-Rug-Wool-Nylon-Acrylic-Silk-Carpet-Yarn-for-Living-Room-Hotel.jpg",
-        alt: "Gold thread filigree detail",
-        label: "Gold Filigree",
-        size: "wide",
-    },
-    {
-        src: "https://carpetcave.com/wp-content/uploads/2022/10/brown-and-biege-high-pile-carpet-1-960x480.jpg",
-        alt: "Deep pile carpet texture",
-        label: "Ultra-Plush Pile",
-        size: "tall",
-    },
-    {
-        src: "https://m.media-amazon.com/images/I/81OUTkMEx3L._AC_UF894,1000_QL80_.jpg",
-        alt: "Artisan weaving process",
-        label: "The Artisan's Hand",
-        size: "normal",
+        room: 'Modern Interiors',
+        images: [
+            { src: imgMs11, label: 'Layout' },
+            { src: imgMs12, label: 'Installed' },
+            { src: imgMd11, label: 'Layout' },
+            { src: imgMd12, label: 'Installed' },
+        ],
     },
 ];
 
 export default function Gallery() {
-    const [headerRef, isHeaderVisible] = useIntersectionObserver({ threshold: 0.3 });
+    const [headerRef, headerVisible] = useIntersectionObserver({ threshold: 0.2 });
 
     return (
-        <section id="gallery" className="py-24 md:py-32 relative bg-estruktura-bg overflow-hidden">
+        <section id="gallery" className="bg-[#F4F1EA] overflow-hidden">
 
-            {/* Top gradient blend from Collection */}
-            <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#1F0007] to-transparent pointer-events-none z-10" />
-
-            <div className="max-w-[90rem] mx-auto px-6 lg:px-12 relative z-10">
-
-                {/* Section Header */}
-                <div ref={headerRef} className={`mb-16 md:mb-20 transition-all duration-[1200ms] ease-out ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                    <div className="flex items-center gap-4 mb-6">
-                        <div className={`h-[1px] bg-estruktura-gold transition-all duration-1000 ${isHeaderVisible ? 'w-12' : 'w-0'}`}></div>
-                        <span className="text-estruktura-gold uppercase tracking-[0.3em] text-xs font-semibold">Virtual Showcase</span>
-                    </div>
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <h2 className="text-4xl md:text-5xl lg:text-[4rem] text-estruktura-cream font-serif leading-tight max-w-2xl">
-                            Touch the Texture.<br />
-                            <span className="text-estruktura-gold/80 italic font-light">Feel the Royalty.</span>
+            {/* ── Header ── */}
+            <div className="py-20 lg:py-24 px-6 lg:px-16 bg-[#F4F1EA]">
+                <div
+                    ref={headerRef}
+                    className={`max-w-[90rem] mx-auto flex flex-col lg:flex-row justify-between items-start gap-8 transition-all duration-[1000ms] ease-out ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                >
+                    <div>
+                        <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
+                            <span className="w-8 h-px bg-[#8c7e71]" />
+                            Project Gallery
+                        </span>
+                        <h2 className="font-serif text-[#2A2725] leading-tight mt-3" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 400 }}>
+                            From Vision<br />
+                            <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>to Installation.</em>
                         </h2>
-                        <p className="text-estruktura-cream/60 max-w-xs font-light leading-relaxed text-sm tracking-wide hidden md:block">
-                            Each image is a window into the meticulous craft behind every Estruktura piece. Zoom in. Explore. Be convinced.
-                        </p>
                     </div>
-                </div>
-
-                {/* Masonry / Magazine-style Photo Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[280px] md:auto-rows-[320px]">
-
-                    {/* Image 1 — tall (spans 2 rows) */}
-                    <GalleryCard image={galleryImages[0]} className="row-span-2" delay={0} />
-
-                    {/* Image 2 — normal */}
-                    <GalleryCard image={galleryImages[1]} className="" delay={100} />
-
-                    {/* Image 3 — normal */}
-                    <GalleryCard image={galleryImages[2]} className="" delay={200} />
-
-                    {/* Image 4 — bottom center, wide */}
-                    <GalleryCard image={galleryImages[3]} className="col-span-1 md:col-span-1" delay={300} />
-
-                    {/* Image 5 — tall (spans 2 rows on last column) */}
-                    <GalleryCard image={galleryImages[4]} className="row-span-2 hidden md:block" delay={150} />
-
-                    {/* Image 6 — bottom left on the last row */}
-                    <GalleryCard image={galleryImages[5]} className="" delay={250} />
-
-                </div>
-
-                {/* Bottom tagline */}
-                <div className="mt-16 text-center">
-                    <p className="text-estruktura-cream/40 font-serif italic text-lg tracking-wide">
-                        "Every knot tells a story. Every weave, a thousand hours of devotion."
+                    <p className="text-[#5c5048] font-light max-w-xs text-sm leading-relaxed lg:text-right lg:mt-8">
+                        Each project shows the design layout alongside the finished installed carpet.
                     </p>
                 </div>
-
             </div>
 
-            {/* Bottom gradient blend into CTA */}
-            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0a0002] to-transparent pointer-events-none z-10" />
+            {/* ── Gallery rooms ── */}
+            {rooms.map((room, roomIdx) => {
+                const [roomRef, roomVisible] = useIntersectionObserver({ threshold: 0.05 });
+                return (
+                    <div key={roomIdx} className="mb-2">
+                        {/* Room label */}
+                        <div className="bg-[#1C1915] px-6 lg:px-16 py-4">
+                            <div className="max-w-[90rem] mx-auto flex items-center gap-4">
+                                <span className="text-[#8c7e71]/60 text-[0.55rem] uppercase tracking-[0.35em]">
+                                    {String(roomIdx + 1).padStart(2, '0')}
+                                </span>
+                                <div className="w-4 h-px bg-[#8c7e71]/40" />
+                                <span className="text-[#F4F1EA]/70 text-xs uppercase tracking-[0.25em] font-light">{room.room}</span>
+                            </div>
+                        </div>
+
+                        {/* Images grid */}
+                        <div
+                            ref={roomRef}
+                            className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-[#D8C3A5]/20 transition-all duration-[1000ms] ease-out ${roomVisible ? 'opacity-100' : 'opacity-0'}`}
+                        >
+                            {room.images.map((img, imgIdx) => (
+                                <GalleryCard
+                                    key={imgIdx}
+                                    src={img.src}
+                                    label={img.label}
+                                    isInstalled={img.label === 'Installed'}
+                                    delay={imgIdx * 70}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                );
+            })}
+
+            {/* ── Bottom nudge ── */}
+            <div className="py-14 px-6 lg:px-16 bg-[#F4F1EA] text-center">
+                <p className="font-serif italic text-[#8c7e71] text-lg">
+                    "Interested in seeing your space transformed?"
+                </p>
+                <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 mt-6 text-[0.65rem] uppercase tracking-[0.3em] text-[#2A2725] border-b border-[#2A2725]/30 pb-0.5 hover:border-[#2A2725] transition-all duration-300"
+                >
+                    Let's talk →
+                </a>
+            </div>
         </section>
     );
 }
 
-function GalleryCard({ image, className, delay }: { image: typeof galleryImages[0]; className: string; delay: number }) {
-    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+function GalleryCard({
+    src, label, isInstalled, delay,
+}: {
+    src: string; label: string; isInstalled: boolean; delay: number;
+}) {
+    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.05 });
 
     return (
         <div
             ref={ref}
-            className={`group relative overflow-hidden cursor-pointer border border-estruktura-gold/10 ${className} transition-all duration-[1400ms] ease-out`}
+            className="group relative aspect-[4/3] overflow-hidden bg-[#2A2725] cursor-pointer"
             style={{
                 transitionDelay: `${delay}ms`,
                 opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'scale(1) translateY(0)' : 'scale(0.97) translateY(30px)',
+                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
             }}
         >
             <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-[1.08]"
+                src={src}
+                alt={label}
+                className="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-[1.06]"
+                style={{ opacity: 0.85 }}
             />
+            {/* Bottom gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1C1915]/70 via-transparent to-transparent" />
 
-            {/* Persistent dark-bottom gradient for label readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0002]/90 via-transparent to-transparent" />
-
-            {/* Label — always visible */}
-            <div className="absolute bottom-0 left-0 right-0 p-5">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-estruktura-gold font-semibold">
-                    {image.label}
-                </p>
+            {/* Label badge */}
+            <div className={`absolute top-3 left-3 px-2.5 py-1 text-[0.55rem] uppercase tracking-[0.25em] font-semibold backdrop-blur-sm ${isInstalled ? 'bg-[#D8C3A5] text-[#1C1915]' : 'bg-[#1C1915]/70 text-[#D8C3A5] border border-[#D8C3A5]/30'}`}>
+                {label}
             </div>
 
-            {/* Hover: full overlay with zoom instruction */}
-            <div className="absolute inset-0 bg-[#0a0002]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                <span className="text-[9px] uppercase tracking-[0.3em] text-estruktura-cream/80 border border-estruktura-cream/30 px-4 py-2 backdrop-blur-sm">
-                    Explore Texture
-                </span>
-            </div>
+            {/* Hover border */}
+            <div className="absolute inset-0 border-2 border-[#D8C3A5] opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none" />
         </div>
     );
 }

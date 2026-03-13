@@ -1,101 +1,80 @@
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-
-const features = [
-    {
-        icon: "✦",
-        title: "Hand-Knotted Construction",
-        description: "Each knot is placed by hand, one thread at a time. A single square metre takes up to 80 hours.",
-        image: "https://images.unsplash.com/photo-1600166898405-da9535204843?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        icon: "◈",
-        title: "Himalayan Wool & Artisan Silk",
-        description: "We source exclusively from high-altitude Tibetan sheep and independent Chinese silk artisans.",
-        image: "https://www.stevescarpetcare.net/user/pages/01.articles/how-to-store-your-rug-when-not-in-use/Red-Persian-rug-rolled-up-and-ready-for-storage.jpg",
-    },
-    {
-        icon: "⬡",
-        title: "Natural Dye Mastery",
-        description: "All pigments are plant and mineral-derived. Colours deepen with age, unlike synthetic alternatives.",
-        image: "https://www.alexandersgroup.co.uk/wp-content/uploads/2025/04/rug-and-carpet-storage-1.jpg",
-    },
-    {
-        icon: "❖",
-        title: "Bespoke Dimensioning",
-        description: "Every commission is designed to the exact architectural dimensions of your space. No standard sizes.",
-        image: "https://5.imimg.com/data5/IO/AT/MY-35887793/carpet-roll-1000x1000.jpg",
-    },
-];
+import imgAta1 from '../assets/carpets/artwork-to-actual-carpet/ata-1.1.jpg';
+import imgAta2 from '../assets/carpets/artwork-to-actual-carpet/ata-1.2.jpg';
 
 export default function Craftsmanship() {
-    const [headingRef, isHeadingVisible] = useIntersectionObserver({ threshold: 0.2 });
+    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
 
     return (
-        <section id="craftsmanship" className="py-24 md:py-40 relative overflow-hidden" style={{ backgroundColor: '#120004' }}>
+        <section id="craftsmanship" className="bg-[#2A2725] overflow-hidden">
 
-            {/* Background ambient glow */}
-            <div className="absolute left-0 top-1/3 w-[500px] h-[500px] bg-estruktura-accent/10 rounded-full blur-[150px] pointer-events-none" />
+            {/* ── Full-width header ── */}
+            <div className="py-20 lg:py-28 px-6 lg:px-16 text-center max-w-[90rem] mx-auto">
+                <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 inline-flex items-center gap-3">
+                    <span className="w-8 h-px bg-[#8c7e71]" />
+                    The Process
+                    <span className="w-8 h-px bg-[#8c7e71]" />
+                </span>
+                <h2 className="font-serif text-[#F4F1EA] mt-4 leading-tight" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4rem)', fontWeight: 400 }}>
+                    From Concept to Reality.
+                </h2>
+                <p className="text-[#F4F1EA]/40 font-light max-w-xl mx-auto mt-4 text-sm leading-relaxed">
+                    We master both Machine-Manufactured Precision and Handtufted Skills.
+                </p>
+            </div>
 
-            <div className="max-w-[90rem] mx-auto px-6 lg:px-12 relative z-10">
-
-                {/* Heading */}
-                <div
-                    ref={headingRef}
-                    className={`text-center mb-20 md:mb-28 transition-all duration-[1200ms] ease-out ${isHeadingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-                >
-                    <span className="text-estruktura-gold uppercase tracking-[0.4em] text-xs font-semibold mb-6 block">The Craft</span>
-                    <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] text-estruktura-cream font-serif leading-tight mb-6">
-                        Engineered for<br />
-                        <span className="text-estruktura-gold italic font-light">Generations.</span>
-                    </h2>
-                    <p className="text-estruktura-cream/60 max-w-2xl mx-auto font-light leading-relaxed tracking-wide">
-                        An Estruktura carpet is not manufactured. It is cultivated. Below are the non-negotiable standards every piece must meet before it ever touches your floor.
-                    </p>
+            {/* ── Side-by-side before/after ── */}
+            <div
+                ref={ref}
+                className={`grid grid-cols-1 lg:grid-cols-2 transition-all duration-[1200ms] ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            >
+                {/* Panel 1: Design / Layout */}
+                <div className="group relative min-h-[480px] overflow-hidden">
+                    <img
+                        src={imgAta1}
+                        alt="Carpet concept design"
+                        className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-[1.04]"
+                        style={{ opacity: 0.75 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1C1915]/90 via-[#1C1915]/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-10">
+                        <div className="w-8 h-px bg-[#D8C3A5]/60 mb-4" />
+                        <span className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.3em] font-semibold">Step 01</span>
+                        <h3 className="font-serif text-[#F4F1EA] text-3xl mt-2 mb-3">Flexible Craftsmanship</h3>
+                        <p className="text-[#F4F1EA]/60 font-light text-sm leading-relaxed max-w-xs">
+                            Every commission starts as a detailed layout. We review dimensions, color palettes, and texture preferences with you.
+                        </p>
+                    </div>
                 </div>
 
-                {/* Feature Grid — alternating layout */}
-                <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 gap-px bg-estruktura-gold/10">
-                    {features.map((feature, index) => {
-                        const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
-                        const isEven = index % 2 === 0;
-
-                        return (
-                            <div
-                                key={index}
-                                ref={ref}
-                                className={`group relative flex flex-col md:flex-row overflow-hidden bg-[#120004] transition-all duration-[1400ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
-                                style={{ transitionDelay: `${(index % 2) * 150}ms` }}
-                            >
-
-                                {/* Image side */}
-                                <div className={`relative w-full md:w-1/2 aspect-[4/3] md:aspect-auto overflow-hidden ${isEven ? 'md:order-1' : 'md:order-2'}`}>
-                                    <img
-                                        src={feature.image}
-                                        alt={feature.title}
-                                        className="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-[1.06]"
-                                    />
-                                    {/* Divider gradient covering edge toward text */}
-                                    <div className={`absolute inset-0 ${isEven ? 'bg-gradient-to-r from-transparent to-[#120004]/60' : 'bg-gradient-to-l from-transparent to-[#120004]/60'}`} />
-                                </div>
-
-                                {/* Text side */}
-                                <div className={`relative flex flex-col justify-center p-8 md:p-12 w-full md:w-1/2 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
-                                    <div className="text-estruktura-gold/50 text-3xl mb-6">{feature.icon}</div>
-                                    <h3 className="text-2xl md:text-3xl text-estruktura-cream font-serif mb-4 leading-tight group-hover:text-estruktura-gold transition-colors duration-500">
-                                        {feature.title}
-                                    </h3>
-                                    <p className="text-estruktura-cream/70 font-light leading-relaxed tracking-wide">
-                                        {feature.description}
-                                    </p>
-                                    {/* Decorative bottom accent line */}
-                                    <div className={`h-[1px] bg-estruktura-gold/30 mt-8 transition-all duration-[1500ms] ${isVisible ? 'w-16 opacity-100' : 'w-0 opacity-0'}`} style={{ transitionDelay: '600ms' }} />
-                                </div>
-
-                            </div>
-                        );
-                    })}
+                {/* Panel 2: Actual result */}
+                <div className="group relative min-h-[480px] overflow-hidden">
+                    <img
+                        src={imgAta2}
+                        alt="Actual installed carpet"
+                        className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-[1.04]"
+                        style={{ opacity: 0.75 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1C1915]/90 via-[#1C1915]/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-10">
+                        <div className="w-8 h-px bg-[#D8C3A5]/60 mb-4" />
+                        <span className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.3em] font-semibold">Step 02</span>
+                        <h3 className="font-serif text-[#F4F1EA] text-3xl mt-2 mb-3">Tailored to You</h3>
+                        <p className="text-[#F4F1EA]/60 font-light text-sm leading-relaxed max-w-xs">
+                            Choose your color palette and texture. The result is a carpet made exactly for your space — no compromises.
+                        </p>
+                    </div>
                 </div>
+            </div>
 
+            {/* ── Transition teaser ── */}
+            <div className="py-10 px-6 lg:px-16 border-t border-[#F4F1EA]/5">
+                <div className="max-w-[90rem] mx-auto flex items-center justify-between">
+                    <p className="text-[#F4F1EA]/30 text-xs uppercase tracking-[0.3em]">See the finished spaces ↓</p>
+                    <a href="#gallery" className="text-[#D8C3A5] text-xs uppercase tracking-[0.3em] hover:text-[#F4F1EA] transition-colors duration-300">
+                        View Gallery →
+                    </a>
+                </div>
             </div>
         </section>
     );

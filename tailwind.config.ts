@@ -5,10 +5,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        "estruktura-bg": "#4D0011",
-        "estruktura-accent": "#7B1830",
-        "estruktura-gold": "#DBBE9B",
-        "estruktura-cream": "#F8F1D6",
+        "estruktura-bg": "#EFEBE6",      // Light neutral/bone background
+        "estruktura-accent": "#5c5048",  // Rich taupe/brown accent
+        "estruktura-gold": "#8c7e71",    // Muted warm stone/gold equivalent
+        "estruktura-cream": "#2A2725",   // Dark charcoal/brown for text on light backgrounds
       },
       fontFamily: {
         serif: ['"Playfair Display"', "serif"],

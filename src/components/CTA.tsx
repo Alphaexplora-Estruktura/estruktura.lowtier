@@ -1,99 +1,97 @@
-
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 export default function CTA() {
-  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.3 });
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
 
   return (
-    <section id="contact" className="py-40 relative flex items-center justify-center bg-[#0a0002] overflow-hidden">
+    <section id="contact" className="bg-[#1C1915] relative overflow-hidden">
 
-      {/* 1. Clearer Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1579606032822-8350bc11ebc4?q=80&w=2500&auto=format&fit=crop"
-          alt="Luxury Carpet Room"
-          className="w-full h-full object-cover opacity-20"
-        />
-      </div>
+      {/* Decorative top line */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#D8C3A5]/40 to-transparent" />
 
-      {/* 2. Rich Gradients to blend image seamlessly */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0002] via-[#1F0007]/60 to-[#0a0002] z-0" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0002]/80 via-transparent to-[#0a0002]/80 z-0" />
+      {/* Background texture glow */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#D8C3A5]/5 rounded-full blur-[200px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#8c7e71]/5 rounded-full blur-[150px] pointer-events-none" />
 
-      {/* 3. Glowing Orbs to prevent emptiness */}
-      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 w-[600px] h-[600px] bg-estruktura-gold/10 rounded-full blur-[150px] z-0"></div>
-      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-estruktura-accent/20 rounded-full blur-[120px] z-0"></div>
+      <div className="max-w-[75rem] mx-auto px-6 lg:px-16 py-28 lg:py-36">
+        <div
+          ref={ref}
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 transition-all duration-[1200ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        >
 
-      <div className="relative z-20 px-6 max-w-[60rem] mx-auto w-full">
-
-        {/* Architectural border frame around context box */}
-        <div className={`relative p-1 md:p-3 transition-all duration-[2000ms] ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-[0.98]'}`}>
-          <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-estruktura-gold/60"></div>
-          <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-estruktura-gold/60"></div>
-          <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-estruktura-gold/60"></div>
-          <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-estruktura-gold/60"></div>
-
-          {/* Lead Magnet / Opt-in Box */}
-          <div
-            ref={ref}
-            className={`glass-panel bg-[#2D000A]/70 backdrop-blur-3xl border border-estruktura-gold/30 p-12 md:p-24 shadow-[0_40px_100px_rgba(0,0,0,0.8)] text-center w-full`}
-          >
-
-            <div className="flex justify-center mb-8">
-              <div className={`w-[1px] bg-gradient-to-b from-estruktura-gold to-transparent transition-all duration-1000 delay-500 ${isVisible ? 'h-16' : 'h-0'}`}></div>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl lg:text-[4rem] text-estruktura-cream mb-8 leading-[1.05] font-serif tracking-tight drop-shadow-xl inline-block relative">
-              Begin Your Commission.
+          {/* Left: Message */}
+          <div>
+            <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
+              <span className="w-8 h-px bg-[#8c7e71]" />
+              Let's Create Together
+            </span>
+            <h2
+              className="font-serif text-[#F4F1EA] leading-tight mt-4 mb-8"
+              style={{ fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', fontWeight: 400 }}
+            >
+              Ready to Transform<br />
+              <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 300 }}>Your Space?</em>
             </h2>
-
-            <p className="text-lg text-estruktura-cream/90 font-light mb-16 max-w-xl mx-auto leading-relaxed tracking-wide shadow-black">
-              Estruktura operates strictly by appointment. Connect with our white-glove concierge to discuss the architectural dimensions and aesthetic vision of your space.
+            <p className="text-[#F4F1EA]/50 font-light leading-relaxed text-sm mb-10 max-w-sm">
+              Tell us about your project — the room, dimensions, and vision. We'll guide you through every step, from design layout to final installation.
             </p>
 
-            <form className="flex flex-col gap-6 w-full mx-auto" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="relative group">
-                  <input
-                    type="text"
-                    placeholder="Principal Name"
-                    className="w-full px-6 py-5 bg-[#0a0002]/60 border border-estruktura-gold/30 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-gold focus:bg-[#1F0007]/80 transition-all font-light text-md"
-                  />
-                  <div className="absolute bottom-0 left-0 h-[1px] bg-estruktura-gold w-0 group-hover:w-full transition-all duration-500"></div>
+            <div className="space-y-4">
+              {[
+                { icon: '📍', text: 'Manila, Philippines' },
+                { icon: '📞', text: 'Available for consultations' },
+                { icon: '✉️', text: 'Custom quotes provided' },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-[#F4F1EA]/40 text-sm">
+                  <span>{item.icon}</span>
+                  <span className="font-light">{item.text}</span>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                <div className="relative group">
+          {/* Right: Form */}
+          <div>
+            <form className="flex flex-col gap-5" onSubmit={e => e.preventDefault()}>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative">
                   <input
                     type="text"
-                    placeholder="Estate / Project Location"
-                    className="w-full px-6 py-5 bg-[#0a0002]/60 border border-estruktura-gold/30 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-gold focus:bg-[#1F0007]/80 transition-all font-light text-md"
+                    placeholder="Your Name"
+                    className="w-full px-5 py-4 bg-[#2A2725] border border-[#F4F1EA]/10 text-[#F4F1EA] placeholder:text-[#F4F1EA]/30 focus:outline-none focus:border-[#D8C3A5]/50 transition-all font-light text-sm"
                   />
-                  <div className="absolute bottom-0 left-0 h-[1px] bg-estruktura-gold w-0 group-hover:w-full transition-all duration-500"></div>
+                </div>
+                <div className="relative">
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className="w-full px-5 py-4 bg-[#2A2725] border border-[#F4F1EA]/10 text-[#F4F1EA] placeholder:text-[#F4F1EA]/30 focus:outline-none focus:border-[#D8C3A5]/50 transition-all font-light text-sm"
+                  />
                 </div>
               </div>
 
-              <div className="relative group">
-                <input
-                  type="email"
-                  placeholder="Confidential Email Address"
-                  className="w-full px-6 py-5 bg-[#0a0002]/60 border border-estruktura-gold/30 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-gold focus:bg-[#1F0007]/80 transition-all font-light text-md"
-                />
-                <div className="absolute bottom-0 left-0 h-[1px] bg-estruktura-gold w-0 group-hover:w-full transition-all duration-500"></div>
-              </div>
+              <input
+                type="text"
+                placeholder="Project type (e.g. Bedroom - Handtufted, Hotel lobby)"
+                className="w-full px-5 py-4 bg-[#2A2725] border border-[#F4F1EA]/10 text-[#F4F1EA] placeholder:text-[#F4F1EA]/30 focus:outline-none focus:border-[#D8C3A5]/50 transition-all font-light text-sm"
+              />
+
+              <textarea
+                rows={4}
+                placeholder="Tell us about your space and what you have in mind..."
+                className="w-full px-5 py-4 bg-[#2A2725] border border-[#F4F1EA]/10 text-[#F4F1EA] placeholder:text-[#F4F1EA]/30 focus:outline-none focus:border-[#D8C3A5]/50 transition-all font-light text-sm resize-none"
+              />
 
               <button
                 type="button"
-                className="mt-8 w-full px-8 py-6 bg-estruktura-gold text-[#0a0002] font-semibold tracking-[0.3em] uppercase text-sm hover:bg-[#F8F1D6] transition-all duration-500 shadow-[0_0_30px_rgba(219,190,155,0.2)] hover:shadow-[0_0_50px_rgba(219,190,155,0.5)] transform hover:-translate-y-1"
+                className="w-full px-8 py-5 bg-[#D8C3A5] text-[#1C1915] font-semibold uppercase text-[0.65rem] tracking-[0.3em] hover:bg-[#F4F1EA] transition-all duration-300 mt-2"
               >
-                Schedule Private Consultation
+                Send Inquiry
               </button>
             </form>
-
-            <p className="text-[11px] text-estruktura-gold/60 mt-12 tracking-[0.4em] uppercase font-semibold">
-              <span className="inline-block w-2 h-2 bg-red-600 rounded-full animate-pulse mr-3"></span>
-              Currently curating commissions. Only 3 slots remain.
-            </p>
           </div>
+
         </div>
       </div>
     </section>
