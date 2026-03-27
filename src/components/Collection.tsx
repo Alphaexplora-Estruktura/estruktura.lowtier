@@ -3,26 +3,87 @@ import imgBr22 from '../assets/carpets/bedroom-guestroom/br-2.2.jpg';
 import imgBr32 from '../assets/carpets/bedroom-guestroom/br-3.2.jpg';
 import imgCr12 from '../assets/carpets/corridors-hallway/cr-1.2.jpg';
 
+// ─── Product data with descriptions ──────────────────────────────────────────
 const products = [
-  { name: 'Axminster', icon: '⬡', note: 'Machine precision' },
-  { name: 'Handtufted', icon: '✦', note: 'Artisan craft' },
-  { name: 'Roll Carpet', icon: '◈', note: 'Large coverage' },
-  { name: 'Carpet Tiles', icon: '▦', note: 'Modular & flexible' },
-  { name: 'Wilton Carpet', icon: '◉', note: 'Woven excellence' },
-  { name: 'Wire Wilton', icon: '◈', note: 'Loop pile texture' },
-  { name: 'Flocked Carpet', icon: '✿', note: 'Velvet-like finish' },
-  { name: 'Matting', icon: '⬛', note: 'With / without logo' },
+  {
+    name: 'Axminster',
+    note: 'Machine precision',
+    description:
+      'Cut-pile carpet woven on an Axminster loom, renowned for crisp pattern reproduction and consistent pile density — ideal for grand lobbies and premium hospitality spaces.',
+  },
+  {
+    name: 'Handtufted',
+    note: 'Artisan craft',
+    description:
+      'Each piece is hand-crafted by skilled artisans using a tufting gun, allowing bespoke designs, rich textures, and custom colour palettes for one-of-a-kind interiors.',
+  },
+  {
+    name: 'Roll Carpet',
+    note: 'Large coverage',
+    description:
+      'Available in broad widths, roll carpet delivers seamless coverage for large commercial floors — reducing seam lines and creating a unified, polished appearance.',
+  },
+  {
+    name: 'Carpet Tiles',
+    note: 'Modular & flexible',
+    description:
+      'Interlocking modular tiles that simplify installation, replacement, and reconfiguration — perfect for offices, retail environments, and high-traffic areas.',
+  },
+  {
+    name: 'Wilton Carpet',
+    note: 'Woven excellence',
+    description:
+      'Produced on a continuous Wilton loom, this carpet is tightly woven for superior durability and depth of colour, traditionally favoured in five-star hotel corridors.',
+  },
+  {
+    name: 'Wire Wilton',
+    note: 'Loop pile texture',
+    description:
+      'A variation of Wilton weaving that forms structured loop piles, resulting in a resilient surface with a distinctive textured finish suited for high-footfall environments.',
+  },
+  {
+    name: 'Flocked Carpet',
+    note: 'Velvet-like finish',
+    description:
+      'Ultra-short fibres are electrostatically applied to create an exceptionally soft, velvet surface — offering a luxurious look with excellent acoustic absorption.',
+  },
+  {
+    name: 'Matting',
+    note: 'With / without logo',
+    description:
+      'Durable entrance and logo matting designed to trap dirt and moisture at entry points, with optional custom branding to reinforce institutional or corporate identity.',
+  },
 ];
 
+// ─── Benefits data (no emojis) ────────────────────────────────────────────────
 const benefits = [
-  { label: 'Color & Visual Appeal', icon: '🎨' },
-  { label: 'Exceptional Comfort', icon: '☁️' },
-  { label: 'Safety Underfoot', icon: '🛡️' },
-  { label: 'Sound Absorption', icon: '🔇' },
-  { label: 'Area Definition', icon: '📐' },
-  { label: 'Floor Protection', icon: '🛡️' },
+  {
+    label: 'Color & Visual Appeal',
+    detail: 'Wide palette and pattern options allow carpets to define the character of any space.',
+  },
+  {
+    label: 'Exceptional Comfort',
+    detail: 'Dense pile cushions every step, reducing fatigue in high-use residential and commercial areas.',
+  },
+  {
+    label: 'Safety Underfoot',
+    detail: 'Slip-resistant surfaces and cushioned backing minimize fall risks across all environments.',
+  },
+  {
+    label: 'Sound Absorption',
+    detail: 'Carpet fibre significantly reduces airborne and impact noise for quieter, more productive spaces.',
+  },
+  {
+    label: 'Area Definition',
+    detail: 'Distinct flooring zones guide circulation and reinforce spatial hierarchy without structural walls.',
+  },
+  {
+    label: 'Floor Protection',
+    detail: 'Acts as a protective layer that extends the lifespan of subfloor materials from wear and impact.',
+  },
 ];
 
+// ─── Component ─────────────────────────────────────────────────────────────────
 export default function Collection() {
   const [headerRef, headerVisible] = useIntersectionObserver({ threshold: 0.15 });
   const [productsRef, productsVisible] = useIntersectionObserver({ threshold: 0.1 });
@@ -56,22 +117,37 @@ export default function Collection() {
         </div>
       </div>
 
-      {/* ── Section 2: Products grid over cream bg ── */}
+      {/* ── Section 2: Products grid ── */}
       <div
         ref={productsRef}
         className={`bg-[#F4F1EA] py-20 px-6 lg:px-16 transition-all duration-[1000ms] ease-out ${productsVisible ? 'opacity-100' : 'opacity-0'}`}
       >
         <div className="max-w-[90rem] mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#D8C3A5]/40">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-[#D8C3A5]/40">
             {products.map((p, i) => (
               <div
                 key={i}
-                className="bg-[#F4F1EA] p-8 group hover:bg-[#1C1915] transition-all duration-500 cursor-default"
+                className="bg-[#F4F1EA] p-8 group hover:bg-[#1C1915] transition-all duration-500 cursor-default flex flex-col gap-3"
                 style={{ transitionDelay: `${i * 50}ms` }}
               >
-                <div className="text-2xl mb-4 group-hover:scale-110 transition-transform duration-300">{p.icon}</div>
-                <h4 className="font-serif text-[#2A2725] text-lg mb-1 group-hover:text-[#D8C3A5] transition-colors duration-500">{p.name}</h4>
-                <p className="text-[#8c7e71] text-xs uppercase tracking-[0.2em] group-hover:text-[#8c7e71]/60 transition-colors duration-500">{p.note}</p>
+                {/* Number index */}
+                <span className="text-[#8c7e71]/50 text-[0.6rem] uppercase tracking-[0.3em] font-semibold">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                {/* Name */}
+                <h4 className="font-serif text-[#2A2725] text-xl group-hover:text-[#D8C3A5] transition-colors duration-500 leading-tight">
+                  {p.name}
+                </h4>
+                {/* Tagline */}
+                <p className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.2em] group-hover:text-[#8c7e71]/60 transition-colors duration-500">
+                  {p.note}
+                </p>
+                {/* Divider */}
+                <div className="w-8 h-px bg-[#D8C3A5]/60 group-hover:bg-[#D8C3A5]/30 transition-colors duration-500" />
+                {/* Description */}
+                <p className="text-[#5c5048] text-[0.78rem] leading-relaxed font-light group-hover:text-[#F4F1EA]/60 transition-colors duration-500">
+                  {p.description}
+                </p>
               </div>
             ))}
           </div>
@@ -94,13 +170,27 @@ export default function Collection() {
             <h3 className="font-serif text-[#F4F1EA] mb-10" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 400 }}>
               Why Carpet Matters.
             </h3>
-            <ul className="space-y-5">
+
+            <ul className="space-y-0 divide-y divide-[#2A2725]">
               {benefits.map((b, i) => (
-                <li key={i} className="flex items-center gap-5 group">
-                  <div className="w-8 h-8 rounded-full bg-[#2A2725] flex items-center justify-center text-sm flex-shrink-0">
-                    {b.icon}
+                <li
+                  key={i}
+                  className="group flex items-start gap-5 py-5 hover:bg-[#2A2725]/30 transition-colors duration-300 px-2 -mx-2"
+                >
+                  {/* Roman numeral index */}
+                  <span className="text-[#8c7e71]/50 text-[0.55rem] uppercase tracking-[0.25em] font-semibold mt-1 w-6 flex-shrink-0 text-right">
+                    {['I','II','III','IV','V','VI'][i]}
+                  </span>
+                  {/* Thin vertical rule */}
+                  <div className="w-px self-stretch bg-[#8c7e71]/20 flex-shrink-0" />
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[#F4F1EA]/90 font-light text-sm tracking-wide group-hover:text-[#D8C3A5] transition-colors duration-300">
+                      {b.label}
+                    </span>
+                    <span className="text-[#8c7e71]/60 text-[0.72rem] font-light leading-relaxed">
+                      {b.detail}
+                    </span>
                   </div>
-                  <span className="text-[#F4F1EA]/70 font-light text-base group-hover:text-[#D8C3A5] transition-colors duration-300">{b.label}</span>
                 </li>
               ))}
             </ul>
