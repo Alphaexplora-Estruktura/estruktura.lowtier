@@ -4,45 +4,53 @@ import About from "../components/About";
 import Collection from "../components/Collection";
 import Craftsmanship from "../components/Craftsmanship";
 import Gallery from "../components/Gallery";
+import ComingSoon from "../components/ComingSoon";
 import CTA from "../components/CTA";
 
 export default function Home() {
-
   return (
-    <div className="bg-estruktura-bg min-h-screen font-sans selection:bg-estruktura-gold selection:text-estruktura-bg relative text-estruktura-cream">
+    <div className="min-h-screen font-sans" style={{ backgroundColor: '#1C1915' }}>
+      <Navbar />
 
-      {/* Main Content */}
-      <main className="relative z-10 w-full overflow-hidden">
-        <Navbar />
+      <main>
         <Hero />
         <About />
         <Collection />
         <Craftsmanship />
         <Gallery />
+        <ComingSoon />
         <CTA />
       </main>
 
-      <footer className="py-16 bg-[#050001] border-t border-estruktura-gold/10 text-center relative z-20">
-        <div className="max-w-[85rem] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+      <footer className="bg-[#111009] border-t border-[#D8C3A5]/10 py-14 px-6 lg:px-16">
+        <div className="max-w-[90rem] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
 
-          <div className="flex flex-col items-start gap-2">
-            <h2 className="text-3xl text-estruktura-gold font-serif tracking-widest uppercase">Estruktura</h2>
-            <p className="text-xs text-estruktura-cream/40 font-light tracking-wide">The Zenith of Artisanal Foundations</p>
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-0.5 h-4 bg-[#D8C3A5]" />
+              <span className="font-serif text-lg text-[#F4F1EA] tracking-[0.2em] uppercase">Estruktura Manila</span>
+            </div>
+            <p className="text-[#8c7e71] text-xs font-light tracking-wide">Your Premier Carpet Partner.</p>
           </div>
 
-          <div className="flex gap-10 text-xs uppercase tracking-[0.2em] text-estruktura-cream/60 font-semibold">
-            <a href="#about" className="hover:text-estruktura-gold transition-colors duration-300">Heritage</a>
-            <a href="#collection" className="hover:text-estruktura-gold transition-colors duration-300">Collections</a>
-            <a href="#contact" className="hover:text-estruktura-gold transition-colors duration-300">Concierge</a>
-          </div>
+          <nav className="flex flex-wrap gap-6">
+            {[
+              { name: 'Designs', href: '#designs' },
+              { name: 'Products', href: '#products' },
+              { name: 'Gallery', href: '#gallery' },
+              { name: 'Contact', href: '#contact' },
+            ].map(link => (
+              <a key={link.name} href={link.href} className="text-[0.65rem] uppercase tracking-[0.2em] text-[#F4F1EA]/40 hover:text-[#D8C3A5] transition-colors duration-300">
+                {link.name}
+              </a>
+            ))}
+          </nav>
 
-          <div className="text-right">
-            <p className="text-[10px] text-estruktura-cream/30 uppercase tracking-[0.3em] font-semibold">&copy; {new Date().getFullYear()} Estruktura.</p>
-            <p className="text-[10px] text-estruktura-cream/30 uppercase tracking-[0.3em] font-semibold mt-1">All Rights Strictly Reserved.</p>
-          </div>
+          <p className="text-[#F4F1EA]/20 text-[0.6rem] uppercase tracking-[0.3em]">
+            &copy; {new Date().getFullYear()} Estruktura Manila. All rights reserved.
+          </p>
         </div>
       </footer>
-
     </div>
   );
 }

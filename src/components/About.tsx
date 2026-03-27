@@ -1,96 +1,110 @@
-
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import imgNature1 from '../assets/carpets/design-inspired-by-nature/dn-1.1.jpg';
+import imgNature2 from '../assets/carpets/design-inspired-by-nature/dn-2.1.jpg';
+import imgModern1 from '../assets/carpets/modern-style/ms-1.1.jpg';
+import imgModern2 from '../assets/carpets/modern-design/md-1.1.jpg';
+import imgEuropean from '../assets/carpets/elegant-european-stle/ee-1.1.jpg';
+
+const styles = [
+  {
+    label: 'Nature-Inspired',
+    description: 'Organic patterns, earthy tones, botanical motifs.',
+    images: [imgNature1, imgNature2],
+  },
+  {
+    label: 'Modern',
+    description: 'Clean lines, geometric patterns, contemporary finishes.',
+    images: [imgModern1, imgModern2],
+  },
+  {
+    label: 'European Elegance',
+    description: 'Grand medallions, rich textures, heritage detailing.',
+    images: [imgEuropean, imgEuropean],
+  },
+];
 
 export default function About() {
-  const [ref1, isVisible1] = useIntersectionObserver({ threshold: 0.2 });
-  const [ref2, isVisible2] = useIntersectionObserver({ threshold: 0.2 });
-  const [ref3, isVisible3] = useIntersectionObserver({ threshold: 0.2 });
+  const [headingRef, headingVisible] = useIntersectionObserver({ threshold: 0.2 });
 
   return (
-    <section id="about" className="py-32 md:py-48 relative bg-estruktura-bg overflow-hidden">
+    <section id="designs" className="bg-[#F4F1EA] overflow-hidden">
 
-      {/* Smooth gradient transition from Hero's dark background into this section */}
-      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#1a0009] to-transparent pointer-events-none z-10" />
-
-      {/* Smooth gradient transition into the Collection section below */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#1F0007] to-transparent pointer-events-none z-10" />
-
-      {/* Background Watermark */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 -ml-32 z-0 pointer-events-none rotate-90 transform origin-left opacity-10 hidden lg:block">
-        <span className="text-[12vw] font-serif text-estruktura-cream whitespace-nowrap tracking-[0.2em] select-none">
-          HERITAGE
-        </span>
+      {/* ── Intro bar ── */}
+      <div className="bg-[#1C1915] py-20 lg:py-28">
+        <div
+          ref={headingRef}
+          className={`max-w-[90rem] mx-auto px-6 lg:px-16 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 transition-all duration-[1000ms] ease-out ${headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
+          <div>
+            <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
+              <span className="w-8 h-px bg-[#8c7e71]" />
+              Our Designs
+            </span>
+            <h2 className="font-serif text-[#F4F1EA] leading-tight" style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', fontWeight: 400 }}>
+              Versatile Designs<br />
+              <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 300 }}>for Every Vision.</em>
+            </h2>
+          </div>
+          <p className="text-[#F4F1EA]/50 font-light leading-relaxed max-w-sm text-sm lg:text-right">
+            From nature-inspired artistic concepts and Heritage Arts to Grand and Magnificent Artwork — we bring your ideas to life.
+          </p>
+        </div>
       </div>
 
-      {/* Decorative vertical line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-32 bg-gradient-to-b from-estruktura-gold/80 to-transparent opacity-40"></div>
+      {/* ── Style cards: full-width horizontal strip scroll ── */}
+      <div className="divide-y divide-[#D8C3A5]/30">
+        {styles.map((style, idx) => {
+          const [cardRef, cardVisible] = useIntersectionObserver({ threshold: 0.1 });
 
-      <div className="max-w-[85rem] mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-
-          {/* Text Content - Problem/Solution */}
-          <div ref={ref1} className={`lg:col-span-5 flex flex-col justify-center order-2 lg:order-1 transition-all duration-[1200ms] ease-out ${isVisible1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-24'}`}>
-            <span className="text-estruktura-gold uppercase tracking-[0.3em] text-xs font-semibold mb-6 flex items-center gap-3">
-              <span className={`h-[1px] bg-estruktura-gold transition-all duration-1000 delay-500 ${isVisible1 ? 'w-12' : 'w-0'}`}></span>
-              The Paradigm
-            </span>
-
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] text-estruktura-cream mb-10 leading-[1.15] drop-shadow-md">
-              True Opulence <br />
-              <span className="text-estruktura-cream/50 italic font-serif">Cannot Be</span> <br />
-              Mass-Produced.
-            </h2>
-
-            <div className="space-y-6 text-estruktura-cream/80 text-lg font-light leading-relaxed tracking-wide">
-              <p>
-                In an era of infinite, soulless replication, true luxury remains uncompromising. It is hand-tied, knot by agonizing knot.
-              </p>
-              <p>
-                Your sanctuary deserves a foundation built with singular intention, not a machine’s repetition. We don't make carpets; we weave heirlooms sourced from the rarest mountain wools and artisan silks.
-              </p>
-              <p className="text-estruktura-gold font-medium tracking-widest uppercase text-sm mt-8 border-b border-estruktura-gold/30 pb-2 inline-block">
-                Feel the silence. Touch the history.
-              </p>
-            </div>
-          </div>
-
-          {/* Image Grid - Proof of Artisanship - Made much clearer */}
-          <div className="lg:col-span-7 grid grid-cols-2 gap-6 relative order-1 lg:order-2">
-            {/* Architectural Frame Behind Images */}
-            <div className={`absolute -inset-6 border border-estruktura-gold/20 -z-10 transition-all duration-1000 delay-300 ${isVisible2 || isVisible3 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}></div>
-
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-estruktura-accent/10 rounded-full blur-[100px] -z-10" />
-
-            <div ref={ref2} className={`flex flex-col gap-6 translate-y-12 transition-all duration-[1500ms] ease-out delay-200 ${isVisible2 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'}`}>
-              <div className="aspect-[3/4] w-full carpet-texture-overlay overflow-hidden shadow-2xl border border-estruktura-gold/30 relative group">
-                {/* Removed sepia and heavy blur to make it visible */}
+          return (
+            <div
+              key={idx}
+              ref={cardRef}
+              className={`group grid grid-cols-1 lg:grid-cols-2 transition-all duration-[1000ms] ease-out ${cardVisible ? 'opacity-100' : 'opacity-0'}`}
+              style={{ transitionDelay: `${idx * 120}ms` }}
+            >
+              {/* Image panel */}
+              <div className={`relative aspect-[16/9] lg:aspect-auto lg:min-h-[420px] overflow-hidden ${idx % 2 !== 0 ? 'lg:order-2' : ''}`}>
+                {/* Primary image */}
                 <img
-                  src="https://www.mischioff.com/wp-content/uploads/2023/03/header-unternehmen.jpg"
-                  alt="Raw Materials"
-                  className={`w-full h-full object-cover transition-all duration-[3s] ease-out group-hover:scale-[1.05] ${isVisible2 ? 'scale-100' : 'scale-110'}`}
+                  src={style.images[0]}
+                  alt={style.label}
+                  className="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-[1.04]"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1C1915]/50 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6">
+                  <span className="text-[#D8C3A5] text-[0.55rem] uppercase tracking-[0.3em] font-semibold bg-[#1C1915]/60 backdrop-blur-sm px-3 py-1.5">
+                    {String(idx + 1).padStart(2, '0')} / {String(styles.length).padStart(2, '0')}
+                  </span>
+                </div>
               </div>
-              <div className="p-6 glass-panel text-center border-l-4 border-l-estruktura-gold/50">
-                <p className="text-estruktura-gold font-serif text-3xl mb-1 drop-shadow-sm">450</p>
-                <p className="text-xs uppercase tracking-[0.2em] text-estruktura-cream/80">Hours Per Weave</p>
+
+              {/* Text panel */}
+              <div className={`flex flex-col justify-center px-10 lg:px-16 py-14 bg-[#F4F1EA] ${idx % 2 !== 0 ? 'lg:order-1' : ''}`}>
+                <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-4">Style</span>
+                <h3
+                  className="font-serif text-[#2A2725] mb-5 leading-tight group-hover:text-[#5c5048] transition-colors duration-500"
+                  style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 400 }}
+                >
+                  {style.label}
+                </h3>
+                <p className="text-[#5c5048] font-light leading-relaxed mb-8 text-base">
+                  {style.description}
+                </p>
+                <div className={`w-12 h-px bg-[#8c7e71] transition-all duration-700 group-hover:w-24`} />
               </div>
             </div>
+          );
+        })}
+      </div>
 
-            <div ref={ref3} className={`flex flex-col gap-6 transition-all duration-[1500ms] ease-out delay-500 ${isVisible3 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}`}>
-              <div className="p-6 glass-panel text-center border-r-4 border-r-estruktura-gold/50">
-                <p className="text-estruktura-gold font-serif text-3xl mb-1 drop-shadow-sm">100%</p>
-                <p className="text-xs uppercase tracking-[0.2em] text-estruktura-cream/80">Artisan Silk & Wool</p>
-              </div>
-              <div className="aspect-[4/5] w-full carpet-texture-overlay overflow-hidden shadow-2xl border border-estruktura-gold/30 relative group">
-                <img
-                  src="https://media.product.which.co.uk/prod/images/ar_2to1_1200x600/a0eddb634aa9-carpet2306885023.webp"
-                  alt="Crafting Process"
-                  className={`w-full h-full object-cover transition-all duration-[3s] ease-out group-hover:scale-[1.05] ${isVisible3 ? 'scale-100' : 'scale-110'}`}
-                />
-              </div>
-            </div>
-
-          </div>
+      {/* ── Teaser transition into next section ── */}
+      <div className="bg-[#1C1915] py-10 px-6 lg:px-16">
+        <div className="max-w-[90rem] mx-auto flex items-center justify-between">
+          <p className="text-[#F4F1EA]/40 text-xs uppercase tracking-[0.3em]">Explore how we craft each design ↓</p>
+          <a href="#products" className="text-[#D8C3A5] text-xs uppercase tracking-[0.3em] hover:text-[#F4F1EA] transition-colors duration-300">
+            Our Products →
+          </a>
         </div>
       </div>
     </section>

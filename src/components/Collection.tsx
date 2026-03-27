@@ -1,148 +1,216 @@
-
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import imgBr22 from '../assets/carpets/bedroom-guestroom/br-2.2.jpg';
+import imgBr32 from '../assets/carpets/bedroom-guestroom/br-3.2.jpg';
+import imgCr12 from '../assets/carpets/corridors-hallway/cr-1.2.jpg';
 
-const collections = [
+// ─── Product data with descriptions ──────────────────────────────────────────
+const products = [
   {
-    number: "01",
-    name: "The Royal Crimson",
-    description: "Deep, velvety textures echoing the halls of ancient palaces. A foundation that commands absolute authority.",
-    image: "https://scontent.fmnl17-7.fna.fbcdn.net/v/t39.30808-6/591836822_1193675172875145_6697429013612354732_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=108&ccb=1-7&_nc_sid=b895b5&_nc_eui2=AeFbJiY3Eax5zdEvMeEOSuAdOUSOAjbf3Ew5RI4CNt_cTHAx18fdbojVLfGkPYSG1YO4Re5qtoR1qzvkmfOsDKYW&_nc_ohc=itZxfVvKyKAQ7kNvwFgdY9o&_nc_oc=AdnKbm6wbpw5KlgmK_YHPQ0gcsqMNCRmhd-pXFeAoJXxuKwLjjfxI7OkYARpkrmOis0&_nc_zt=23&_nc_ht=scontent.fmnl17-7.fna&_nc_gid=B2TC-OchRipJxeGMBB3Tgg&oh=00_AfuLNU0b7bmRpGhXqbKuttHe_WEGc-DhtmX2rrAp90TQrw&oe=69A73731",
-    status: "3 Available"
+    name: 'Axminster',
+    note: 'Machine precision',
+    description:
+      'Cut-pile carpet woven on an Axminster loom, renowned for crisp pattern reproduction and consistent pile density — ideal for grand lobbies and premium hospitality spaces.',
   },
   {
-    number: "02",
-    name: "Ivory Silk Cascade",
-    description: "Luminous and pure, crafted from the most delicate artisan silk. Designed to reflect light like a flawless pearl.",
-    image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=1200&auto=format&fit=crop",
-    status: "Sold Out - Waitlist"
+    name: 'Handtufted',
+    note: 'Artisan craft',
+    description:
+      'Each piece is hand-crafted by skilled artisans using a tufting gun, allowing bespoke designs, rich textures, and custom colour palettes for one-of-a-kind interiors.',
   },
   {
-    number: "03",
-    name: "Obsidian Gold Weave",
-    description: "A bold statement of dark threads interwoven with genuine gold filigree. Unapologetic modern opulence.",
-    image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1200&auto=format&fit=crop",
-    status: "1 Available"
+    name: 'Roll Carpet',
+    note: 'Large coverage',
+    description:
+      'Available in broad widths, roll carpet delivers seamless coverage for large commercial floors — reducing seam lines and creating a unified, polished appearance.',
   },
   {
-    number: "04",
-    name: "The Sovereign Medallion",
-    description: "A grand central medallion motif woven in hand-spun Tibetan wool, reminiscent of palace ceiling rosettes.",
-    image: "https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?q=80&w=1200&auto=format&fit=crop",
-    status: "2 Available"
+    name: 'Carpet Tiles',
+    note: 'Modular & flexible',
+    description:
+      'Interlocking modular tiles that simplify installation, replacement, and reconfiguration — perfect for offices, retail environments, and high-traffic areas.',
   },
   {
-    number: "05",
-    name: "Noir Sable",
-    description: "Midnight black pile with a subtle gunmetal sheen. Reserved exclusively for estates that demand silent luxury.",
-    image: "https://www.daltonhospitalitycarpet.com/wp-content/uploads/2023/11/Essence-III-hotel-carpet-hospitality.jpg",
-    status: "Commission Only"
+    name: 'Wilton Carpet',
+    note: 'Woven excellence',
+    description:
+      'Produced on a continuous Wilton loom, this carpet is tightly woven for superior durability and depth of colour, traditionally favoured in five-star hotel corridors.',
   },
   {
-    number: "06",
-    name: "Desert Sand Étude",
-    description: "Warm earthy neutrals inspired by Arabian sand dunes, woven from raw undyed merino and natural jute.",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200&auto=format&fit=crop",
-    status: "4 Available"
+    name: 'Wire Wilton',
+    note: 'Loop pile texture',
+    description:
+      'A variation of Wilton weaving that forms structured loop piles, resulting in a resilient surface with a distinctive textured finish suited for high-footfall environments.',
+  },
+  {
+    name: 'Flocked Carpet',
+    note: 'Velvet-like finish',
+    description:
+      'Ultra-short fibres are electrostatically applied to create an exceptionally soft, velvet surface — offering a luxurious look with excellent acoustic absorption.',
+  },
+  {
+    name: 'Matting',
+    note: 'With / without logo',
+    description:
+      'Durable entrance and logo matting designed to trap dirt and moisture at entry points, with optional custom branding to reinforce institutional or corporate identity.',
   },
 ];
 
+// ─── Benefits data (no emojis) ────────────────────────────────────────────────
+const benefits = [
+  {
+    label: 'Color & Visual Appeal',
+    detail: 'Wide palette and pattern options allow carpets to define the character of any space.',
+  },
+  {
+    label: 'Exceptional Comfort',
+    detail: 'Dense pile cushions every step, reducing fatigue in high-use residential and commercial areas.',
+  },
+  {
+    label: 'Safety Underfoot',
+    detail: 'Slip-resistant surfaces and cushioned backing minimize fall risks across all environments.',
+  },
+  {
+    label: 'Sound Absorption',
+    detail: 'Carpet fibre significantly reduces airborne and impact noise for quieter, more productive spaces.',
+  },
+  {
+    label: 'Area Definition',
+    detail: 'Distinct flooring zones guide circulation and reinforce spatial hierarchy without structural walls.',
+  },
+  {
+    label: 'Floor Protection',
+    detail: 'Acts as a protective layer that extends the lifespan of subfloor materials from wear and impact.',
+  },
+];
+
+// ─── Component ─────────────────────────────────────────────────────────────────
 export default function Collection() {
-  const [headerRef, isHeaderVisible] = useIntersectionObserver({ threshold: 0.3 });
+  const [headerRef, headerVisible] = useIntersectionObserver({ threshold: 0.15 });
+  const [productsRef, productsVisible] = useIntersectionObserver({ threshold: 0.1 });
+  const [benefitsRef, benefitsVisible] = useIntersectionObserver({ threshold: 0.1 });
 
   return (
-    <section id="collection" className="py-32 md:py-48 relative bg-[#1F0007] overflow-hidden border-t border-estruktura-bg">
-      {/* Smooth gradient transition from About section above */}
-      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#1F0007] to-transparent pointer-events-none z-20" />
+    <section id="products" className="overflow-hidden">
 
-      {/* Background radial glow & structural grid */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-estruktura-accent/15 rounded-full blur-[200px] pointer-events-none" />
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-5">
-        <div className="absolute left-1/3 top-0 bottom-0 w-[1px] bg-estruktura-gold"></div>
-        <div className="absolute right-1/3 top-0 bottom-0 w-[1px] bg-estruktura-gold"></div>
-      </div>
+      {/* ── Section 1: Products header over a carpet photo ── */}
+      <div className="relative min-h-[55vh] flex items-end overflow-hidden bg-[#1C1915]">
+        <img
+          src={imgBr22}
+          alt="Installed carpet bedroom"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.35 }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1C1915] via-[#1C1915]/40 to-transparent" />
 
-      <div className="max-w-[90rem] mx-auto px-6 lg:px-12 relative z-10">
         <div
           ref={headerRef}
-          className={`flex flex-col md:flex-row justify-between items-end mb-24 lg:mb-32 border-b border-estruktura-gold/30 pb-12 transition-all duration-[1500ms] ease-out ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+          className={`relative z-10 max-w-[90rem] mx-auto px-6 lg:px-16 pb-16 transition-all duration-[1000ms] ease-out ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <div className="max-w-3xl">
-            <span className="text-estruktura-gold uppercase tracking-[0.4em] text-xs font-semibold mb-6 flex items-center gap-4">
-              <span className="w-12 h-[1px] bg-estruktura-gold/60"></span>
-              The Private Reserve
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] text-estruktura-cream leading-[1.1] drop-shadow-lg">
-              The Curator's Vault.
-            </h2>
-          </div>
-          <p className="text-estruktura-cream/80 max-w-sm text-right mt-8 md:mt-0 font-light hidden md:block leading-relaxed tracking-wide">
-            Masterpieces currently held in private estates from Dubai to Geneva. Explore the remaining available commissions.
-          </p>
+          <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
+            <span className="w-8 h-px bg-[#8c7e71]" />
+            What We Provide
+          </span>
+          <h2 className="font-serif text-[#F4F1EA] leading-tight" style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', fontWeight: 400 }}>
+            Carpets for<br />
+            <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 300 }}>Every Space.</em>
+          </h2>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-          {collections.map((item, index) => {
-            const [itemRef, isVisible] = useIntersectionObserver({ threshold: 0.1 });
-
-            return (
+      {/* ── Section 2: Products grid ── */}
+      <div
+        ref={productsRef}
+        className={`bg-[#F4F1EA] py-20 px-6 lg:px-16 transition-all duration-[1000ms] ease-out ${productsVisible ? 'opacity-100' : 'opacity-0'}`}
+      >
+        <div className="max-w-[90rem] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-[#D8C3A5]/40">
+            {products.map((p, i) => (
               <div
-                key={index}
-                ref={itemRef}
-                className={`group relative flex flex-col hover:-translate-y-4 transition-all duration-[1200ms] cursor-pointer ease-out ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-24 scale-95'}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
+                key={i}
+                className="bg-[#F4F1EA] p-8 group hover:bg-[#1C1915] transition-all duration-500 cursor-default flex flex-col gap-3"
+                style={{ transitionDelay: `${i * 50}ms` }}
               >
-
-                {/* Structural Numbering Watermark */}
-                <div className="absolute -top-16 -right-6 text-[8rem] font-serif text-estruktura-gold/5 z-0 pointer-events-none tracking-tighter group-hover:text-estruktura-gold/10 transition-colors duration-700">
-                  {item.number}
-                </div>
-
-                {/* Status Badge */}
-                <div className="absolute top-6 left-6 z-20 glass-panel px-5 py-3 bg-[#0a0002]/80 backdrop-blur-md border-estruktura-gold/40 shadow-xl">
-                  <span className={`text-[10px] uppercase tracking-[0.2em] font-medium ${item.status.includes('Waitlist') ? 'text-estruktura-cream/60' : 'text-estruktura-gold text-glow-gold'}`}>
-                    {item.status}
-                  </span>
-                </div>
-
-                {/* Image Container */}
-                <div className="aspect-[4/5] w-full overflow-hidden carpet-texture-overlay border border-estruktura-gold/20 relative shadow-2xl z-10 bg-[#2D000A]">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className={`w-full h-full object-cover transition-all duration-[2.5s] ease-out group-hover:scale-[1.08] ${isVisible ? 'scale-100' : 'scale-110'}`}
-                  />
-
-                  {/* Persistent tinted veil — fades out on hover to "reveal" */}
-                  <div className="absolute inset-0 bg-[#1F0007]/30 group-hover:bg-transparent transition-colors duration-1000 pointer-events-none" />
-
-                  {/* Hover overlay — curiosity CTA */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1F0007]/95 via-[#1F0007]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-start justify-end p-8 gap-2">
-                    <span className="text-[9px] uppercase tracking-[0.3em] font-semibold text-estruktura-gold">
-                      View this commission →
-                    </span>
-                    <span className="text-[11px] text-estruktura-cream/70 font-light">
-                      Availability on request
-                    </span>
-                  </div>
-                </div>
-
-                <div className="pt-8 relative z-10">
-                  <div className="flex items-center gap-4 mb-3">
-                    <span className="text-estruktura-gold/60 text-sm font-serif italic">{item.number}</span>
-                    <div className="h-[1px] w-8 bg-estruktura-gold/30"></div>
-                  </div>
-                  <h3 className="text-3xl text-estruktura-cream mb-4 font-serif group-hover:text-estruktura-gold transition-colors duration-500 drop-shadow-md">{item.name}</h3>
-                  <p className="text-estruktura-cream/70 font-light leading-relaxed text-md tracking-wide">{item.description}</p>
-                </div>
+                {/* Number index */}
+                <span className="text-[#8c7e71]/50 text-[0.6rem] uppercase tracking-[0.3em] font-semibold">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                {/* Name */}
+                <h4 className="font-serif text-[#2A2725] text-xl group-hover:text-[#D8C3A5] transition-colors duration-500 leading-tight">
+                  {p.name}
+                </h4>
+                {/* Tagline */}
+                <p className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.2em] group-hover:text-[#8c7e71]/60 transition-colors duration-500">
+                  {p.note}
+                </p>
+                {/* Divider */}
+                <div className="w-8 h-px bg-[#D8C3A5]/60 group-hover:bg-[#D8C3A5]/30 transition-colors duration-500" />
+                {/* Description */}
+                <p className="text-[#5c5048] text-[0.78rem] leading-relaxed font-light group-hover:text-[#F4F1EA]/60 transition-colors duration-500">
+                  {p.description}
+                </p>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
+      </div>
 
-        <div className="mt-32 text-center">
-          <a href="#contact" className="inline-flex items-center gap-4 border border-estruktura-gold/40 px-8 py-5 text-estruktura-gold uppercase tracking-[0.3em] text-xs hover:bg-estruktura-gold hover:text-[#1F0007] transition-all duration-500 hover:shadow-[0_0_30px_rgba(219,190,155,0.3)]">
-            View Archived Legacy Collection
-          </a>
+      {/* ── Section 3: Benefits — dark strip with side carpet image ── */}
+      <div className="bg-[#1C1915]">
+        <div className="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-2">
+
+          {/* Left: benefits list */}
+          <div
+            ref={benefitsRef}
+            className={`px-6 lg:px-16 py-20 transition-all duration-[1000ms] ease-out ${benefitsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
+          >
+            <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
+              <span className="w-8 h-px bg-[#8c7e71]" />
+              More Than Beauty
+            </span>
+            <h3 className="font-serif text-[#F4F1EA] mb-10" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 400 }}>
+              Why Carpet Matters.
+            </h3>
+
+            <ul className="space-y-0 divide-y divide-[#2A2725]">
+              {benefits.map((b, i) => (
+                <li
+                  key={i}
+                  className="group flex items-start gap-5 py-5 hover:bg-[#2A2725]/30 transition-colors duration-300 px-2 -mx-2"
+                >
+                  {/* Roman numeral index */}
+                  <span className="text-[#8c7e71]/50 text-[0.55rem] uppercase tracking-[0.25em] font-semibold mt-1 w-6 flex-shrink-0 text-right">
+                    {['I','II','III','IV','V','VI'][i]}
+                  </span>
+                  {/* Thin vertical rule */}
+                  <div className="w-px self-stretch bg-[#8c7e71]/20 flex-shrink-0" />
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[#F4F1EA]/90 font-light text-sm tracking-wide group-hover:text-[#D8C3A5] transition-colors duration-300">
+                      {b.label}
+                    </span>
+                    <span className="text-[#8c7e71]/60 text-[0.72rem] font-light leading-relaxed">
+                      {b.detail}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right: photograph */}
+          <div className="relative min-h-[420px] overflow-hidden">
+            <img
+              src={imgBr32}
+              alt="Benefits of carpet"
+              className="w-full h-full object-cover"
+              style={{ opacity: 0.5 }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1C1915] via-[#1C1915]/10 to-transparent lg:block hidden" />
+            <img
+              src={imgCr12}
+              alt="Corridor carpet"
+              className="absolute bottom-6 right-6 w-40 h-28 object-cover border-2 border-[#D8C3A5]/30 shadow-2xl hidden lg:block"
+            />
+          </div>
         </div>
       </div>
     </section>
