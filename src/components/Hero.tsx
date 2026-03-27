@@ -138,6 +138,10 @@ export default function Hero() {
           0%, 100% { opacity: 1; transform: translateY(0); }
           50% { opacity: 0.3; transform: translateY(6px); }
         }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
       `}</style>
     </section>
   );
