@@ -4,7 +4,7 @@ import About from "../components/About";
 import Collection from "../components/Collection";
 import Craftsmanship from "../components/Craftsmanship";
 import Gallery from "../components/Gallery";
-import ComingSoon from "../components/ComingSoon";
+import OtherProducts from "../components/OtherProducts"; // Updated import
 import CTA from "../components/CTA";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
         <Collection />
         <Craftsmanship />
         <Gallery />
-        <ComingSoon />
+        <OtherProducts /> {/* Updated component */}
         <CTA />
       </main>
 
