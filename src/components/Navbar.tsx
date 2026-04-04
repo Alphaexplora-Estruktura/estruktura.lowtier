@@ -29,17 +29,24 @@ export default function Navbar() {
                 <div className="max-w-[90rem] mx-auto px-6 lg:px-16 flex justify-between items-center">
 
                     {/* Logo */}
-                    {/* Logo */}
                     <a href="#" className="flex items-center gap-3 group">
                         <img
                             src="/Estruktura-trans.png"
                             alt="Estruktura Logo"
                             className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                         />
-                        <div className="hidden sm:block w-0.5 h-5 bg-[#D8C3A5] group-hover:h-7 transition-all duration-300" />
-                        <span className="hidden sm:block font-serif text-xl text-[#F4F1EA] tracking-[0.2em] uppercase">
-                            Estruktura
-                        </span>
+                        {/* Made the vertical line slightly taller to match 2 lines of text */}
+                        <div className="hidden sm:block w-0.5 h-8 bg-[#D8C3A5] group-hover:h-10 transition-all duration-300" />
+
+                        {/* Flex column to stack the title and subtitle */}
+                        <div className="hidden sm:flex flex-col justify-center">
+                            <span className="font-serif text-xl text-[#F4F1EA] tracking-[0.2em] uppercase leading-none">
+                                Estruktura Manila
+                            </span>
+                            <span className="text-[#D8C3A5]/70 text-[0.55rem] uppercase tracking-[0.25em] mt-1.5 font-medium">
+                                Carpet and Interior Solutions
+                            </span>
+                        </div>
                     </a>
 
                     {/* Desktop nav */}

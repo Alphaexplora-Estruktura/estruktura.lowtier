@@ -62,7 +62,7 @@ export default function Hero() {
                 animation: 'fadeInUp 0.9s ease-out 0.6s forwards',
               }}
             >
-              Your premier carpet partner in Manila. Handtufted wool, machine-woven precision, custom designs — for every space.
+              Your carpet partner in the Philippines. Handtufted wool, machine-woven precision, custom designs — for every space.
             </p>
 
             {/* CTAs */}

@@ -33,7 +33,7 @@ export default function CTA() {
               <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 300 }}>Your Space?</em>
             </h2>
             <p className="text-[#F4F1EA]/50 font-light leading-relaxed text-sm mb-10 max-w-sm">
-              Tell us about your project — the room, dimensions, and vision. We'll guide you through every step, from design layout to final installation.
+              Happy to guide you through every step, from design layout to final installation.
             </p>
 
             <div className="space-y-4">

@@ -7,51 +7,43 @@ import imgCr12 from '../assets/carpets/corridors-hallway/cr-1.2.jpg';
 const products = [
   {
     name: 'Axminster',
-    note: 'Machine precision',
     description:
-      'Cut-pile carpet woven on an Axminster loom, renowned for crisp pattern reproduction and consistent pile density — ideal for grand lobbies and premium hospitality spaces.',
+      'Woven on an Axminster loom for crisp pattern reproduction and consistent pile density — ideal for adding a classic touch to living rooms and welcoming reception areas.',
   },
   {
     name: 'Handtufted',
-    note: 'Artisan craft',
     description:
-      'Each piece is hand-crafted by skilled artisans using a tufting gun, allowing bespoke designs, rich textures, and custom colour palettes for one-of-a-kind interiors.',
+      'Hand-crafted by artisans using a tufting gun to allow bespoke designs, rich textures, and custom color palettes — ideal for custom area rugs and adding a personalized touch to your home.',
   },
   {
     name: 'Roll Carpet',
-    note: 'Large coverage',
     description:
-      'Available in broad widths, roll carpet delivers seamless coverage for large commercial floors — reducing seam lines and creating a unified, polished appearance.',
+      'Available in broad widths to deliver seamless coverage that reduces seam lines and creates a unified, polished appearance — ideal for covering larger rooms or open office spaces.',
   },
   {
     name: 'Carpet Tiles',
-    note: 'Modular & flexible',
     description:
-      'Interlocking modular tiles that simplify installation, replacement, and reconfiguration — perfect for offices, retail environments, and high-traffic areas.',
+      'Simplifying installation, replacement, and reconfiguration — ideal for home offices, playrooms, and everyday workspaces.',
   },
   {
     name: 'Wilton Carpet',
-    note: 'Woven excellence',
     description:
-      'Produced on a continuous Wilton loom, this carpet is tightly woven for superior durability and depth of colour, traditionally favoured in five-star hotel corridors.',
+      'Tightly woven on a continuous loom for superior durability and depth of color — ideal for dining rooms, bedrooms, and spaces where you want lasting comfort.',
   },
   {
     name: 'Wire Wilton',
-    note: 'Loop pile texture',
     description:
-      'A variation of Wilton weaving that forms structured loop piles, resulting in a resilient surface with a distinctive textured finish suited for high-footfall environments.',
+      'Featuring structured loop piles that create a distinctive textured finish — ideal for hallways, stairs, and areas that see a lot of daily foot traffic.',
   },
   {
     name: 'Flocked Carpet',
-    note: 'Velvet-like finish',
     description:
-      'Ultra-short fibres are electrostatically applied to create an exceptionally soft, velvet surface — offering a luxurious look with excellent acoustic absorption.',
+      'Created by electrostatically applying ultra-short fibers for an exceptionally soft yet highly durable surface — ideal for pet-friendly homes and busy households that need easy cleaning.',
   },
   {
     name: 'Matting',
-    note: 'With / without logo',
     description:
-      'Durable entrance and logo matting designed to trap dirt and moisture at entry points, with optional custom branding to reinforce institutional or corporate identity.',
+      'Designed to trap dirt and moisture while offering optional custom branding — ideal for keeping your home or office entrances clean and inviting.',
   },
 ];
 
@@ -112,7 +104,7 @@ export default function Collection() {
           </span>
           <h2 className="font-serif text-[#F4F1EA] leading-tight" style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', fontWeight: 400 }}>
             Carpets for<br />
-            <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 300 }}>Every Space.</em>
+            <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 300 }}>Every Need.</em>
           </h2>
         </div>
       </div>
@@ -138,10 +130,6 @@ export default function Collection() {
                 <h4 className="font-serif text-[#2A2725] text-xl group-hover:text-[#D8C3A5] transition-colors duration-500 leading-tight">
                   {p.name}
                 </h4>
-                {/* Tagline */}
-                <p className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.2em] group-hover:text-[#8c7e71]/60 transition-colors duration-500">
-                  {p.note}
-                </p>
                 {/* Divider */}
                 <div className="w-8 h-px bg-[#D8C3A5]/60 group-hover:bg-[#D8C3A5]/30 transition-colors duration-500" />
                 {/* Description */}
@@ -179,7 +167,7 @@ export default function Collection() {
                 >
                   {/* Roman numeral index */}
                   <span className="text-[#8c7e71]/50 text-[0.55rem] uppercase tracking-[0.25em] font-semibold mt-1 w-6 flex-shrink-0 text-right">
-                    {['I','II','III','IV','V','VI'][i]}
+                    {['I', 'II', 'III', 'IV', 'V', 'VI'][i]}
                   </span>
                   {/* Thin vertical rule */}
                   <div className="w-px self-stretch bg-[#8c7e71]/20 flex-shrink-0" />

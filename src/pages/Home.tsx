@@ -22,70 +22,71 @@ export default function Home() {
         <CTA />
       </main>
 
-      <footer className="bg-[#111009] border-t border-[#D8C3A5]/10 pt-16 pb-8 px-6 lg:px-16">
+      <footer className="bg-[#111009] border-t border-[#D8C3A5]/10 pt-10 pb-6 px-6 lg:px-16">
         <div className="max-w-[90rem] mx-auto">
-          
-          {/* Top Section: 3-Column Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 mb-16">
-            
-            {/* Column 1: Brand */}
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-0.5 h-4 bg-[#D8C3A5]" />
-                <span className="font-serif text-lg text-[#F4F1EA] tracking-[0.2em] uppercase">Estruktura Manila</span>
+
+          {/* Main Section: Spread Horizontally */}
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-8">
+
+            {/* Brand */}
+            <div className="flex items-center gap-3">
+              <div className="w-0.5 h-8 bg-[#D8C3A5]" />
+              <div className="flex flex-col justify-center">
+                <span className="font-serif text-lg text-[#F4F1EA] tracking-[0.2em] uppercase leading-none">
+                  Estruktura Manila
+                </span>
+                <span className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.25em] mt-2 font-medium">
+                  Carpet & Interior Solutions
+                </span>
               </div>
-              <p className="text-[#8c7e71] text-xs font-light tracking-wide">Carpet & Interior Solutions</p>
             </div>
 
-            {/* Column 2: Navigation */}
-            <div>
-              <h4 className="text-[#F4F1EA]/30 text-[0.6rem] uppercase tracking-[0.3em] mb-6">Explore</h4>
-              <nav className="flex flex-col gap-4">
-                {[
-                  { name: 'Designs', href: '#designs' },
-                  { name: 'Products', href: '#products' },
-                  { name: 'Gallery', href: '#gallery' },
-                  { name: 'Contact', href: '#contact' },
-                ].map(link => (
-                  <a key={link.name} href={link.href} className="text-[0.65rem] uppercase tracking-[0.2em] text-[#F4F1EA]/60 hover:text-[#D8C3A5] transition-colors duration-300 w-fit">
-                    {link.name}
-                  </a>
-                ))}
-              </nav>
-            </div>
+            {/* Contact Details & Socials (Horizontal on Desktop) */}
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 lg:gap-8 text-[#8c7e71] text-[0.7rem] font-light tracking-wide">
 
-            {/* Column 3: Contact Details */}
-            <div>
-              <h4 className="text-[#F4F1EA]/30 text-[0.6rem] uppercase tracking-[0.3em] mb-6">Contact Us</h4>
-              <div className="flex flex-col gap-4 text-[#8c7e71] text-[0.75rem] font-light tracking-wide">
-                <p className="leading-relaxed">
-                  6T Bugallon St. Marikina Heights,<br />
-                  Marikina City
-                </p>
-                <p>0968 474 6559</p>
-                <div className="flex flex-col gap-2">
-                  <a href="mailto:estrukturamanila@gmail.com" className="hover:text-[#D8C3A5] transition-colors duration-300 w-fit">
-                    estrukturamanila@gmail.com
-                  </a>
-                  <a href="mailto:mariegeraldine.deleon@gmail.com" className="hover:text-[#D8C3A5] transition-colors duration-300 w-fit">
-                    mariegeraldine.deleon@gmail.com
-                  </a>
-                </div>
-              </div>
+              <p>6T Bugallon St. Marikina Heights, Marikina City</p>
+
+              {/* Divider (Hidden on Mobile) */}
+              <div className="hidden md:block w-px h-4 bg-[#8c7e71]/30" />
+
+              <p>0968 474 6559</p>
+
+              {/* Divider (Hidden on Mobile) */}
+              <div className="hidden md:block w-px h-4 bg-[#8c7e71]/30" />
+
+              <a href="mailto:estrukturamanila@gmail.com" className="hover:text-[#D8C3A5] transition-colors duration-300">
+                estrukturamanila@gmail.com
+              </a>
+
+              {/* Divider (Hidden on Mobile) */}
+              <div className="hidden md:block w-px h-4 bg-[#8c7e71]/30" />
+
+              {/* Facebook Icon */}
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="hover:text-[#D8C3A5] transition-colors duration-300"
+              >
+                <svg fill="currentColor" viewBox="0 0 24 24" className="w-[1.15rem] h-[1.15rem]">
+                  <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                </svg>
+              </a>
             </div>
 
           </div>
 
           {/* Bottom Section: Copyright & Credits */}
-          <div className="pt-8 border-t border-[#D8C3A5]/10 flex flex-col items-center justify-center gap-3">
-            <p className="text-[#F4F1EA]/20 text-[0.8rem] uppercase tracking-[0.3em] text-center">
+          <div className="pt-6 border-t border-[#D8C3A5]/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-[#F4F1EA]/20 text-[0.65rem] uppercase tracking-[0.3em] text-center md:text-left">
               &copy; {new Date().getFullYear()} Estruktura Manila. All rights reserved.
             </p>
-            <p className="text-[#F4F1EA]/20 text-[0.6rem] uppercase tracking-[0.2em] text-center">
+            <p className="text-[#F4F1EA]/20 text-[0.55rem] uppercase tracking-[0.2em] text-center md:text-right">
               Powered by{' '}
-              <a 
-                href="https://alphaexplora.com" 
-                target="_blank" 
+              <a
+                href="https://alphaexplora.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#8c7e71] hover:text-[#D8C3A5] transition-colors duration-300 font-medium"
               >
@@ -93,8 +94,6 @@ export default function Home() {
               </a>
             </p>
           </div>
-
-          
 
         </div>
       </footer>
