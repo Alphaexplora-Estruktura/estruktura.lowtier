@@ -91,37 +91,35 @@ export default function Gallery() {
     );
 }
 
-// ─── Project Comparison Layout (No Labels & Smaller Height) ────────────────────────────
+// ─── Project Comparison Layout (Mobile Responsive Fix) ────────────────────────────
 function ProjectComparison({ pair, index }: any) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.15 });
 
     return (
         <div
             ref={ref}
-            // Reduced height from 500/650px to 250/300/400px
-            className={`flex flex-col md:flex-row gap-2 h-[250px] md:h-[300px] lg:h-[400px] transition-all duration-[1000ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+            // Removed fixed height on mobile (h-auto), kept it for md and lg
+            className={`flex flex-col md:flex-row gap-2 h-auto md:h-[300px] lg:h-[400px] transition-all duration-[1000ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         >
             {/* Artwork Column */}
-            <div className="group relative flex-1 overflow-hidden bg-[#2A2725]">
+            <div className="group relative flex-1 overflow-hidden bg-[#2A2725] aspect-[4/3] md:aspect-auto">
                 <img
                     src={pair.artwork}
                     alt={`Artwork Design ${index + 1}`}
                     className="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-[1.05]"
                     style={{ opacity: 0.85 }}
                 />
-                {/* Subtle dark hover effect instead of permanent gradient */}
                 <div className="absolute inset-0 bg-[#1C1915]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </div>
 
             {/* Install Column */}
-            <div className="group relative flex-1 overflow-hidden bg-[#2A2725]">
+            <div className="group relative flex-1 overflow-hidden bg-[#2A2725] aspect-[4/3] md:aspect-auto">
                 <img
                     src={pair.install}
                     alt={`Installed Carpet ${index + 1}`}
                     className="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-[1.05]"
                     style={{ opacity: 0.9 }}
                 />
-                {/* Subtle dark hover effect instead of permanent gradient */}
                 <div className="absolute inset-0 bg-[#1C1915]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </div>
         </div>

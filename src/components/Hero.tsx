@@ -33,9 +33,6 @@ export default function Hero() {
               style={{ opacity: 0, animation: 'fadeInUp 0.8s ease-out 0.2s forwards' }}
             >
               <div className="w-8 h-px bg-[#8c7e71]" />
-              <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold">
-                Manila · Philippines
-              </span>
             </div>
 
             {/* Headline */}

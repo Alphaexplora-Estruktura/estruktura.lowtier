@@ -71,7 +71,7 @@ export default function OtherProducts() {
                                 <span className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.25em]">Light Control</span>
                             </div>
                             <p className="text-[#F4F1EA]/50 font-light text-[0.75rem] leading-relaxed">
-                                Elegant and functional designs that let you control natural light with ease. Keeping your home office glare-free or ensuring a restful sleep in the bedroom.
+                                Functional designs that let you control natural light with ease. Keeping your home office glare-free or ensuring a restful sleep in the bedroom.
                             </p>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
