@@ -22,16 +22,22 @@ export default function Navbar() {
         <>
             <header
                 className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled
-                        ? 'bg-[#1C1915]/90 backdrop-blur-md border-b border-[#D8C3A5]/10 py-4 shadow-2xl'
-                        : 'bg-transparent py-6 md:py-8'
+                    ? 'bg-[#1C1915]/90 backdrop-blur-md border-b border-[#D8C3A5]/10 py-4 shadow-2xl'
+                    : 'bg-transparent py-6 md:py-8'
                     }`}
             >
                 <div className="max-w-[90rem] mx-auto px-6 lg:px-16 flex justify-between items-center">
 
                     {/* Logo */}
+                    {/* Logo */}
                     <a href="#" className="flex items-center gap-3 group">
-                        <div className="w-0.5 h-5 bg-[#D8C3A5] group-hover:h-7 transition-all duration-300" />
-                        <span className="font-serif text-xl text-[#F4F1EA] tracking-[0.2em] uppercase">
+                        <img
+                            src="/Estruktura-trans.png"
+                            alt="Estruktura Logo"
+                            className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="hidden sm:block w-0.5 h-5 bg-[#D8C3A5] group-hover:h-7 transition-all duration-300" />
+                        <span className="hidden sm:block font-serif text-xl text-[#F4F1EA] tracking-[0.2em] uppercase">
                             Estruktura
                         </span>
                     </a>

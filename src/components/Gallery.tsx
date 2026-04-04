@@ -20,22 +20,7 @@ import imgCt4 from '../assets/carpets/cartpet-tiles/ct-4.jpg';
 import imgCt5 from '../assets/carpets/cartpet-tiles/ct-5.jpg';
 import imgCt7 from '../assets/carpets/cartpet-tiles/ct-7.jpg';
 
-// ─── Blinds imports ───────────────────────────────────────────────────────────
-import imgBlinds1 from '../assets/blinds/blinds-1.jpg';
-import imgBlinds2 from '../assets/blinds/blinds-2.jpg';
-import imgBlinds3 from '../assets/blinds/blinds-3.jpg';
-
-// ─── Wallpaper imports ────────────────────────────────────────────────────────
-import imgWp1 from '../assets/wallpapers/wp-1.jpg';
-import imgWp2 from '../assets/wallpapers/wp-2.jpg';
-import imgWp3 from '../assets/wallpapers/wp-3.jpg';
-import imgWp4 from '../assets/wallpapers/wp-4.jpg';
-import imgWp5 from '../assets/wallpapers/wp-5.jpg';
-import imgWp6 from '../assets/wallpapers/wp-6.jpg';
-import imgWp7 from '../assets/wallpapers/wp-7.jpg';
-
 // ─── Data ─────────────────────────────────────────────────────────────────────
-// label: 'Layout' = design plan | 'Installed' = finished result | '' = general photo
 const categories = [
     {
         title: 'Bedroom & Guest Room',
@@ -75,26 +60,6 @@ const categories = [
             { src: imgCt7, label: '' },
         ],
     },
-    {
-        title: 'Window Blinds',
-        images: [
-            { src: imgBlinds1, label: '' },
-            { src: imgBlinds2, label: '' },
-            { src: imgBlinds3, label: '' },
-        ],
-    },
-    {
-        title: 'Wallpapers',
-        images: [
-            { src: imgWp1, label: '' },
-            { src: imgWp2, label: '' },
-            { src: imgWp3, label: '' },
-            { src: imgWp4, label: '' },
-            { src: imgWp5, label: '' },
-            { src: imgWp6, label: '' },
-            { src: imgWp7, label: '' },
-        ],
-    },
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -103,8 +68,6 @@ export default function Gallery() {
 
     return (
         <section id="gallery" className="bg-[#F4F1EA] overflow-hidden">
-
-            {/* ── Header ── */}
             <div className="py-20 lg:py-24 px-6 lg:px-16 bg-[#F4F1EA]">
                 <div
                     ref={headerRef}
@@ -126,12 +89,10 @@ export default function Gallery() {
                 </div>
             </div>
 
-            {/* ── Categories ── */}
             {categories.map((cat, catIdx) => (
                 <CategoryBlock key={catIdx} cat={cat} catIdx={catIdx} />
             ))}
 
-            {/* ── Bottom nudge ── */}
             <div className="py-14 px-6 lg:px-16 bg-[#F4F1EA] text-center">
                 <p className="font-serif italic text-[#8c7e71] text-lg">
                     "Interested in seeing your space transformed?"
@@ -147,19 +108,11 @@ export default function Gallery() {
     );
 }
 
-// ─── Category block ────────────────────────────────────────────────────────────
-function CategoryBlock({
-    cat,
-    catIdx,
-}: {
-    cat: { title: string; images: { src: string; label: string }[] };
-    catIdx: number;
-}) {
+function CategoryBlock({ cat, catIdx }: any) {
     const [roomRef, roomVisible] = useIntersectionObserver({ threshold: 0.05 });
 
     return (
         <div className="mb-2">
-            {/* Category label bar */}
             <div className="bg-[#1C1915] px-6 lg:px-16 py-4">
                 <div className="max-w-[90rem] mx-auto flex items-center gap-4">
                     <span className="text-[#8c7e71]/60 text-[0.55rem] uppercase tracking-[0.35em]">
@@ -170,57 +123,36 @@ function CategoryBlock({
                 </div>
             </div>
 
-            {/* Images — flex-wrap so every row fills completely, no orphan cells */}
             <div
                 ref={roomRef}
-                className={`transition-all duration-[1000ms] ease-out ${roomVisible ? 'opacity-100' : 'opacity-0'}`}
-                style={{ display: 'flex', flexWrap: 'wrap', gap: '1px', background: 'rgba(216,195,165,0.2)' }}
+                className={`flex flex-wrap gap-[1px] bg-[rgba(216,195,165,0.2)] transition-all duration-[1000ms] ease-out ${roomVisible ? 'opacity-100' : 'opacity-0'}`}
             >
-                {(() => {
-                    const n = cat.images.length;
-                    // Find the best column count (largest divisor of n ≤ 4),
-                    // but never fall below 2 so the layout stays balanced.
-                    let cols = 3; // sensible default
-                    for (let c = Math.min(n, 4); c >= 2; c--) {
-                        if (n % c === 0) { cols = c; break; }
-                    }
-                    const pct = `calc(${(100 / cols).toFixed(4)}% - ${((cols - 1) / cols).toFixed(4)}px)`;
-                    return cat.images.map((img, imgIdx) => (
-                        <GalleryCard
-                            key={imgIdx}
-                            src={img.src}
-                            label={img.label}
-                            isInstalled={img.label === 'Installed'}
-                            delay={imgIdx * 70}
-                            flexBasis={pct}
-                        />
-                    ));
-                })()}
+                {cat.images.map((img: any, imgIdx: number) => (
+                    <GalleryCard
+                        key={imgIdx}
+                        src={img.src}
+                        label={img.label}
+                        isInstalled={img.label === 'Installed'}
+                        delay={imgIdx * 70}
+                    />
+                ))}
             </div>
         </div>
     );
 }
 
-// ─── Individual card ───────────────────────────────────────────────────────────
-function GalleryCard({
-    src, label, isInstalled, delay, flexBasis,
-}: {
-    src: string; label: string; isInstalled: boolean; delay: number; flexBasis?: string;
-}) {
+function GalleryCard({ src, label, isInstalled, delay }: any) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.05 });
 
     return (
         <div
             ref={ref}
-            className="group relative aspect-[4/3] overflow-hidden bg-[#2A2725] cursor-pointer"
+            className="group relative flex-grow flex-shrink-0 w-[45%] md:w-[30%] lg:w-[22%] h-[200px] md:h-[250px] lg:h-[300px] overflow-hidden bg-[#2A2725] cursor-pointer"
             style={{
                 transitionDelay: `${delay}ms`,
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
                 transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
-                flexBasis: flexBasis ?? '25%',
-                flexGrow: 1,
-                flexShrink: 0,
             }}
         >
             <img
@@ -229,17 +161,13 @@ function GalleryCard({
                 className="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-[1.06]"
                 style={{ opacity: 0.85 }}
             />
-            {/* Bottom gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1C1915]/70 via-transparent to-transparent" />
 
-            {/* Label badge — only shown when label exists */}
             {label && (
                 <div className={`absolute top-3 left-3 px-2.5 py-1 text-[0.55rem] uppercase tracking-[0.25em] font-semibold backdrop-blur-sm ${isInstalled ? 'bg-[#D8C3A5] text-[#1C1915]' : 'bg-[#1C1915]/70 text-[#D8C3A5] border border-[#D8C3A5]/30'}`}>
                     {label}
                 </div>
             )}
-
-            {/* Hover border */}
             <div className="absolute inset-0 border-2 border-[#D8C3A5] opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none" />
         </div>
     );
