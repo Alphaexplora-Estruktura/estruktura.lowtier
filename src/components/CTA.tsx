@@ -21,18 +21,18 @@ export default function CTA() {
 
           {/* Left: Message */}
           <div>
-            <span className="text-estruktura-gold uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
-              <span className="w-8 h-px bg-estruktura-gold" />
+            <span className="text-estruktura-gold uppercase text-[0.75rem] tracking-[0.35em] font-bold mb-5 flex items-center gap-3">
+              <span className="w-10 h-px bg-estruktura-gold" />
               Let's Create Together
             </span>
             <h2
               className="font-serif text-estruktura-cream leading-tight mt-4 mb-8"
-              style={{ fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', fontWeight: 400 }}
+              style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 500 }}
             >
               Ready to Transform<br />
-              <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 300 }}>Your Space?</em>
+              <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 400 }}>Your Space?</em>
             </h2>
-            <p className="text-estruktura-cream/80 font-light leading-relaxed text-sm mb-10 max-w-sm">
+            <p className="text-estruktura-cream/90 font-medium leading-relaxed text-[1.1rem] mb-10 max-w-sm">
               To provide an accurate quotation, a site visit for actual measurement is required. We will bring samples during our visit.
             </p>
 
@@ -42,58 +42,58 @@ export default function CTA() {
                 { icon: '📞', text: 'Available for consultations' },
                 { icon: '✉️', text: 'Custom quotes provided' },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 text-estruktura-cream/60 text-sm">
+                <div key={i} className="flex items-center gap-4 text-estruktura-cream/80 text-[1rem]">
                   <span>{item.icon}</span>
-                  <span className="font-light">{item.text}</span>
+                  <span className="font-medium">{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right: Form */}
+          {/* Right: Form (Conversational Rewrite) */}
           <div>
             <form className="flex flex-col gap-5" onSubmit={e => e.preventDefault()}>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="relative">
                   <input
                     type="text"
-                    placeholder="Your Name"
-                    className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent/50 transition-all font-light text-sm"
+                    placeholder="What name should we use?"
+                    className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-[0.95rem]"
                   />
                 </div>
                 <div className="relative">
                   <input
                     type="email"
-                    placeholder="Email Address"
-                    className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent/50 transition-all font-light text-sm"
+                    placeholder="Where should we email you?"
+                    className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-[0.95rem]"
                   />
                 </div>
               </div>
 
               <input
                 type="text"
-                placeholder="Project type (e.g. Bedroom - Handtufted, Hotel lobby)"
-                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent/50 transition-all font-light text-sm"
+                placeholder="What kind of space are we transforming? (e.g. Hotel Lobby, Bedroom)"
+                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-[0.95rem]"
               />
 
               <input
                 type="text"
-                placeholder="Preferred Date & Schedule for Site Visit"
-                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent/50 transition-all font-light text-sm"
+                placeholder="When is a good time for us to visit and measure?"
+                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-[0.95rem]"
               />
 
               <textarea
                 rows={4}
-                placeholder="Tell us about your space and what you have in mind..."
-                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent/50 transition-all font-light text-sm resize-none"
+                placeholder="Tell us a little bit about your vision or requirements..."
+                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-[0.95rem] resize-none"
               />
 
               <button
                 type="button"
-                className="w-full px-8 py-5 bg-estruktura-accent text-estruktura-text font-bold uppercase text-[0.65rem] tracking-[0.3em] hover:bg-estruktura-cream transition-all duration-300 mt-2"
+                className="w-full px-8 py-5 bg-estruktura-accent text-estruktura-text font-bold uppercase text-[0.75rem] tracking-[0.3em] hover:bg-estruktura-cream transition-all duration-300 mt-2"
               >
-                Send Inquiry
+                Request a Site Visit
               </button>
             </form>
           </div>

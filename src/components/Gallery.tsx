@@ -47,26 +47,28 @@ export default function Gallery() {
                     className={`max-w-[90rem] mx-auto flex flex-col lg:flex-row justify-between items-start gap-8 transition-all duration-[1000ms] ease-out ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 >
                     <div>
-                        <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
-                            <span className="w-8 h-px bg-[#8c7e71]" />
+                        {/* Font size bumped for Project Gallery */}
+                        <span className="text-[#8c7e71] uppercase text-[0.75rem] tracking-[0.35em] font-bold mb-5 flex items-center gap-3">
+                            <span className="w-10 h-px bg-[#8c7e71]" />
                             Project Gallery
                         </span>
-                        <h2 className="font-serif text-[#2A2725] leading-tight mt-3" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 400 }}>
+                        {/* Font size bumped for Main Headline */}
+                        <h2 className="font-serif text-[#2A2725] leading-tight mt-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 500 }}>
                             From Vision<br />
-                            <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>to Installation.</em>
+                            <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 400 }}>to Installation.</em>
                         </h2>
                     </div>
                 </div>
             </div>
 
-            {/* Paired Projects Section - Reduced gap to 2 to match horizontal spacing */}
+            {/* Paired Projects Section */}
             <div className="max-w-[90rem] mx-auto px-6 lg:px-16 pb-2 flex flex-col gap-2">
                 {projectPairs.map((pair, idx) => (
                     <ProjectComparison key={idx} pair={pair} index={idx} />
                 ))}
             </div>
 
-            {/* Single Tiles Section - Increased to 4/6 columns to make tiles smaller */}
+            {/* Single Tiles Section */}
             <div className="max-w-[90rem] mx-auto px-6 lg:px-16 pb-20">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
                     {singleTiles.map((src, idx) => (
@@ -91,17 +93,15 @@ export default function Gallery() {
     );
 }
 
-// ─── Project Comparison Layout (Mobile Responsive Fix) ────────────────────────────
+// ─── Project Comparison Layout ────────────────────────────
 function ProjectComparison({ pair, index }: any) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.15 });
 
     return (
         <div
             ref={ref}
-            // Removed fixed height on mobile (h-auto), kept it for md and lg
             className={`flex flex-col md:flex-row gap-2 h-auto md:h-[300px] lg:h-[400px] transition-all duration-[1000ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         >
-            {/* Artwork Column */}
             <div className="group relative flex-1 overflow-hidden bg-estruktura-bg aspect-[4/3] md:aspect-auto">
                 <img
                     src={pair.artwork}
@@ -112,7 +112,6 @@ function ProjectComparison({ pair, index }: any) {
                 <div className="absolute inset-0 bg-estruktura-text/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </div>
 
-            {/* Install Column */}
             <div className="group relative flex-1 overflow-hidden bg-estruktura-bg aspect-[4/3] md:aspect-auto">
                 <img
                     src={pair.install}
@@ -126,7 +125,6 @@ function ProjectComparison({ pair, index }: any) {
     );
 }
 
-// ─── Single Card for Carpet Tiles ──────────────────────────────────────────────
 function SingleCard({ src, delay }: any) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
 

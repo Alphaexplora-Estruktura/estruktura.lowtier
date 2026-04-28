@@ -36,7 +36,7 @@ export default function Hero() {
 
             {/* Headline */}
             <h1
-              className="font-serif text-estruktura-text leading-[1.05] mb-6"
+              className="font-serif text-estruktura-text leading-[1.05] mb-10"
               style={{
                 fontSize: 'clamp(3rem, 6vw, 6rem)',
                 fontWeight: 500,
@@ -48,19 +48,6 @@ export default function Hero() {
               <em className="not-italic text-estruktura-gold">Define a Space.</em>
             </h1>
 
-            {/* Sub */}
-            <p
-              className="text-estruktura-text/80 font-medium mb-10 max-w-md"
-              style={{
-                fontSize: 'clamp(0.88rem, 1.5vw, 1.05rem)',
-                lineHeight: 1.75,
-                opacity: 0,
-                animation: 'fadeInUp 0.9s ease-out 0.6s forwards',
-              }}
-            >
-              Your carpet partner in the Philippines. Handtufted wool, machine-woven precision, custom designs — for every space.
-            </p>
-
             {/* CTAs */}
             <div
               className="flex flex-col sm:flex-row items-start gap-4"
@@ -68,7 +55,7 @@ export default function Hero() {
             >
               <a
                 href="#contact"
-                className="inline-flex items-center gap-3 px-8 py-4 text-estruktura-cream font-medium uppercase text-[0.65rem] tracking-[0.25em] bg-estruktura-text border border-estruktura-text transition-all duration-300 hover:bg-estruktura-accent hover:text-estruktura-text hover:border-estruktura-accent"
+                className="inline-flex items-center gap-3 px-8 py-4 text-estruktura-cream font-bold uppercase text-[0.65rem] tracking-[0.25em] bg-estruktura-text border border-estruktura-text transition-all duration-300 hover:bg-estruktura-accent hover:text-estruktura-text hover:border-estruktura-accent"
               >
                 Get a Quote
               </a>
@@ -82,7 +69,7 @@ export default function Hero() {
               <div className="w-5 h-8 rounded-full border border-estruktura-text/40 flex items-start justify-center pt-1.5">
                 <div className="w-1 h-2 bg-estruktura-text/70 rounded-full" style={{ animation: 'scrollPulse 2s ease-in-out infinite' }} />
               </div>
-              <span className="text-[0.6rem] uppercase tracking-[0.3em] text-estruktura-text/70">Scroll to explore</span>
+              <span className="text-[0.6rem] uppercase tracking-[0.3em] text-estruktura-text/70 font-bold">Scroll to explore</span>
             </div>
           </div>
 

@@ -47,12 +47,12 @@ export default function OtherProducts() {
                     <div className="flex flex-col gap-6">
                         <div className="border-b border-estruktura-accent/50 pb-5">
                             {/* Changed to items-baseline for perfect text alignment */}
-                            <div className="flex justify-between items-baseline mb-3">
+                            <div className="flex flex-col sm:flex-row justify-between sm:items-baseline mb-3 gap-1 sm:gap-0">
                                 <h3 className="font-serif text-estruktura-text text-3xl font-medium">Wallpapers</h3>
                                 <span className="text-estruktura-gold text-[0.75rem] uppercase tracking-[0.25em] font-bold">Texture & Pattern</span>
                             </div>
                             {/* Added min-h-[4.5rem] md:min-h-[5rem] to force equal heights */}
-                            <p className="text-estruktura-text/80 font-medium text-[1rem] leading-relaxed min-h-[4.5rem] md:min-h-[5rem]">
+                            <p className="text-estruktura-text/80 font-medium text-[1rem] leading-relaxed lg:min-h-[5rem]">
                                 Transform your walls with textures and striking patterns. Creating an inviting accent wall in your living room or adding character to a cozy bedroom.
                             </p>
                         </div>
@@ -69,12 +69,12 @@ export default function OtherProducts() {
                     <div className="flex flex-col gap-6">
                         <div className="border-b border-estruktura-accent/50 pb-5">
                             {/* Changed to items-baseline for perfect text alignment */}
-                            <div className="flex justify-between items-baseline mb-3">
+                            <div className="flex flex-col sm:flex-row justify-between sm:items-baseline mb-3 gap-1 sm:gap-0">
                                 <h3 className="font-serif text-estruktura-text text-3xl font-medium">Window Blinds</h3>
                                 <span className="text-estruktura-gold text-[0.75rem] uppercase tracking-[0.25em] font-bold">Light Control</span>
                             </div>
                             {/* Added min-h-[4.5rem] md:min-h-[5rem] to force equal heights */}
-                            <p className="text-estruktura-text/80 font-medium text-[1rem] leading-relaxed min-h-[4.5rem] md:min-h-[5rem]">
+                            <p className="text-estruktura-text/80 font-medium text-[1rem] leading-relaxed lg:min-h-[5rem]">
                                 Functional designs that let you control natural light with ease. Keeping your home office glare-free or ensuring a restful sleep in the bedroom.
                             </p>
                         </div>
