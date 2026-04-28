@@ -2,10 +2,13 @@
 @config "../tailwind.config.ts";
 
 @layer base {
+  html {
+    font-size: 112.5%; /* 18px base text size */
+  }
   body {
-    @apply bg-estruktura-bg text-estruktura-cream font-sans;
+    @apply bg-estruktura-bg text-estruktura-text font-sans;
     /* Adding a subtle noise texture to give a 'carpet/fabric' tactile feel to the background. */
-    background-image: radial-gradient(circle at 50% 50%, rgba(123, 24, 48, 0.15) 0%, rgba(77, 0, 17, 1) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    background-image: radial-gradient(circle at 50% 50%, rgba(216, 195, 165, 0.15) 0%, rgba(234, 224, 213, 0.4) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
     background-attachment: fixed;
     margin: 0;
     min-height: 100vh;

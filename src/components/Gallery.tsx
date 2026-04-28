@@ -76,13 +76,13 @@ export default function Gallery() {
             </div>
 
             {/* Footer CTA */}
-            <div className="py-14 px-6 lg:px-16 bg-[#F4F1EA] text-center border-t border-[#8c7e71]/10">
-                <p className="font-serif italic text-[#8c7e71] text-lg">
+            <div className="py-14 px-6 lg:px-16 bg-estruktura-bg text-center border-t border-estruktura-accent/20">
+                <p className="font-serif italic text-estruktura-gold text-lg">
                     "Interested in seeing your space transformed?"
                 </p>
                 <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 mt-6 text-[0.65rem] uppercase tracking-[0.3em] text-[#2A2725] border-b border-[#2A2725]/30 pb-0.5 hover:border-[#2A2725] transition-all duration-300"
+                    className="inline-flex items-center gap-2 mt-6 text-[0.65rem] uppercase tracking-[0.3em] text-estruktura-text border-b border-estruktura-text/30 pb-0.5 hover:border-estruktura-text transition-all duration-300 font-bold"
                 >
                     Let's talk →
                 </a>
@@ -102,25 +102,25 @@ function ProjectComparison({ pair, index }: any) {
             className={`flex flex-col md:flex-row gap-2 h-auto md:h-[300px] lg:h-[400px] transition-all duration-[1000ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         >
             {/* Artwork Column */}
-            <div className="group relative flex-1 overflow-hidden bg-[#2A2725] aspect-[4/3] md:aspect-auto">
+            <div className="group relative flex-1 overflow-hidden bg-estruktura-bg aspect-[4/3] md:aspect-auto">
                 <img
                     src={pair.artwork}
                     alt={`Artwork Design ${index + 1}`}
                     className="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-[1.05]"
-                    style={{ opacity: 0.85 }}
+                    style={{ opacity: 0.95 }}
                 />
-                <div className="absolute inset-0 bg-[#1C1915]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute inset-0 bg-estruktura-text/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </div>
 
             {/* Install Column */}
-            <div className="group relative flex-1 overflow-hidden bg-[#2A2725] aspect-[4/3] md:aspect-auto">
+            <div className="group relative flex-1 overflow-hidden bg-estruktura-bg aspect-[4/3] md:aspect-auto">
                 <img
                     src={pair.install}
                     alt={`Installed Carpet ${index + 1}`}
                     className="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-[1.05]"
-                    style={{ opacity: 0.9 }}
+                    style={{ opacity: 1 }}
                 />
-                <div className="absolute inset-0 bg-[#1C1915]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute inset-0 bg-estruktura-text/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </div>
         </div>
     );
@@ -133,7 +133,7 @@ function SingleCard({ src, delay }: any) {
     return (
         <div
             ref={ref}
-            className="group relative aspect-square overflow-hidden bg-[#2A2725] cursor-pointer"
+            className="group relative aspect-square overflow-hidden bg-estruktura-bg cursor-pointer"
             style={{
                 transitionDelay: `${delay}ms`,
                 opacity: isVisible ? 1 : 0,
@@ -145,9 +145,9 @@ function SingleCard({ src, delay }: any) {
                 src={src}
                 alt="Carpet Tile"
                 className="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-[1.06]"
-                style={{ opacity: 0.85 }}
+                style={{ opacity: 0.95 }}
             />
-            <div className="absolute inset-0 border border-[#D8C3A5]/0 group-hover:border-[#D8C3A5]/30 transition-all duration-500 pointer-events-none" />
+            <div className="absolute inset-0 border border-estruktura-accent/0 group-hover:border-estruktura-accent transition-all duration-500 pointer-events-none" />
         </div>
     );
 }
