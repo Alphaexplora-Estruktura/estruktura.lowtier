@@ -29,7 +29,7 @@ export default function OtherProducts() {
                 className={`relative z-10 max-w-[90rem] mx-auto px-6 lg:px-16 py-24 lg:py-32 transition-all duration-[1200ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
                 <div className="text-center mb-16 md:mb-20">
-                    <span className="text-estruktura-gold uppercase text-[0.75rem] tracking-[0.3em] font-bold mb-5 inline-flex items-center gap-3 justify-center">
+                    <span className="text-estruktura-gold uppercase text-sm md:text-[0.75rem] tracking-[0.3em] font-bold mb-5 inline-flex items-center gap-3 justify-center">
                         <span className="w-10 h-px bg-estruktura-gold" />
                         Also Available
                         <span className="w-10 h-px bg-estruktura-gold" />
@@ -37,7 +37,7 @@ export default function OtherProducts() {
                     <h2 className="font-serif text-estruktura-text mt-4 leading-tight" style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', fontWeight: 500 }}>
                         Complete Your Interior Floors and Walls.
                     </h2>
-                    <p className="text-estruktura-text/80 font-medium max-w-xl mx-auto mt-6 text-[1rem] md:text-[1.1rem] leading-relaxed">
+                    <p className="text-estruktura-text/80 font-medium max-w-xl mx-auto mt-6 text-lg md:text-[1.1rem] leading-relaxed">
                         Beyond carpets, we are your partner for complete interior flooring, walls, and window solutions.
                     </p>
                 </div>
@@ -49,10 +49,10 @@ export default function OtherProducts() {
                             {/* Changed to items-baseline for perfect text alignment */}
                             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline mb-3 gap-1 sm:gap-0">
                                 <h3 className="font-serif text-estruktura-text text-3xl font-medium">Wallpapers</h3>
-                                <span className="text-estruktura-gold text-[0.75rem] uppercase tracking-[0.25em] font-bold">Texture & Pattern</span>
+                                <span className="text-estruktura-gold text-sm md:text-[0.75rem] uppercase tracking-[0.25em] font-bold">Texture & Pattern</span>
                             </div>
                             {/* Added min-h-[4.5rem] md:min-h-[5rem] to force equal heights */}
-                            <p className="text-estruktura-text/80 font-medium text-[1rem] leading-relaxed lg:min-h-[5rem]">
+                            <p className="text-estruktura-text/80 font-medium text-base md:text-[1rem] leading-relaxed lg:min-h-[5rem]">
                                 Transform your walls with textures and striking patterns. Creating an inviting accent wall in your living room or adding character to a cozy bedroom.
                             </p>
                         </div>
@@ -71,10 +71,10 @@ export default function OtherProducts() {
                             {/* Changed to items-baseline for perfect text alignment */}
                             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline mb-3 gap-1 sm:gap-0">
                                 <h3 className="font-serif text-estruktura-text text-3xl font-medium">Window Blinds</h3>
-                                <span className="text-estruktura-gold text-[0.75rem] uppercase tracking-[0.25em] font-bold">Light Control</span>
+                                <span className="text-estruktura-gold text-sm md:text-[0.75rem] uppercase tracking-[0.25em] font-bold">Light Control</span>
                             </div>
                             {/* Added min-h-[4.5rem] md:min-h-[5rem] to force equal heights */}
-                            <p className="text-estruktura-text/80 font-medium text-[1rem] leading-relaxed lg:min-h-[5rem]">
+                            <p className="text-estruktura-text/80 font-medium text-base md:text-[1rem] leading-relaxed lg:min-h-[5rem]">
                                 Functional designs that let you control natural light with ease. Keeping your home office glare-free or ensuring a restful sleep in the bedroom.
                             </p>
                         </div>
@@ -88,7 +88,7 @@ export default function OtherProducts() {
                     </div>
                 </div>
 
-                <p className="text-center text-estruktura-text/60 text-[0.85rem] mt-20 tracking-[0.2em] uppercase font-bold">
+                <p className="text-center text-estruktura-text/60 text-sm md:text-[0.85rem] mt-20 tracking-[0.2em] uppercase font-bold">
                     Inquire via our contact form for sample viewing
                 </p>
             </div>

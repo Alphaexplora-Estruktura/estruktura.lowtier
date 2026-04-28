@@ -21,7 +21,7 @@ export default function CTA() {
 
           {/* Left: Message */}
           <div>
-            <span className="text-estruktura-gold uppercase text-[0.75rem] tracking-[0.35em] font-bold mb-5 flex items-center gap-3">
+            <span className="text-estruktura-gold uppercase text-sm md:text-[0.75rem] tracking-[0.35em] font-bold mb-5 flex items-center gap-3">
               <span className="w-10 h-px bg-estruktura-gold" />
               Let's Create Together
             </span>
@@ -32,7 +32,7 @@ export default function CTA() {
               Ready to Transform<br />
               <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 400 }}>Your Space?</em>
             </h2>
-            <p className="text-estruktura-cream/90 font-medium leading-relaxed text-[1.1rem] mb-10 max-w-sm">
+            <p className="text-estruktura-cream/90 font-medium leading-relaxed text-lg md:text-[1.1rem] mb-10 max-w-sm">
               To provide an accurate quotation, a site visit for actual measurement is required. We will bring samples during our visit.
             </p>
 
@@ -42,7 +42,7 @@ export default function CTA() {
                 { icon: '📞', text: 'Available for consultations' },
                 { icon: '✉️', text: 'Custom quotes provided' },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4 text-estruktura-cream/80 text-[1rem]">
+                <div key={i} className="flex items-center gap-4 text-estruktura-cream/80 text-base md:text-[1rem]">
                   <span>{item.icon}</span>
                   <span className="font-medium">{item.text}</span>
                 </div>
@@ -59,14 +59,14 @@ export default function CTA() {
                   <input
                     type="text"
                     placeholder="What name should we use?"
-                    className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-[0.95rem]"
+                    className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base md:text-[0.95rem]"
                   />
                 </div>
                 <div className="relative">
                   <input
                     type="email"
                     placeholder="Where should we email you?"
-                    className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-[0.95rem]"
+                    className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base md:text-[0.95rem]"
                   />
                 </div>
               </div>
@@ -74,24 +74,24 @@ export default function CTA() {
               <input
                 type="text"
                 placeholder="What kind of space are we transforming? (e.g. Hotel Lobby, Bedroom)"
-                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-[0.95rem]"
+                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base md:text-[0.95rem]"
               />
 
               <input
                 type="text"
                 placeholder="When is a good time for us to visit and measure?"
-                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-[0.95rem]"
+                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base md:text-[0.95rem]"
               />
 
               <textarea
                 rows={4}
                 placeholder="Tell us a little bit about your vision or requirements..."
-                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-[0.95rem] resize-none"
+                className="w-full px-5 py-4 bg-estruktura-bg/5 border border-estruktura-cream/10 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base md:text-[0.95rem] resize-none"
               />
 
               <button
                 type="button"
-                className="w-full px-8 py-5 bg-estruktura-accent text-estruktura-text font-bold uppercase text-[0.75rem] tracking-[0.3em] hover:bg-estruktura-cream transition-all duration-300 mt-2"
+                className="w-full px-8 py-5 bg-estruktura-accent text-estruktura-text font-bold uppercase text-sm md:text-[0.75rem] tracking-[0.3em] hover:bg-estruktura-cream transition-all duration-300 mt-2"
               >
                 Request a Site Visit
               </button>

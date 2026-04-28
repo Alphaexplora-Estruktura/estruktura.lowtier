@@ -39,14 +39,14 @@ export default function Home() {
                   Estruktura Manila
                 </span>
                 {/* Removed px-2 which was adding horizontal space */}
-                <span className="text-estruktura-gold text-[0.6rem] uppercase tracking-[0.25em] mt-2 font-medium py-0.5 rounded-sm w-fit inline-block whitespace-nowrap">
+                <span className="text-estruktura-gold text-sm md:text-[0.6rem] uppercase tracking-[0.25em] mt-2 font-medium py-0.5 rounded-sm w-fit inline-block whitespace-nowrap">
                   Carpet & Interior Solutions
                 </span>
               </div>
             </div>
 
             {/* Contact Details & Socials (Horizontal on Desktop) */}
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 lg:gap-8 text-estruktura-cream/70 text-[0.7rem] font-light tracking-wide">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 lg:gap-8 text-estruktura-cream/70 text-base md:text-[0.7rem] font-light tracking-wide">
 
               <p>6T Bugallon St. Marikina Heights, Marikina City</p>
 
@@ -88,10 +88,10 @@ export default function Home() {
 
           {/* Bottom Section: Copyright & Credits */}
           <div className="pt-6 border-t border-estruktura-accent/20 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-estruktura-cream/40 text-[0.65rem] uppercase tracking-[0.3em] text-center md:text-left">
+            <p className="text-estruktura-cream/40 text-sm md:text-[0.65rem] uppercase tracking-[0.3em] text-center md:text-left">
               &copy; {new Date().getFullYear()} Estruktura Manila. All rights reserved.
             </p>
-            <p className="text-estruktura-cream/40 text-[0.55rem] uppercase tracking-[0.2em] text-center md:text-right">
+            <p className="text-estruktura-cream/40 text-xs md:text-[0.55rem] uppercase tracking-[0.2em] text-center md:text-right">
               Powered by{' '}
               <a
                 href="https://alphaexplora.com"

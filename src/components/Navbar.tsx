@@ -42,7 +42,7 @@ export default function Navbar() {
                             <span className={`font-serif text-2xl lg:text-3xl tracking-[0.2em] uppercase leading-none font-medium whitespace-nowrap transition-colors duration-300 ${isScrolled ? 'text-[#F4F1EA]' : 'text-[#1C1915]'}`}>
                                 Estruktura Manila
                             </span>
-                            <span className={`text-[0.65rem] uppercase tracking-[0.25em] mt-1.5 font-semibold whitespace-nowrap transition-colors duration-300 ${isScrolled ? 'text-[#D8C3A5]/70' : 'text-[#1C1915]/70'}`}>
+                            <span className={`text-sm sm:text-[0.65rem] uppercase tracking-[0.25em] mt-1.5 font-semibold whitespace-nowrap transition-colors duration-300 ${isScrolled ? 'text-[#D8C3A5]/70' : 'text-[#1C1915]/70'}`}>
                                 Carpet and Interior Solutions
                             </span>
                         </div>
@@ -102,7 +102,7 @@ export default function Navbar() {
                     <a
                         href="#contact"
                         onClick={() => setIsMobileOpen(false)}
-                        className="mt-6 px-8 py-4 bg-[#D8C3A5] text-[#1C1915] text-[0.7rem] uppercase tracking-[0.3em] font-bold"
+                        className="mt-6 px-8 py-4 bg-[#D8C3A5] text-[#1C1915] text-sm md:text-[0.7rem] uppercase tracking-[0.3em] font-bold"
                         style={{
                             opacity: isMobileOpen ? 1 : 0,
                             transform: isMobileOpen ? 'translateY(0)' : 'translateY(16px)',

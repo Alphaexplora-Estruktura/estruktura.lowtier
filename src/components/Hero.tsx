@@ -55,7 +55,7 @@ export default function Hero() {
             >
               <a
                 href="#contact"
-                className="inline-flex items-center gap-3 px-8 py-4 text-estruktura-cream font-bold uppercase text-[0.65rem] tracking-[0.25em] bg-estruktura-text border border-estruktura-text transition-all duration-300 hover:bg-estruktura-accent hover:text-estruktura-text hover:border-estruktura-accent"
+                className="inline-flex items-center gap-3 px-8 py-4 text-estruktura-cream font-bold uppercase text-base md:text-[0.65rem] tracking-[0.25em] bg-estruktura-text border border-estruktura-text transition-all duration-300 hover:bg-estruktura-accent hover:text-estruktura-text hover:border-estruktura-accent"
               >
                 Get a Quote
               </a>
@@ -69,7 +69,7 @@ export default function Hero() {
               <div className="w-5 h-8 rounded-full border border-estruktura-text/40 flex items-start justify-center pt-1.5">
                 <div className="w-1 h-2 bg-estruktura-text/70 rounded-full" style={{ animation: 'scrollPulse 2s ease-in-out infinite' }} />
               </div>
-              <span className="text-[0.6rem] uppercase tracking-[0.3em] text-estruktura-text/70 font-bold">Scroll to explore</span>
+              <span className="text-sm md:text-[0.6rem] uppercase tracking-[0.3em] text-estruktura-text/70 font-bold">Scroll to explore</span>
             </div>
           </div>
 
@@ -91,12 +91,12 @@ export default function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-estruktura-text/80 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3">
-                  <p className="text-estruktura-cream/90 text-[0.6rem] uppercase tracking-[0.2em] font-medium">{card.label}</p>
+                  <p className="text-estruktura-cream/90 text-sm md:text-[0.6rem] uppercase tracking-[0.2em] font-medium">{card.label}</p>
                 </div>
                 <div className="absolute inset-0 border border-estruktura-accent/0 group-hover:border-estruktura-accent/80 transition-all duration-500" />
               </div>
             ))}
-            <p className="col-span-3 text-right text-[0.55rem] uppercase tracking-[0.25em] text-estruktura-text/60 pt-1 font-semibold">
+            <p className="col-span-3 text-right text-sm md:text-[0.55rem] uppercase tracking-[0.25em] text-estruktura-text/60 pt-1 font-semibold">
               Sample Works
             </p>
           </div>

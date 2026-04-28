@@ -16,7 +16,7 @@ export default function Services() {
 
                     {/* Left Side: Headline */}
                     <div className="flex-1 text-center md:text-left">
-                        <span className="text-[#8c7e71] uppercase text-[0.65rem] tracking-[0.35em] font-bold mb-4 inline-flex items-center gap-3">
+                        <span className="text-[#8c7e71] uppercase text-sm md:text-[0.65rem] tracking-[0.35em] font-bold mb-4 inline-flex items-center gap-3">
                             <span className="hidden md:block w-8 h-px bg-[#8c7e71]" />
                             Our Services
                         </span>
@@ -24,7 +24,7 @@ export default function Services() {
                             Carpet Cleaning <br className="hidden md:block" />
                             <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>Solutions.</em>
                         </h2>
-                        <p className="text-[#5c5048] mt-6 text-[1rem] leading-relaxed max-w-md mx-auto md:mx-0">
+                        <p className="text-[#5c5048] mt-6 text-lg md:text-[1rem] leading-relaxed max-w-md mx-auto md:mx-0">
                             Maintain the pristine condition of your investment with our professional deep-cleaning solutions, tailored specifically for your installed flooring.
                         </p>
                     </div>
@@ -39,18 +39,18 @@ export default function Services() {
                             <h3 className="font-serif text-[#1C1915] text-2xl mb-4">
                                 Steam Extract Cleaning
                             </h3>
-                            <p className="text-[#1C1915] font-medium text-[0.95rem] leading-relaxed tracking-wide">
+                            <p className="text-[#1C1915] font-medium text-base md:text-[0.95rem] leading-relaxed tracking-wide">
                                 Specialized deep-cleaning process exclusively for <strong className="font-bold text-[#8c7e71]">installed carpets</strong>.
                             </p>
 
                             <div className="mt-8 pt-6 border-t border-[#F4F1EA]">
-                                <span className="inline-flex items-center gap-2 text-[#8c7e71] text-[0.7rem] uppercase tracking-[0.2em] font-bold">
+                                <span className="inline-flex items-center gap-2 text-[#8c7e71] text-sm md:text-[0.7rem] uppercase tracking-[0.2em] font-bold">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#D8C3A5]">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                     </svg>
                                     Please Note
                                 </span>
-                                <p className="text-[#5c5048] text-sm mt-2 font-light">
+                                <p className="text-[#5c5048] text-base md:text-sm mt-2 font-light">
                                     We do not provide cleaning services for standalone area rugs.
                                 </p>
                             </div>

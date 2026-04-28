@@ -84,7 +84,7 @@ export default function Gallery() {
                 </p>
                 <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 mt-6 text-[0.65rem] uppercase tracking-[0.3em] text-estruktura-text border-b border-estruktura-text/30 pb-0.5 hover:border-estruktura-text transition-all duration-300 font-bold"
+                    className="inline-flex items-center gap-2 mt-6 text-sm md:text-[0.65rem] uppercase tracking-[0.3em] text-estruktura-text border-b border-estruktura-text/30 pb-0.5 hover:border-estruktura-text transition-all duration-300 font-bold"
                 >
                     Let's talk →
                 </a>

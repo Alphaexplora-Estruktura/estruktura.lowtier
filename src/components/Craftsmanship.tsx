@@ -10,7 +10,7 @@ export default function Craftsmanship() {
 
             {/* ── Full-width header ── */}
             <div className="py-20 lg:py-28 px-6 lg:px-16 text-center max-w-[90rem] mx-auto">
-                <span className="text-estruktura-gold uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 inline-flex items-center gap-3">
+                <span className="text-estruktura-gold uppercase text-sm md:text-[0.6rem] tracking-[0.35em] font-semibold mb-5 inline-flex items-center gap-3">
                     <span className="w-8 h-px bg-estruktura-gold" />
                     The Process
                     <span className="w-8 h-px bg-estruktura-gold" />

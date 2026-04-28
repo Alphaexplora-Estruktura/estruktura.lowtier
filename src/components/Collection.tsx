@@ -70,7 +70,7 @@ export default function Collection() {
           ref={headerRef}
           className={`relative z-10 max-w-[90rem] mx-auto px-6 lg:px-16 pb-16 transition-all duration-[1000ms] ease-out ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
+          <span className="text-[#8c7e71] uppercase text-sm md:text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
             <span className="w-8 h-px bg-[#8c7e71]" />
             What We Provide
           </span>
@@ -87,14 +87,14 @@ export default function Collection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-[#D8C3A5]/40">
             {products.map((p, i) => (
               <div key={i} className="bg-[#F4F1EA] p-8 group hover:bg-[#1C1915] transition-all duration-500 cursor-default flex flex-col gap-3" style={{ transitionDelay: `${i * 50}ms` }}>
-                <span className="text-[#8c7e71]/50 text-[0.6rem] uppercase tracking-[0.3em] font-semibold">
+                <span className="text-[#8c7e71]/50 text-sm md:text-[0.6rem] uppercase tracking-[0.3em] font-semibold">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <h4 className="font-serif text-[#2A2725] text-xl group-hover:text-[#D8C3A5] transition-colors duration-500 leading-tight">
                   {p.name}
                 </h4>
                 <div className="w-8 h-px bg-[#D8C3A5]/60 group-hover:bg-[#D8C3A5]/30 transition-colors duration-500" />
-                <p className="text-[#5c5048] text-[0.78rem] leading-relaxed font-light group-hover:text-[#F4F1EA]/60 transition-colors duration-500">
+                <p className="text-[#5c5048] text-base md:text-[0.78rem] leading-relaxed font-light group-hover:text-[#F4F1EA]/60 transition-colors duration-500">
                   {p.description}
                 </p>
               </div>
@@ -109,13 +109,13 @@ export default function Collection() {
 
           {/* Left: Typography & Intro */}
           <div className="flex-1 text-center lg:text-left">
-            <span className="text-[#8c7e71] uppercase text-[0.65rem] tracking-[0.3em] font-bold mb-4 block">
+            <span className="text-[#8c7e71] uppercase text-sm md:text-[0.65rem] tracking-[0.3em] font-bold mb-4 block">
               How We Work With You
             </span>
             <h3 className="font-serif text-[#1C1915] text-3xl md:text-4xl lg:text-5xl mb-6 font-medium leading-tight">
               Ready-Made or<br className="hidden lg:block" /> Fully Custom.
             </h3>
-            <p className="text-[#5c5048] text-[1rem] leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="text-[#5c5048] text-lg md:text-[1rem] leading-relaxed max-w-xl mx-auto lg:mx-0">
               We love helping you find the perfect match. Whether you are looking for a quick, stunning transformation or a deeply personalized masterpiece, we are happy to guide you to the right solution for your space.
             </p>
           </div>
@@ -127,11 +127,11 @@ export default function Collection() {
             <div className="bg-[#F4F1EA] p-8 md:p-10 rounded-xl border border-[#D8C3A5]/30 hover:border-[#D8C3A5] hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
               <div>
                 <h4 className="font-serif text-[#1C1915] text-xl mb-3">Available Collections</h4>
-                <p className="text-[#5c5048] text-[0.9rem] leading-relaxed font-light mb-6">
+                <p className="text-[#5c5048] text-base md:text-[0.9rem] leading-relaxed font-light mb-6">
                   Perfect for homes, boutique offices, and intimate spaces. Choose from our curated, high-quality designs that are ready for immediate installation.
                 </p>
               </div>
-              <span className="text-[#8c7e71] text-[0.7rem] uppercase tracking-[0.2em] font-bold">
+              <span className="text-[#8c7e71] text-sm md:text-[0.7rem] uppercase tracking-[0.2em] font-bold">
                 No minimum required
               </span>
             </div>
@@ -140,12 +140,12 @@ export default function Collection() {
             <div className="bg-[#F4F1EA] p-8 md:p-10 rounded-xl border border-[#D8C3A5]/30 hover:border-[#D8C3A5] hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
               <div>
                 <h4 className="font-serif text-[#1C1915] text-xl mb-3">Bespoke Customization</h4>
-                <p className="text-[#5c5048] text-[0.9rem] leading-relaxed font-light mb-6">
+                <p className="text-[#5c5048] text-base md:text-[0.9rem] leading-relaxed font-light mb-6">
                   Tailored for grand-scale commercial projects and hotels. We will collaborate closely with you to craft a totally unique design from scratch.
                 </p>
               </div>
               <div className="pt-4 border-t border-[#D8C3A5]/30 mt-auto">
-                <span className="text-[#8c7e71] text-[0.7rem] uppercase tracking-[0.2em] font-bold block leading-relaxed">
+                <span className="text-[#8c7e71] text-sm md:text-[0.7rem] uppercase tracking-[0.2em] font-bold block leading-relaxed">
                   Kindly Note: <br className="hidden xl:block" />
                   <span className="text-[#1C1915]">Custom tiles start at 1,000 sqm.</span>
                 </span>
@@ -173,7 +173,7 @@ export default function Collection() {
 
             {/* Header */}
             <div className="text-center mb-16">
-              <span className="text-[#8c7e71] uppercase text-[0.65rem] tracking-[0.35em] font-semibold mb-5 flex items-center justify-center gap-3">
+              <span className="text-[#8c7e71] uppercase text-sm md:text-[0.65rem] tracking-[0.35em] font-semibold mb-5 flex items-center justify-center gap-3">
                 <span className="w-8 h-px bg-[#8c7e71]" />
                 More Than Beauty
                 <span className="w-8 h-px bg-[#8c7e71]" />
@@ -194,7 +194,7 @@ export default function Collection() {
                   </span>
 
                   {/* Standard numeral indicator */}
-                  <span className="text-[#D8C3A5] text-[0.7rem] uppercase tracking-[0.3em] font-bold mb-6 block relative z-10">
+                  <span className="text-[#D8C3A5] text-sm md:text-[0.7rem] uppercase tracking-[0.3em] font-bold mb-6 block relative z-10">
                     {String(i + 1).padStart(2, '0')} —
                   </span>
 
@@ -202,7 +202,7 @@ export default function Collection() {
                     {b.label}
                   </h4>
 
-                  <p className="text-[#5c5048] text-[0.9rem] font-medium leading-relaxed relative z-10">
+                  <p className="text-[#5c5048] text-base md:text-[0.9rem] font-medium leading-relaxed relative z-10">
                     {b.detail}
                   </p>
                 </div>
