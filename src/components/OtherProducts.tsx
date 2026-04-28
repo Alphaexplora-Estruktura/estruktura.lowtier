@@ -42,12 +42,17 @@ export default function OtherProducts() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10">
                     {/* Wallpapers Section */}
                     <div className="flex flex-col gap-4">
-                        <div className="border-b border-[#F4F1EA]/10 pb-4 mb-2 flex justify-between items-end">
-                            <h3 className="font-serif text-[#F4F1EA] text-2xl">Wallpapers</h3>
-                            <span className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.25em]">Texture & Pattern</span>
+                        <div className="border-b border-[#F4F1EA]/10 pb-4 mb-2">
+                            <div className="flex justify-between items-end mb-2">
+                                <h3 className="font-serif text-[#F4F1EA] text-2xl">Wallpapers</h3>
+                                <span className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.25em]">Texture & Pattern</span>
+                            </div>
+                            <p className="text-[#F4F1EA]/50 font-light text-[0.75rem] leading-relaxed">
+                                Transform your walls with  textures and striking patterns. Creating an inviting accent wall in your living room or adding character to a cozy bedroom.
+                            </p>
                         </div>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                             {wallpapers.map((src, i) => (
@@ -60,9 +65,14 @@ export default function OtherProducts() {
 
                     {/* Blinds Section */}
                     <div className="flex flex-col gap-4">
-                        <div className="border-b border-[#F4F1EA]/10 pb-4 mb-2 flex justify-between items-end">
-                            <h3 className="font-serif text-[#F4F1EA] text-2xl">Window Blinds</h3>
-                            <span className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.25em]">Light Control</span>
+                        <div className="border-b border-[#F4F1EA]/10 pb-4 mb-2">
+                            <div className="flex justify-between items-end mb-2">
+                                <h3 className="font-serif text-[#F4F1EA] text-2xl">Window Blinds</h3>
+                                <span className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.25em]">Light Control</span>
+                            </div>
+                            <p className="text-[#F4F1EA]/50 font-light text-[0.75rem] leading-relaxed">
+                                Functional designs that let you control natural light with ease. Keeping your home office glare-free or ensuring a restful sleep in the bedroom.
+                            </p>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {blinds.map((src, i) => (

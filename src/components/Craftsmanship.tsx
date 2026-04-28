@@ -19,7 +19,7 @@ export default function Craftsmanship() {
                     From Concept to Reality.
                 </h2>
                 <p className="text-[#F4F1EA]/40 font-light max-w-xl mx-auto mt-4 text-sm leading-relaxed">
-                    We master both Machine-Manufactured Precision and Handtufted Skills.
+                    Machine and Handtufted-Manufactured
                 </p>
             </div>
 
@@ -61,7 +61,7 @@ export default function Craftsmanship() {
                         <span className="text-[#8c7e71] text-[0.6rem] uppercase tracking-[0.3em] font-semibold">Step 02</span>
                         <h3 className="font-serif text-[#F4F1EA] text-3xl mt-2 mb-3">Tailored to You</h3>
                         <p className="text-[#F4F1EA]/60 font-light text-sm leading-relaxed max-w-xs">
-                            Choose your color palette and texture. The result is a carpet made exactly for your space — no compromises.
+                            Choose your color palette and texture. The result is a carpet made exactly for your space.
                         </p>
                     </div>
                 </div>
