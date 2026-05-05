@@ -10,7 +10,7 @@ export default function Services() {
 
             <div
                 ref={ref}
-                className={`relative z-10 max-w-[90rem] mx-auto px-6 lg:px-16 py-24 transition-all duration-[1200ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`relative z-10 max-w-[90rem] mx-auto px-6 lg:px-16 py-[clamp(4rem,10vw,7rem)] transition-all duration-[1200ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
                 <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
 
@@ -31,7 +31,7 @@ export default function Services() {
 
                     {/* Right Side: The Highlighted Service Card */}
                     <div className="flex-1 w-full max-w-lg">
-                        <div className="bg-white rounded-2xl shadow-lg shadow-[#D8C3A5]/10 border border-[#D8C3A5]/40 p-8 md:p-10 relative overflow-hidden group">
+                        <div className="bg-white rounded-2xl shadow-lg shadow-[#D8C3A5]/10 border border-[#D8C3A5]/40 p-[clamp(1.5rem,4vw,2.5rem)] relative overflow-hidden group">
 
                             {/* Accent highlight bar */}
                             <div className="absolute top-0 left-0 w-full h-1 bg-[#D8C3A5]" />

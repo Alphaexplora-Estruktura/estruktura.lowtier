@@ -10,9 +10,9 @@ import imgWp1 from '../assets/wallpapers/wp-1.jpg';
 import imgWp2 from '../assets/wallpapers/wp-2.jpg';
 import imgWp3 from '../assets/wallpapers/wp-3.jpg';
 import imgWp4 from '../assets/wallpapers/wp-4.jpg';
-import imgWp5 from '../assets/wallpapers/wp-5.jpg';
+import imgWp5 from '../assets/wallpapers/wp-7.jpg';
 import imgWp6 from '../assets/wallpapers/wp-6.jpg';
-import imgWp7 from '../assets/wallpapers/wp-7.jpg';
+import imgWp7 from '../assets/wallpapers/wp-5.jpg';
 
 export default function OtherProducts() {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
@@ -26,7 +26,7 @@ export default function OtherProducts() {
 
             <div
                 ref={ref}
-                className={`relative z-10 max-w-[90rem] mx-auto px-6 lg:px-16 py-24 lg:py-32 transition-all duration-[1200ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`relative z-10 max-w-[90rem] mx-auto px-6 lg:px-16 py-[clamp(4rem,10vw,8rem)] transition-all duration-[1200ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             >
                 <div className="text-center mb-16 md:mb-20">
                     <span className="text-estruktura-gold uppercase text-sm md:text-[0.75rem] tracking-[0.3em] font-bold mb-5 inline-flex items-center gap-3 justify-center">
@@ -46,19 +46,21 @@ export default function OtherProducts() {
                     {/* Wallpapers Section */}
                     <div className="flex flex-col gap-6">
                         <div className="border-b border-estruktura-accent/50 pb-5">
-                            {/* Changed to items-baseline for perfect text alignment */}
                             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline mb-3 gap-1 sm:gap-0">
                                 <h3 className="font-serif text-estruktura-text text-3xl font-medium">Wallpapers</h3>
                                 <span className="text-estruktura-gold text-sm md:text-[0.75rem] uppercase tracking-[0.25em] font-bold">Texture & Pattern</span>
                             </div>
-                            {/* Added min-h-[4.5rem] md:min-h-[5rem] to force equal heights */}
                             <p className="text-estruktura-text/80 font-medium text-base md:text-[1rem] leading-relaxed lg:min-h-[5rem]">
                                 Transform your walls with textures and striking patterns. Creating an inviting accent wall in your living room or adding character to a cozy bedroom.
                             </p>
                         </div>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                             {wallpapers.map((src, i) => (
-                                <div key={i} className="aspect-square overflow-hidden bg-[#1C1915]">
+                                <div
+                                    key={i}
+                                    // Make the 7th image (index 6) span the remaining columns so there are no empty spaces
+                                    className={`overflow-hidden bg-[#1C1915] ${i === 6 ? 'col-span-2 sm:col-span-3 aspect-[2/1] sm:aspect-[3/1]' : 'aspect-square'}`}
+                                >
                                     <img src={src} alt={`Wallpaper ${i + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700 opacity-80 hover:opacity-100" />
                                 </div>
                             ))}
@@ -68,12 +70,10 @@ export default function OtherProducts() {
                     {/* Blinds Section */}
                     <div className="flex flex-col gap-6">
                         <div className="border-b border-estruktura-accent/50 pb-5">
-                            {/* Changed to items-baseline for perfect text alignment */}
                             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline mb-3 gap-1 sm:gap-0">
                                 <h3 className="font-serif text-estruktura-text text-3xl font-medium">Window Blinds</h3>
                                 <span className="text-estruktura-gold text-sm md:text-[0.75rem] uppercase tracking-[0.25em] font-bold">Light Control</span>
                             </div>
-                            {/* Added min-h-[4.5rem] md:min-h-[5rem] to force equal heights */}
                             <p className="text-estruktura-text/80 font-medium text-base md:text-[1rem] leading-relaxed lg:min-h-[5rem]">
                                 Functional designs that let you control natural light with ease. Keeping your home office glare-free or ensuring a restful sleep in the bedroom.
                             </p>

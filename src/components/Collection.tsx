@@ -57,7 +57,7 @@ export default function Collection() {
     <section id="products" className="overflow-hidden">
 
       {/* ── Section 1: Products header ── */}
-      <div className="relative min-h-[55vh] flex items-end overflow-hidden bg-[#1C1915]">
+      <div className="relative min-h-[55dvh] flex items-end overflow-hidden bg-[#1C1915]">
         <img
           src={imgBr22}
           alt="Installed carpet bedroom"
@@ -82,11 +82,11 @@ export default function Collection() {
       </div>
 
       {/* ── Section 2: Products grid ── */}
-      <div ref={productsRef} className={`bg-[#F4F1EA] py-20 px-6 lg:px-16 transition-all duration-[1000ms] ease-out ${productsVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div ref={productsRef} className={`bg-[#F4F1EA] py-[clamp(4rem,10vw,5rem)] px-6 lg:px-16 transition-all duration-[1000ms] ease-out ${productsVisible ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-[90rem] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-[#D8C3A5]/40">
             {products.map((p, i) => (
-              <div key={i} className="bg-[#F4F1EA] p-8 group hover:bg-[#1C1915] transition-all duration-500 cursor-default flex flex-col gap-3" style={{ transitionDelay: `${i * 50}ms` }}>
+              <div key={i} className="bg-[#F4F1EA] p-[clamp(1.25rem,4vw,2rem)] group hover:bg-[#1C1915] transition-all duration-500 cursor-default flex flex-col gap-3" style={{ transitionDelay: `${i * 50}ms` }}>
                 <span className="text-[#8c7e71]/50 text-sm md:text-[0.6rem] uppercase tracking-[0.3em] font-semibold">
                   {String(i + 1).padStart(2, '0')}
                 </span>
@@ -104,7 +104,7 @@ export default function Collection() {
       </div>
 
       {/* ── Section 2.5: Ways We Work With You (Friendly & Elegant Layout) ── */}
-      <div className="bg-[#E8E2DA] py-20 px-6 lg:px-16 border-y border-[#D8C3A5]/30">
+      <div className="bg-[#E8E2DA] py-[clamp(3rem,8vw,5rem)] px-6 lg:px-16 border-y border-[#D8C3A5]/30">
         <div className="max-w-[90rem] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
 
           {/* Left: Typography & Intro */}
@@ -186,7 +186,7 @@ export default function Collection() {
             {/* Editorial Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#D8C3A5]/50 bg-[#F4F1EA]/60 backdrop-blur-md shadow-xl">
               {benefits.map((b, i) => (
-                <div key={i} className="group relative p-8 md:p-10 border-b border-r border-[#D8C3A5]/50 hover:bg-white/90 transition-all duration-500 flex flex-col h-full overflow-hidden">
+                <div key={i} className="group relative p-[clamp(1.25rem,4vw,2.5rem)] border-b border-r border-[#D8C3A5]/50 hover:bg-white/90 transition-all duration-500 flex flex-col h-full overflow-hidden">
 
                   {/* Massive watermark numeral */}
                   <span className="absolute -bottom-4 -right-2 text-[8rem] font-serif font-bold text-[#D8C3A5]/15 group-hover:text-[#D8C3A5]/25 transition-colors duration-500 pointer-events-none select-none leading-none">

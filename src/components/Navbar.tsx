@@ -29,9 +29,11 @@ export default function Navbar() {
                 <div className="max-w-[90rem] mx-auto px-6 lg:px-16 flex justify-between items-center">
 
                     {/* Logo */}
+                    {/* Logo */}
                     <a href="#" className="flex items-center gap-3 group">
                         <img
-                            src="/Estruktura-trans.png"
+                            // Automatically swaps the image source based on scroll state
+                            src={isScrolled ? "/Estruktura-trans.png" : "/Estruktura-dark.png"}
                             alt="Estruktura Logo"
                             className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                         />
@@ -70,7 +72,7 @@ export default function Navbar() {
 
                     {/* Mobile hamburger */}
                     <button
-                        className="xl:hidden flex flex-col justify-center gap-1.5 w-7 h-7"
+                        className="xl:hidden flex flex-col justify-center items-center gap-1.5 min-w-[44px] min-h-[44px]"
                         onClick={() => setIsMobileOpen(!isMobileOpen)}
                         aria-label="Toggle menu"
                     >
@@ -89,7 +91,7 @@ export default function Navbar() {
                             key={link.name}
                             href={link.href}
                             onClick={() => setIsMobileOpen(false)}
-                            className="font-serif text-2xl text-[#F4F1EA]/80 hover:text-[#D8C3A5] transition-colors duration-300 tracking-[0.1em] font-medium"
+                            className="font-serif text-2xl text-[#F4F1EA]/80 hover:text-[#D8C3A5] transition-colors duration-300 tracking-[0.1em] font-medium min-h-[44px] flex items-center"
                             style={{
                                 opacity: isMobileOpen ? 1 : 0,
                                 transform: isMobileOpen ? 'translateY(0)' : 'translateY(16px)',
@@ -102,7 +104,7 @@ export default function Navbar() {
                     <a
                         href="#contact"
                         onClick={() => setIsMobileOpen(false)}
-                        className="mt-6 px-8 py-4 bg-[#D8C3A5] text-[#1C1915] text-sm md:text-[0.7rem] uppercase tracking-[0.3em] font-bold"
+                        className="mt-6 px-8 min-h-[44px] flex items-center justify-center bg-[#D8C3A5] text-[#1C1915] text-sm md:text-[0.7rem] uppercase tracking-[0.3em] font-bold"
                         style={{
                             opacity: isMobileOpen ? 1 : 0,
                             transform: isMobileOpen ? 'translateY(0)' : 'translateY(16px)',

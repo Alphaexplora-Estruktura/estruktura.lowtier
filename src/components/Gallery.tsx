@@ -41,7 +41,7 @@ export default function Gallery() {
     return (
         <section id="gallery" className="bg-[#F4F1EA] overflow-hidden">
             {/* Header */}
-            <div className="py-20 lg:py-24 px-6 lg:px-16 bg-[#F4F1EA]">
+            <div className="py-[clamp(4rem,10vw,6rem)] px-6 lg:px-16 bg-[#F4F1EA]">
                 <div
                     ref={headerRef}
                     className={`max-w-[90rem] mx-auto flex flex-col lg:flex-row justify-between items-start gap-8 transition-all duration-[1000ms] ease-out ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
@@ -84,7 +84,7 @@ export default function Gallery() {
                 </p>
                 <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 mt-6 text-sm md:text-[0.65rem] uppercase tracking-[0.3em] text-estruktura-text border-b border-estruktura-text/30 pb-0.5 hover:border-estruktura-text transition-all duration-300 font-bold"
+                    className="inline-flex items-center min-h-[44px] gap-2 mt-6 text-sm md:text-[0.65rem] uppercase tracking-[0.3em] text-estruktura-text border-b border-estruktura-text/30 pb-0.5 hover:border-estruktura-text transition-all duration-300 font-bold"
                 >
                     Let's talk →
                 </a>
@@ -100,7 +100,7 @@ function ProjectComparison({ pair, index }: any) {
     return (
         <div
             ref={ref}
-            className={`flex flex-col md:flex-row gap-2 h-auto md:h-[300px] lg:h-[400px] transition-all duration-[1000ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+            className={`flex flex-col md:flex-row gap-2 h-auto md:h-[clamp(200px,30vw,400px)] transition-all duration-[1000ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         >
             <div className="group relative flex-1 overflow-hidden bg-estruktura-bg aspect-[4/3] md:aspect-auto">
                 <img

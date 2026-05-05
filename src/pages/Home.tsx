@@ -28,47 +28,49 @@ export default function Home() {
         <div className="max-w-[90rem] mx-auto">
 
           {/* Main Section: Spread Horizontally */}
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-8">
+          <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-8 mb-8">
 
             {/* Brand */}
-            <div className="flex items-center gap-3">
-              <div className="w-0.5 h-8 bg-estruktura-gold" />
-              {/* Added items-start and text-left here */}
-              <div className="flex flex-col justify-center items-start text-left">
-                <span className="font-serif text-xl text-estruktura-cream tracking-[0.3em] uppercase leading-none whitespace-nowrap">
+            <div className="flex items-start sm:items-center gap-3 w-full sm:w-auto shrink-0">
+              <div className="w-0.5 h-12 sm:h-8 bg-estruktura-gold shrink-0 mt-1 sm:mt-0" />
+              <div className="flex flex-col justify-center items-start text-left w-full overflow-hidden">
+                <span
+                  className="font-serif text-estruktura-cream uppercase leading-tight md:leading-none break-words"
+                  style={{ fontSize: 'clamp(1.1rem, 4vw, 1.25rem)', letterSpacing: '0.2em' }}
+                >
                   Estruktura Manila
                 </span>
-                {/* Removed px-2 which was adding horizontal space */}
-                <span className="text-estruktura-gold text-sm md:text-[0.6rem] uppercase tracking-[0.25em] mt-2 font-medium py-0.5 rounded-sm w-fit inline-block whitespace-nowrap">
+                <span className="text-estruktura-gold text-[0.65rem] md:text-[0.6rem] uppercase tracking-[0.2em] md:tracking-[0.25em] mt-1 sm:mt-2 font-medium py-0.5 rounded-sm w-fit inline-block">
                   Carpet & Interior Solutions
                 </span>
               </div>
             </div>
 
-            {/* Contact Details & Socials (Horizontal on Desktop) */}
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 lg:gap-8 text-estruktura-cream/70 text-base md:text-[0.7rem] font-light tracking-wide">
+            {/* Contact Details & Socials (Horizontal strictly on lg/desktop) */}
+            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-5 text-estruktura-cream/70 text-[0.8rem] lg:text-[0.65rem] font-light tracking-wide w-full lg:w-auto">
 
-              <p>6T Bugallon St. Marikina Heights, Marikina City</p>
+              {/* Added whitespace-nowrap to prevent 2-line breaking */}
+              <p className="whitespace-nowrap">6T Bugallon St. Marikina Heights, Marikina City</p>
 
-              {/* Divider (Hidden on Mobile) */}
-              <div className="hidden md:block w-px h-4 bg-estruktura-gold/30" />
+              {/* Divider */}
+              <div className="hidden lg:block w-px h-4 bg-estruktura-gold/30 shrink-0" />
 
-              <p>GLOBE: 0917 413 8843</p>
+              <p className="whitespace-nowrap">GLOBE: 0917 413 8843</p>
 
-              {/* Divider (Hidden on Mobile) */}
-              <div className="hidden md:block w-px h-4 bg-estruktura-gold/30" />
+              {/* Divider */}
+              <div className="hidden lg:block w-px h-4 bg-estruktura-gold/30 shrink-0" />
 
-              <p>SMART: 0968 474 6559</p>
+              <p className="whitespace-nowrap">SMART: 0968 474 6559</p>
 
-              {/* Divider (Hidden on Mobile) */}
-              <div className="hidden md:block w-px h-4 bg-estruktura-gold/30" />
+              {/* Divider */}
+              <div className="hidden lg:block w-px h-4 bg-estruktura-gold/30 shrink-0" />
 
-              <a href="mailto:estrukturamanila@gmail.com" className="hover:text-estruktura-gold transition-colors duration-300">
-                estrukturamanila@gmail.com
+              <a href="mailto:inquire@estruktura.ph" className="whitespace-nowrap hover:text-estruktura-gold transition-colors duration-300">
+                inquire@estruktura.ph
               </a>
 
-              {/* Divider (Hidden on Mobile) */}
-              <div className="hidden md:block w-px h-4 bg-estruktura-gold/30" />
+              {/* Divider */}
+              <div className="hidden lg:block w-px h-4 bg-estruktura-gold/30 shrink-0" />
 
               {/* Facebook Icon */}
               <a
@@ -76,9 +78,9 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="hover:text-estruktura-gold transition-colors duration-300"
+                className="hover:text-estruktura-gold transition-colors duration-300 mt-2 lg:mt-0 shrink-0"
               >
-                <svg fill="currentColor" viewBox="0 0 24 24" className="w-[1.15rem] h-[1.15rem]">
+                <svg fill="currentColor" viewBox="0 0 24 24" className="w-[1.25rem] h-[1.25rem]">
                   <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
                 </svg>
               </a>
@@ -87,12 +89,12 @@ export default function Home() {
           </div>
 
           {/* Bottom Section: Copyright & Credits */}
-          <div className="pt-6 border-t border-estruktura-accent/20 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-estruktura-cream/40 text-sm md:text-[0.65rem] uppercase tracking-[0.3em] text-center md:text-left">
+          <div className="pt-6 border-t border-estruktura-accent/20 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
+            <p className="text-estruktura-cream/40 text-[0.7rem] md:text-[0.65rem] uppercase tracking-[0.2em] md:tracking-[0.3em] text-center md:text-left leading-relaxed">
               &copy; {new Date().getFullYear()} Estruktura Manila. All rights reserved.
             </p>
-            <p className="text-estruktura-cream/40 text-xs md:text-[0.55rem] uppercase tracking-[0.2em] text-center md:text-right">
-              Powered by{' '}
+            <p className="text-estruktura-cream/40 text-[0.6rem] md:text-[0.55rem] uppercase tracking-[0.2em] text-center md:text-right leading-relaxed flex flex-col md:block gap-1">
+              <span>Powered by </span>
               <a
                 href="https://alphaexplora.com"
                 target="_blank"

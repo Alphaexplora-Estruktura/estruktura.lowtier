@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col overflow-hidden bg-estruktura-bg"
+      className="relative min-h-[100dvh] flex flex-col overflow-hidden bg-estruktura-bg"
     >
       {/* Full-bleed carpet background */}
       <img
@@ -20,7 +20,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-estruktura-bg/90 via-estruktura-bg/30 to-transparent" />
 
       {/* Content: vertically centered */}
-      <div className="relative z-10 flex flex-col justify-center flex-1 max-w-[90rem] mx-auto w-full px-6 lg:px-16 pt-28 pb-16">
+      <div className="relative z-10 flex flex-col justify-center flex-1 max-w-[90rem] mx-auto w-full px-6 lg:px-16 pt-[clamp(6rem,15vw,9rem)] pb-[clamp(3rem,8vw,6rem)]">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
 
@@ -55,7 +55,7 @@ export default function Hero() {
             >
               <a
                 href="#contact"
-                className="inline-flex items-center gap-3 px-8 py-4 text-estruktura-cream font-bold uppercase text-base md:text-[0.65rem] tracking-[0.25em] bg-estruktura-text border border-estruktura-text transition-all duration-300 hover:bg-estruktura-accent hover:text-estruktura-text hover:border-estruktura-accent"
+                className="inline-flex items-center justify-center gap-3 min-h-[44px] px-8 py-3 text-estruktura-cream font-bold uppercase text-base md:text-[0.65rem] tracking-[0.25em] bg-estruktura-text border border-estruktura-text transition-all duration-300 hover:bg-estruktura-accent hover:text-estruktura-text hover:border-estruktura-accent"
               >
                 Get a Quote
               </a>
