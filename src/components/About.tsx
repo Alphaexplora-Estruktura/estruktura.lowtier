@@ -30,22 +30,22 @@ export default function About() {
     <section id="designs" className="bg-[#F4F1EA] overflow-hidden">
 
       {/* ── Intro bar ── */}
-      <div className="bg-[#1C1915] py-20 lg:py-28">
+      <div className="bg-estruktura-bg border-b border-estruktura-accent/20 py-[clamp(4rem,10vw,7rem)]">
         <div
           ref={headingRef}
           className={`max-w-[90rem] mx-auto px-6 lg:px-16 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 transition-all duration-[1000ms] ease-out ${headingVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <div>
-            <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
-              <span className="w-8 h-px bg-[#8c7e71]" />
+            <span className="text-estruktura-text uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
+              <span className="w-8 h-px bg-estruktura-text" />
               Our Designs
             </span>
-            <h2 className="font-serif text-[#F4F1EA] leading-tight" style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', fontWeight: 400 }}>
+            <h2 className="font-serif text-estruktura-text leading-tight" style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', fontWeight: 500 }}>
               Versatile Designs<br />
-              <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 300 }}>for Every Vision.</em>
+              <em className="text-estruktura-text/60" style={{ fontStyle: 'italic', fontWeight: 400 }}>for Every Vision.</em>
             </h2>
           </div>
-          <p className="text-[#F4F1EA]/50 font-light leading-relaxed max-w-sm text-sm lg:text-right">
+          <p className="text-estruktura-text/70 font-medium leading-relaxed max-w-sm text-sm lg:text-right">
             From nature-inspired artistic concepts and Heritage Arts to Grand and Magnificent Artwork — we bring your ideas to life.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function About() {
               </div>
 
               {/* Text panel */}
-              <div className={`flex flex-col justify-center px-10 lg:px-16 py-14 bg-[#F4F1EA] ${idx % 2 !== 0 ? 'lg:order-1' : ''}`}>
+              <div className={`flex flex-col justify-center px-[clamp(1.5rem,6vw,4rem)] py-[clamp(2.5rem,8vw,5rem)] bg-[#F4F1EA] ${idx % 2 !== 0 ? 'lg:order-1' : ''}`}>
                 <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.35em] font-semibold mb-4">Style</span>
                 <h3
                   className="font-serif text-[#2A2725] mb-5 leading-tight group-hover:text-[#5c5048] transition-colors duration-500"
@@ -102,7 +102,7 @@ export default function About() {
       <div className="bg-[#1C1915] py-10 px-6 lg:px-16">
         <div className="max-w-[90rem] mx-auto flex items-center justify-between">
           <p className="text-[#F4F1EA]/40 text-xs uppercase tracking-[0.3em]">Explore how we craft each design ↓</p>
-          <a href="#products" className="text-[#D8C3A5] text-xs uppercase tracking-[0.3em] hover:text-[#F4F1EA] transition-colors duration-300">
+          <a href="#products" className="inline-flex items-center min-h-[44px] text-[#D8C3A5] text-xs uppercase tracking-[0.3em] hover:text-[#F4F1EA] transition-colors duration-300">
             Our Products →
           </a>
         </div>

@@ -22,35 +22,49 @@ export default function Navbar() {
         <>
             <header
                 className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled
-                        ? 'bg-[#1C1915]/90 backdrop-blur-md border-b border-[#D8C3A5]/10 py-4 shadow-2xl'
-                        : 'bg-transparent py-6 md:py-8'
+                    ? 'bg-[#1C1915]/90 backdrop-blur-md border-b border-[#D8C3A5]/10 py-4 shadow-2xl'
+                    : 'bg-transparent py-6 md:py-8'
                     }`}
             >
                 <div className="max-w-[90rem] mx-auto px-6 lg:px-16 flex justify-between items-center">
 
                     {/* Logo */}
+                    {/* Logo */}
                     <a href="#" className="flex items-center gap-3 group">
-                        <div className="w-0.5 h-5 bg-[#D8C3A5] group-hover:h-7 transition-all duration-300" />
-                        <span className="font-serif text-xl text-[#F4F1EA] tracking-[0.2em] uppercase">
-                            Estruktura
-                        </span>
+                        <img
+                            // Automatically swaps the image source based on scroll state
+                            src={isScrolled ? "/Estruktura-trans.png" : "/Estruktura-dark.png"}
+                            alt="Estruktura Logo"
+                            className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className={`hidden sm:block w-0.5 h-10 group-hover:h-12 transition-all duration-300 ${isScrolled ? 'bg-[#D8C3A5]' : 'bg-[#1C1915]/30'}`} />
+
+                        {/* Flex column to stack the title and subtitle */}
+                        <div className="hidden sm:flex flex-col justify-center">
+                            <span className={`font-serif text-2xl lg:text-3xl tracking-[0.2em] uppercase leading-none font-medium whitespace-nowrap transition-colors duration-300 ${isScrolled ? 'text-[#F4F1EA]' : 'text-[#1C1915]'}`}>
+                                Estruktura Manila
+                            </span>
+                            <span className={`text-sm sm:text-[0.65rem] uppercase tracking-[0.25em] mt-1.5 font-semibold whitespace-nowrap transition-colors duration-300 ${isScrolled ? 'text-[#D8C3A5]/70' : 'text-[#1C1915]/70'}`}>
+                                Carpet and Interior Solutions
+                            </span>
+                        </div>
                     </a>
 
                     {/* Desktop nav */}
-                    <nav className="hidden md:flex items-center gap-8">
+                    <nav className="hidden xl:flex items-center gap-5 2xl:gap-8">
                         {navLinks.map(link => (
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="relative text-[0.65rem] uppercase tracking-[0.2em] text-[#F4F1EA]/60 hover:text-[#F4F1EA] transition-colors duration-300 group font-medium"
+                                className={`relative text-[0.65rem] uppercase tracking-[0.2em] transition-colors duration-300 group font-bold ${isScrolled ? 'text-[#F4F1EA]/60 hover:text-[#F4F1EA]' : 'text-[#1C1915]/60 hover:text-[#1C1915]'}`}
                             >
                                 {link.name}
-                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#D8C3A5] group-hover:w-full transition-all duration-300" />
+                                <span className={`absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ${isScrolled ? 'bg-[#D8C3A5]' : 'bg-[#1C1915]'}`} />
                             </a>
                         ))}
                         <a
                             href="#contact"
-                            className="ml-2 px-5 py-2.5 text-[0.6rem] uppercase tracking-[0.25em] font-semibold text-[#1C1915] bg-[#D8C3A5] hover:bg-[#F4F1EA] transition-all duration-300"
+                            className={`ml-2 px-5 py-2.5 text-[0.6rem] uppercase tracking-[0.25em] font-bold transition-all duration-300 ${isScrolled ? 'text-[#1C1915] bg-[#D8C3A5] hover:bg-[#F4F1EA]' : 'text-[#F4F1EA] bg-[#1C1915] hover:bg-[#2A2725]'}`}
                         >
                             Get a Quote
                         </a>
@@ -58,26 +72,26 @@ export default function Navbar() {
 
                     {/* Mobile hamburger */}
                     <button
-                        className="md:hidden flex flex-col justify-center gap-1.5 w-7 h-7"
+                        className="xl:hidden flex flex-col justify-center items-center gap-1.5 min-w-[44px] min-h-[44px]"
                         onClick={() => setIsMobileOpen(!isMobileOpen)}
                         aria-label="Toggle menu"
                     >
-                        <span className={`w-full h-px bg-[#F4F1EA] transition-all duration-300 ${isMobileOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-                        <span className={`h-px bg-[#F4F1EA] transition-all duration-300 ${isMobileOpen ? 'opacity-0 w-0' : 'w-3/4'}`} />
-                        <span className={`w-full h-px bg-[#F4F1EA] transition-all duration-300 ${isMobileOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+                        <span className={`w-full h-px transition-all duration-300 ${isScrolled ? 'bg-[#F4F1EA]' : 'bg-[#1C1915]'} ${isMobileOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+                        <span className={`h-px transition-all duration-300 ${isScrolled ? 'bg-[#F4F1EA]' : 'bg-[#1C1915]'} ${isMobileOpen ? 'opacity-0 w-0' : 'w-3/4'}`} />
+                        <span className={`w-full h-px transition-all duration-300 ${isScrolled ? 'bg-[#F4F1EA]' : 'bg-[#1C1915]'} ${isMobileOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
                     </button>
                 </div>
             </header>
 
             {/* Mobile Menu */}
-            <div className={`fixed inset-0 z-[99] bg-[#1C1915]/97 backdrop-blur-xl flex flex-col items-center justify-center transition-all duration-500 md:hidden ${isMobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`fixed inset-0 z-[99] bg-[#1C1915]/97 backdrop-blur-xl flex flex-col items-center justify-center transition-all duration-500 xl:hidden ${isMobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                 <nav className="flex flex-col items-center gap-8">
                     {navLinks.map((link, i) => (
                         <a
                             key={link.name}
                             href={link.href}
                             onClick={() => setIsMobileOpen(false)}
-                            className="font-serif text-2xl text-[#F4F1EA]/80 hover:text-[#D8C3A5] transition-colors duration-300 tracking-[0.1em]"
+                            className="font-serif text-2xl text-[#F4F1EA]/80 hover:text-[#D8C3A5] transition-colors duration-300 tracking-[0.1em] font-medium min-h-[44px] flex items-center"
                             style={{
                                 opacity: isMobileOpen ? 1 : 0,
                                 transform: isMobileOpen ? 'translateY(0)' : 'translateY(16px)',
@@ -90,7 +104,7 @@ export default function Navbar() {
                     <a
                         href="#contact"
                         onClick={() => setIsMobileOpen(false)}
-                        className="mt-6 px-8 py-4 bg-[#D8C3A5] text-[#1C1915] text-[0.7rem] uppercase tracking-[0.3em] font-bold"
+                        className="mt-6 px-8 min-h-[44px] flex items-center justify-center bg-[#D8C3A5] text-[#1C1915] text-sm md:text-[0.7rem] uppercase tracking-[0.3em] font-bold"
                         style={{
                             opacity: isMobileOpen ? 1 : 0,
                             transform: isMobileOpen ? 'translateY(0)' : 'translateY(16px)',
