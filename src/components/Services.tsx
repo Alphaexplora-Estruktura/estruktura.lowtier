@@ -6,7 +6,6 @@ export default function Services() {
     const [nylonRef, nylonVisible] = useIntersectionObserver({ threshold: 0.15 });
     const [modularRef, modularVisible] = useIntersectionObserver({ threshold: 0.15 });
     const [commercialRef, commercialVisible] = useIntersectionObserver({ threshold: 0.15 });
-    const [cleaningRef, cleaningVisible] = useIntersectionObserver({ threshold: 0.15 });
 
     return (
         <section id="services" className="relative bg-[#F4F1EA] overflow-hidden">
