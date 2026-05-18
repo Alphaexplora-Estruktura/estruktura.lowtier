@@ -5,10 +5,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        "estruktura-bg": "#EFEBE6",      // Light neutral/bone background
-        "estruktura-accent": "#5c5048",  // Rich taupe/brown accent
-        "estruktura-gold": "#8c7e71",    // Muted warm stone/gold equivalent
-        "estruktura-cream": "#2A2725",   // Dark charcoal/brown for text on light backgrounds
+        "estruktura-bg": "#EAE0D5",      // Light neutral taupe background
+        "estruktura-accent": "#D8C3A5",  // Mocha accent overlay
+        "estruktura-gold": "#8c7e71",    // Muted warm stone
+        "estruktura-cream": "#F4F1EA",   // Pure cream for dark bg text
+        "estruktura-text": "#1C1915",    // Dark contrast text
       },
       fontFamily: {
         serif: ['"Playfair Display"', "serif"],
