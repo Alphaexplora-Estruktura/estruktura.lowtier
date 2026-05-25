@@ -275,7 +275,7 @@ export default function Services() {
                         <div className="bg-[#1C1915] text-[#F4F1EA] rounded-2xl flex flex-col justify-between overflow-hidden shadow-xl shadow-[#1C1915]/10 h-full">
                             {/* Fixed 16:10 Standard Aspect Display Frame Block */}
                             <div className="w-full aspect-[16/10] bg-[#171513] relative overflow-hidden border-b border-[#D8C3A5]/10 shadow-inner">
-                                <img src="/assets/img-6.jpg" alt="Wall-to-wall treatment installation cleanup" className="w-full h-full object-cover blur-[0.2px] opacity-95" />
+                                <img src="/assets/img-6.png" alt="Wall-to-wall treatment installation cleanup" className="w-full h-full object-cover blur-[0.2px] opacity-95" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#1C1915] via-transparent to-transparent" />
                             </div>
 
