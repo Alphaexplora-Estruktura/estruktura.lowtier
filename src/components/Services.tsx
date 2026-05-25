@@ -72,6 +72,15 @@ export default function Services() {
                                 <p className="text-[#5c5048] text-base md:text-[0.78rem] font-light leading-relaxed group-hover:text-[#F4F1EA]/70 transition-colors">
                                     Our most popular heavy-duty mat. Comes in different metal thicknesses to handle various levels of everyday foot traffic.
                                 </p>
+
+                                {/* Standardized high-visibility aspect container box */}
+                                <div className="w-full aspect-[16/10] rounded-sm overflow-hidden border border-[#D8C3A5]/30 bg-[#1C1915]/5 shadow-sm">
+                                    <img 
+                                        src={mat.image} 
+                                        alt={`${mat.name} Site Reference`} 
+                                        className="w-full h-full object-cover blur-[0.2px] group-hover:scale-[1.02] transition-transform duration-500 ease-out" 
+                                    />
+                                </div>
                             </div>
                             <div className="relative z-10 pt-6 border-t border-[#D8C3A5]/30 space-y-3 group-hover:border-[#D8C3A5]/20 transition-colors">
                                 <p className="text-[#1C1915] group-hover:text-[#F4F1EA] text-sm md:text-[0.7rem] font-medium"><strong className="text-[#8c7e71]">Surface Options:</strong> Carpet, Nylon Brush, or Rubber</p>
@@ -163,6 +172,18 @@ export default function Services() {
                                     <div key={idx} className="border-l border-[#D8C3A5]/30 pl-5 py-2">
                                         <h4 className="text-[#F4F1EA] font-serif text-xl mb-1">{feature.title}</h4>
                                         <p className="text-[#F4F1EA]/50 text-sm md:text-[0.7rem] font-light leading-relaxed">{feature.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Standardized Swatch Sizes Layout */}
+                            <div className="grid grid-cols-3 gap-4 pt-2">
+                                {swatches.map((swatch, idx) => (
+                                    <div key={idx} className="flex flex-col gap-2.5 group/swatch">
+                                        <div className="aspect-[4/3] w-full rounded-sm overflow-hidden border border-[#D8C3A5]/40 bg-white p-1.5 shadow-sm">
+                                            <img src={swatch.path} alt={swatch.label} className="w-full h-full object-cover group-hover/swatch:scale-[1.03] transition-transform duration-300" />
+                                        </div>
+                                        <span className="text-[#8c7e71] text-[0.6rem] uppercase tracking-wider font-bold text-center">{swatch.label}</span>
                                     </div>
                                 ))}
                             </div>

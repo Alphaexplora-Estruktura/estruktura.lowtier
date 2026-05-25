@@ -101,10 +101,7 @@ export default function About() {
       {/* ── Teaser transition into next section ── */}
       <div className="bg-[#1C1915] py-10 px-6 lg:px-16">
         <div className="max-w-[90rem] mx-auto flex items-center justify-between">
-          <p className="text-[#F4F1EA]/40 text-xs uppercase tracking-[0.3em]">Explore how we craft each design ↓</p>
-          <a href="#products" className="inline-flex items-center min-h-[44px] text-[#D8C3A5] text-xs uppercase tracking-[0.3em] hover:text-[#F4F1EA] transition-colors duration-300">
-            Our Products →
-          </a>
+          <p className="text-[#F4F1EA]/40 text-xs uppercase tracking-[0.3em]">Explore how we craft each design</p>
         </div>
       </div>
     </section>
