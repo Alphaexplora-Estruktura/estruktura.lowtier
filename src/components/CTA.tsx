@@ -4,78 +4,97 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 export default function CTA() {
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  // States para sa pinag-gupit-gupit na time field
+  const [inputHour, setInputHour] = useState<string>('09');
+  const [selectedMinute, setSelectedMinute] = useState<string>('00');
+  const [selectedPeriod, setSelectedPeriod] = useState<string>('AM');
+
+  const minDate = (() => {
+    const d = new Date();
+    d.setDate(d.getDate() + 3);
+    const pad = (n: number) => String(n).padStart(2, '0');
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  })();
+
+  const handleHourChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Numero lang ang tinatanggap at maximum of 2 characters
+    const val = e.target.value.replace(/[^0-9]/g, '').slice(0, 2);
+    setInputHour(val);
+  };
+
+  const handleHourBlur = () => {
+    // Validation para siguradong 01-12 lang ang ilalagay na oras
+    let num = parseInt(inputHour, 10);
+    if (isNaN(num) || num < 1) {
+      setInputHour('12');
+    } else if (num > 12) {
+      setInputHour('12');
+    } else {
+      setInputHour(String(num).padStart(2, '0'));
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would normally trigger your backend API or email service
     setIsSubmitted(true);
   };
 
   return (
     <section id="contact" className="bg-estruktura-text relative overflow-hidden">
-
-      {/* Decorative top line */}
       <div className="w-full h-px bg-gradient-to-r from-transparent via-estruktura-accent/40 to-transparent" />
 
-      {/* Background texture glow */}
+      {/* Background decorations */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-estruktura-accent/5 rounded-full blur-[200px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-estruktura-gold/10 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="max-w-[75rem] mx-auto px-6 lg:px-16 py-[clamp(5rem,12vw,9rem)]">
+      <div className="max-w-[75rem] mx-auto px-6 lg:px-16 py-[clamp(4rem,10vw,7.5rem)]">
         <div
           ref={ref}
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 transition-all duration-[1200ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 transition-all duration-[1200ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-
-          {/* Left: Message */}
+          {/* Left Panel: Content info */}
           <div>
             <span className="text-estruktura-gold uppercase text-sm md:text-[0.75rem] tracking-[0.35em] font-bold mb-5 flex items-center gap-3">
               <span className="w-10 h-px bg-estruktura-gold" />
               Let's Create Together
             </span>
-            <h2
-              className="font-serif text-estruktura-cream leading-tight mt-4 mb-8"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 500 }}
-            >
+            <h2 className="font-serif text-estruktura-cream leading-tight mt-4 mb-8" style={{ fontSize: 'clamp(2.3rem, 4.5vw, 4rem)', fontWeight: 500 }}>
               Ready to Transform<br />
               <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 400 }}>Your Space?</em>
             </h2>
-            <p className="text-estruktura-cream/90 font-medium leading-relaxed text-lg md:text-[1.1rem] mb-10 max-w-sm">
+            <p className="text-estruktura-cream/90 font-light leading-relaxed text-base md:text-[1rem] mb-10 max-w-sm">
               To provide an accurate quotation, a site visit for actual measurement is required. We will bring samples during our visit.
             </p>
-
             <div className="space-y-4">
               {[
-                { icon: '📍', text: 'Manila, Philippines' },
-                { icon: '📞', text: 'Available for consultations' },
-                { icon: '✉️', text: 'Custom quotes provided' },
+                { icon: '📍', text: '6T Bugallon St. Marikina Heights, Marikina City' },
+                { icon: '📞', text: 'Available for site visits & consultations' },
+                { icon: '✉️', text: 'Custom estimates tailored to your space' },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4 text-estruktura-cream/80 text-base md:text-[1rem]">
-                  <span>{item.icon}</span>
-                  <span className="font-medium">{item.text}</span>
+                <div key={i} className="flex items-start gap-4 text-estruktura-cream/80 text-sm md:text-[0.95rem]">
+                  <span className="mt-0.5">{item.icon}</span>
+                  <span className="font-light leading-relaxed">{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right: Form or Confirmation UI */}
-          <div className="bg-estruktura-bg/5 p-6 sm:p-8 border border-estruktura-cream/10 rounded-sm relative min-h-[500px] flex flex-col justify-center">
-
+          {/* Right Panel: Form Panel */}
+          <div className="bg-[#171513] p-6 sm:p-10 border border-estruktura-cream/10 rounded-sm relative min-h-[550px] flex flex-col justify-center">
             {isSubmitted ? (
-              /* Confirmation UI */
-              <div
-                className="text-center flex flex-col items-center justify-center animate-[fadeInUp_0.6s_ease-out_forwards]"
-              >
+              <div className="text-center flex flex-col items-center justify-center animate-[fadeInUp_0.6s_ease-out_forwards]">
                 <div className="w-16 h-16 rounded-full bg-estruktura-accent/20 border border-estruktura-accent flex items-center justify-center mb-6">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-estruktura-gold">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <h3 className="font-serif text-estruktura-cream text-3xl mb-3">Inquiry Sent</h3>
-                <p className="text-estruktura-cream/70 text-[1rem] font-light leading-relaxed max-w-sm mb-8">
-                  Thank you for reaching out. Our team will review your request and contact you shortly to confirm your site visit.
+                <p className="text-estruktura-cream/70 text-[0.95rem] font-light leading-relaxed max-w-sm mb-8">
+                  Thank you for reaching out. We will get back to you shortly to confirm your scheduled site visit slot at {inputHour || '09'}:{selectedMinute} {selectedPeriod}.
                 </p>
                 <button
+                  type="button"
                   onClick={() => setIsSubmitted(false)}
                   className="px-6 min-h-[44px] border border-estruktura-cream/20 text-estruktura-cream/80 uppercase text-[0.65rem] tracking-[0.2em] hover:bg-estruktura-cream/5 transition-all duration-300"
                 >
@@ -83,90 +102,82 @@ export default function CTA() {
                 </button>
               </div>
             ) : (
-              /* Input Form */
               <div className="animate-[fadeIn_0.5s_ease-out_forwards]">
-                <div className="mb-8">
-                  <h3 className="font-serif text-estruktura-cream text-2xl mb-2">Say Hello</h3>
-                  <p className="text-estruktura-cream/60 text-[0.95rem] font-light">
+                <div className="mb-6">
+                  <h3 className="font-serif text-estruktura-cream text-2xl mb-2">Book a Site Visit</h3>
+                  <p className="text-estruktura-cream/60 text-sm font-light">
                     Fill out the details below, and we will get back to you shortly to arrange a visit.
                   </p>
                 </div>
 
-                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-
+                <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="relative">
-                      <input
-                        type="text"
-                        required
-                        placeholder="First Name"
-                        className="w-full px-2 sm:px-5 py-4 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base"
-                      />
-                    </div>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        required
-                        placeholder="Last Name"
-                        className="w-full px-2 sm:px-5 py-4 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base"
-                      />
-                    </div>
+                    <input type="text" required placeholder="First Name" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
+                    <input type="text" required placeholder="Last Name" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="relative">
-                      <input
-                        type="email"
-                        required
-                        placeholder="Email Address"
-                        className="w-full px-2 sm:px-5 py-4 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base"
-                      />
+                    <input type="email" required placeholder="Email Address" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
+                    <input type="tel" required onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }} placeholder="Contact Number" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
+                  </div>
+
+                  <input type="text" required placeholder="Space Type (e.g., Office, Living Room)" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-end">
+                    <div className="flex flex-col gap-2">
+                      <label className="text-estruktura-cream/50 text-xs uppercase tracking-wider font-medium">Select Target Date</label>
+                      <input type="date" required min={minDate} className="w-full px-2 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream focus:outline-none focus:border-estruktura-accent text-base font-light" style={{ colorScheme: 'dark' }} />
                     </div>
-                    <div className="relative">
-                      <input
-                        type="tel"
-                        required
-                        onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }}
-                        placeholder="Contact Number"
-                        className="w-full px-2 sm:px-5 py-4 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base"
-                      />
+
+                    {/* ── CLEAN TYPOGRAPHIC TIME PICKER FIELDS ── */}
+                    <div className="flex flex-col gap-2">
+                      <label className="text-estruktura-cream/50 text-xs uppercase tracking-wider font-medium">Preferred Time</label>
+                      <div className="flex items-center gap-2 border-b border-estruktura-cream/20 py-2">
+                        
+                        {/* Hour: Text Field Input */}
+                        <input
+                          type="text"
+                          required
+                          value={inputHour}
+                          onChange={handleHourChange}
+                          onBlur={handleHourBlur}
+                          placeholder="09"
+                          className="w-10 text-center bg-transparent text-estruktura-cream focus:outline-none focus:text-estruktura-gold text-base font-light placeholder:text-estruktura-cream/30"
+                        />
+                        <span className="text-estruktura-cream/40 text-base font-light">:</span>
+
+                        {/* Minute: 2 Choices Select Grid Option */}
+                        <select
+                          value={selectedMinute}
+                          onChange={(e) => setSelectedMinute(e.target.value)}
+                          className="bg-[#171513] text-estruktura-cream focus:outline-none focus:text-estruktura-gold text-base font-light px-1 cursor-pointer appearance-none"
+                        >
+                          <option value="00">00</option>
+                          <option value="30">30</option>
+                        </select>
+
+                        {/* Period: 2 Choices Select Grid Option */}
+                        <select
+                          value={selectedPeriod}
+                          onChange={(e) => setSelectedPeriod(e.target.value)}
+                          className="bg-[#171513] text-estruktura-cream focus:outline-none focus:text-estruktura-gold text-base font-light px-1 ml-auto cursor-pointer appearance-none"
+                        >
+                          <option value="AM">AM</option>
+                          <option value="PM">PM</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
 
-                  <input
-                    type="text"
-                    required
-                    placeholder="Space Type (e.g., Office, Bedroom)"
-                    className="w-full px-2 sm:px-5 py-4 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base"
-                  />
+                  <textarea rows={2} required placeholder="Tell us your requirements..." className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light resize-none mt-2" />
 
-                  <input
-                    type="datetime-local"
-                    required
-                    placeholder="Preferred Date & Time"
-                    className="w-full px-2 sm:px-5 py-4 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base"
-                    style={{ colorScheme: 'dark' }}
-                  />
-
-                  <textarea
-                    rows={3}
-                    required
-                    placeholder="Tell us about your vision for the space..."
-                    className="w-full px-2 sm:px-5 py-4 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/40 focus:outline-none focus:border-estruktura-accent transition-all font-medium text-base resize-none"
-                  />
-
-                  <button
-                    type="submit"
-                    className="w-full px-8 min-h-[44px] bg-estruktura-accent text-estruktura-text font-bold uppercase text-[0.75rem] tracking-[0.3em] hover:bg-estruktura-cream transition-all duration-300 mt-4"
-                  >
-                    Send Message
+                  <button type="submit" className="w-full px-8 min-h-[48px] bg-estruktura-accent text-estruktura-text font-bold uppercase text-[0.75rem] tracking-[0.3em] hover:bg-estruktura-cream transition-all duration-300 mt-2 shadow-lg shadow-black/20">
+                    Confirm Booking Slot
                   </button>
                 </form>
               </div>
             )}
-
           </div>
-
         </div>
       </div>
     </section>

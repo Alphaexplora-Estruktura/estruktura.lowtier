@@ -39,8 +39,8 @@ export default function Craftsmanship() {
                     <div className="absolute bottom-0 left-0 right-0 p-[clamp(1.5rem,4vw,2.5rem)]">
                         <div className="w-8 h-px bg-estruktura-accent/60 mb-4" />
                         <span className="text-estruktura-gold text-[0.6rem] uppercase tracking-[0.3em] font-semibold">Step 01</span>
-                        <h3 className="font-serif text-estruktura-cream text-3xl mt-2 mb-3">Flexible Craftsmanship</h3>
-                        <p className="text-estruktura-cream/80 font-light text-sm leading-relaxed max-w-xs">
+                        <h3 className="font-serif text-estruktura-cream text-2xl sm:text-3xl mt-2 mb-3">Flexible Craftsmanship</h3>
+                        <p className="text-estruktura-cream/80 font-light text-base leading-relaxed">
                             Every commission starts as a detailed layout. We review dimensions, color palettes, and texture preferences with you.
                         </p>
                     </div>
@@ -57,8 +57,8 @@ export default function Craftsmanship() {
                     <div className="absolute bottom-0 left-0 right-0 p-[clamp(1.5rem,4vw,2.5rem)]">
                         <div className="w-8 h-px bg-estruktura-accent/60 mb-4" />
                         <span className="text-estruktura-gold text-[0.6rem] uppercase tracking-[0.3em] font-semibold">Step 02</span>
-                        <h3 className="font-serif text-estruktura-cream text-3xl mt-2 mb-3">Tailored to You</h3>
-                        <p className="text-estruktura-cream/80 font-light text-sm leading-relaxed max-w-xs">
+                        <h3 className="font-serif text-estruktura-cream text-2xl sm:text-3xl mt-2 mb-3">Tailored to You</h3>
+                        <p className="text-estruktura-cream/80 font-light text-base leading-relaxed">
                             Choose your color palette and texture. The result is a carpet made exactly for your space.
                         </p>
                     </div>

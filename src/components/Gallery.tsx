@@ -92,8 +92,8 @@ export default function Gallery() {
         </section>
     );
 }
-
-// ─── Project Comparison Layout ────────────────────────────
+ 
+// ─── Project Comparison Layout (Mobile Responsive Fix) ────────────────────────────
 function ProjectComparison({ pair, index }: any) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.15 });
 
