@@ -55,7 +55,7 @@ export default function Hero() {
             >
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-3 min-h-[44px] px-8 py-3 text-estruktura-cream font-bold uppercase text-base md:text-[0.65rem] tracking-[0.25em] bg-estruktura-text border border-estruktura-text transition-all duration-300 hover:bg-estruktura-accent hover:text-estruktura-text hover:border-estruktura-accent"
+                className="inline-flex items-center justify-center gap-3 min-h-[44px] px-8 py-3 text-estruktura-cream font-bold uppercase text-base tracking-[0.25em] bg-estruktura-text border border-estruktura-text transition-all duration-300 hover:bg-estruktura-accent hover:text-estruktura-text hover:border-estruktura-accent"
               >
                 Get a Quote
               </a>
