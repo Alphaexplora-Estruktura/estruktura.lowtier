@@ -45,7 +45,7 @@ export default function About() {
               <em className="text-estruktura-text/60" style={{ fontStyle: 'italic', fontWeight: 400 }}>for Every Vision.</em>
             </h2>
           </div>
-          <p className="text-estruktura-text/70 font-medium leading-relaxed max-w-sm text-sm lg:text-right">
+          <p className="text-estruktura-text/70 font-medium leading-relaxed max-w-sm text-base lg:text-right">
             From nature-inspired artistic concepts and Heritage Arts to Grand and Magnificent Artwork — we bring your ideas to life.
           </p>
         </div>

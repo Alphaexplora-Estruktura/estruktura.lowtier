@@ -1,62 +1,83 @@
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
+const ease = 'cubic-bezier(0.23, 1, 0.32, 1)';
+
+const mats = [
+    {
+        num: '01',
+        name: 'Standard Type',
+        code: 'DJ-A',
+        desc: 'Widely used in hotels, shopping malls, office buildings, and airports. Effectively scrapes and absorbs dust with strong stain resistance — easy to maintain and clean. Anti-skid rubber base keeps the mat firmly in place to protect indoor and outdoor floors.',
+    },
+    {
+        num: '02',
+        name: 'Slim Type',
+        code: 'DJ-C',
+        desc: 'Ideal for commercial entrances in hospitals, apartments, and retail establishments. Superior anti-fouling and dedusting performance. Weather and tensile resistant with a rubber base that stays close to the ground, preventing slipping.',
+    },
+    {
+        num: '03',
+        name: 'Flexible Type',
+        code: 'DJ-S',
+        desc: 'Built for flexible installation across various business environments and high traffic areas. Excellent weather and skid resistance with a rubber base that protects indoor and outdoor floors from wear and daily use.',
+    },
+];
+
+const nylonFeatures = [
+    { num: '01', title: 'Anti-Fouling & Dedusting', desc: 'Powerfully scrapes and absorbs dust with strong stain resistance — easy to maintain and repeatedly washed.' },
+    { num: '02', title: 'Weather & Skid Resistance', desc: 'Anti-skid rubber base stays close to the ground, preventing slipping and protecting floors from wear.' },
+    { num: '03', title: 'Bright & Clear Colors', desc: 'Vibrant, fade-resistant colors that hold up across years of daily use.' },
+    { num: '04', title: 'Custom Sizes', desc: 'Available in large roll widths to fit your exact entrance or indoor area.' },
+];
+
+const specialtyCarpets = [
+    { name: 'Everyday Office Carpets', desc: 'Tough, everyday carpets with a waterproof bottom. Comes in ribbed or square patterns, great for busy hallways and offices.' },
+    { name: 'Bath & Pool Mats', desc: 'Water-friendly plastic tiles that prevent slipping. Perfect for locker rooms, pools, and wet areas.' },
+    { name: 'Outdoor Scraping Mats', desc: 'Purely scraping mats with no fabric. Best for outdoor use to scrape off heavy mud before stepping inside.' },
+];
+
+function reveal(visible: boolean, delay = 0) {
+    return {
+        style: {
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'none' : 'translateY(22px) scale(0.97)',
+            transition: `opacity 700ms ${ease}, transform 700ms ${ease}`,
+            transitionDelay: visible ? `${delay}ms` : '0ms',
+        },
+    };
+}
+
 export default function Services() {
     const [heroRef, heroVisible] = useIntersectionObserver({ threshold: 0.1 });
-    const [aluminumRef, aluminumVisible] = useIntersectionObserver({ threshold: 0.15 });
-    const [nylonRef, nylonVisible] = useIntersectionObserver({ threshold: 0.15 });
-    const [modularRef, modularVisible] = useIntersectionObserver({ threshold: 0.15 });
-    const [commercialRef, commercialVisible] = useIntersectionObserver({ threshold: 0.15 });
+    const [aluminumRef, aluminumVisible] = useIntersectionObserver({ threshold: 0.08 });
+    const [nylonRef, nylonVisible] = useIntersectionObserver({ threshold: 0.08 });
+    const [commercialRef, commercialVisible] = useIntersectionObserver({ threshold: 0.08 });
 
     return (
         <section id="services" className="relative bg-[#F4F1EA] overflow-hidden">
-            {/* Elegant Background Gradient */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#D8C3A5]/20 via-[#F4F1EA] to-[#F4F1EA] pointer-events-none" />
+            <div className="relative z-10 max-w-[90rem] mx-auto px-6 lg:px-16 py-[clamp(5rem,12vw,8rem)]">
 
-            <div className="relative z-10 max-w-[90rem] mx-auto px-6 lg:px-16 py-[clamp(4rem,10vw,7rem)]">
-
-                {/* ── HERO ── */}
+                {/* ── HERO — Left-aligned asymmetric ── */}
                 <div
                     ref={heroRef}
-                    className={`text-center mb-[clamp(4rem,10vw,6rem)] transition-all duration-[1400ms] ease-out ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
+                    className="mb-[clamp(5rem,14vw,10rem)]"
+                    {...reveal(heroVisible)}
                 >
-                    <span className="text-[#8c7e71] uppercase text-sm md:text-[0.6rem] tracking-[0.35em] font-semibold inline-flex items-center gap-3">
-                        <span className="w-12 h-px bg-[#8c7e71]" />
-                        Our Complete Range
-                        <span className="w-12 h-px bg-[#8c7e71]" />
-                    </span>
-                    <h2 className="font-serif text-[#1C1915] leading-tight mt-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 500 }}>
-                        Quality Flooring <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>Options.</em>
-                    </h2>
-                    <p className="text-[#5c5048] text-base md:text-[0.9rem] font-light leading-relaxed mt-6 mb-8 max-w-3xl mx-auto">
-                        From heavy-duty aluminum entrance mats to custom printed carpets — discover our wide range of durable and reliable flooring solutions for any space.
-                    </p>
-                    <a
-                        href="/2025%20catalogue.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-8 py-3 border border-[#8c7e71] text-[#1C1915] hover:bg-[#8c7e71] hover:text-[#F4F1EA] transition-colors duration-300 text-[0.7rem] font-bold uppercase tracking-widest rounded-sm"
-                    >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                        </svg>
-                        View Full 2025 Catalog
-                    </a>
-                </div>
-
-                {/* ── SECTION 1: ALUMINUM ENTRANCE MATS ── */}
-                <div
-                    ref={aluminumRef}
-                    className={`mb-[clamp(5rem,12vw,9rem)] transition-all duration-[1400ms] ease-out ${aluminumVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
-                >
-                    <div className="mb-[clamp(2.5rem,6vw,4rem)] flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 lg:gap-20 items-end">
+                        {/* Left: big editorial headline */}
                         <div>
-                            <span className="text-[#8c7e71] uppercase text-sm md:text-[0.6rem] tracking-[0.3em] font-semibold inline-flex items-center gap-3">
-                                <span className="w-8 h-px bg-[#8c7e71]" />
-                                Aluminum Systems
+                            <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.38em] font-semibold inline-flex items-center gap-3 mb-7">
+                                <span className="w-12 h-px bg-[#8c7e71]" />
+                                Our Complete Range
                             </span>
-                            <h3 className="font-serif text-[#1C1915] leading-tight mt-3" style={{ fontSize: 'clamp(2.25rem, 4vw, 3.5rem)', fontWeight: 500 }}>
-                                Entrance <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>Mats</em>
-                            </h3>
+                            <h2
+                                className="font-serif text-[#1C1915] leading-[0.9]"
+                                style={{ fontSize: 'clamp(3.5rem, 7.5vw, 6.5rem)', fontWeight: 400 }}
+                            >
+                                Quality<br />
+                                <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>Flooring</em><br />
+                                Options.
+                            </h2>
                         </div>
                         <p className="text-[#5c5048] max-w-sm text-base md:text-[0.9rem] font-light leading-relaxed">
                             Tough and durable aluminum mats built for heavy foot traffic, perfect for keeping dirt and moisture out of your building.
@@ -120,58 +141,189 @@ export default function Services() {
                     </div>
                 </div>
 
-                {/* ── SECTION 2: NYLON PRINTING CARPETS ── */}
+                {/* ── SECTION 1: ALUMINUM ENTRANCE MATS — Editorial numbered rows ── */}
+                <div ref={aluminumRef} className="mb-[clamp(5rem,14vw,10rem)]">
+
+                    {/* Section header */}
+                    <div
+                        className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-[clamp(2.5rem,7vw,4.5rem)]"
+                        {...reveal(aluminumVisible)}
+                    >
+                        <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.38em] font-semibold inline-flex items-center gap-3 shrink-0">
+                            <span className="w-8 h-px bg-[#8c7e71]" />
+                            Aluminum Systems
+                        </span>
+                        <div className="hidden sm:block flex-1 h-px bg-[#D8C3A5]/40" />
+                        <h3
+                            className="font-serif text-[#1C1915] shrink-0"
+                            style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', fontWeight: 400 }}
+                        >
+                            Entrance <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>Mats</em>
+                        </h3>
+                    </div>
+
+                    {/* Numbered editorial rows — no cards, dividers only */}
+                    <div className="border-t border-[#D8C3A5]/40">
+                        {mats.map((mat, i) => (
+                            <div
+                                key={mat.num}
+                                className="group border-b border-[#D8C3A5]/40 py-9 lg:py-11
+                                    grid grid-cols-[4.5rem_1fr] lg:grid-cols-[6rem_18rem_1fr] gap-x-6 lg:gap-x-12 gap-y-4
+                                    cursor-default"
+                                style={{
+                                    opacity: aluminumVisible ? 1 : 0,
+                                    transform: aluminumVisible ? 'none' : 'translateY(18px) scale(0.98)',
+                                    transition: `opacity 600ms ${ease}, transform 600ms ${ease}, background-color 220ms ease`,
+                                    transitionDelay: aluminumVisible ? `${i * 75}ms` : '0ms',
+                                }}
+                                onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(216,195,165,0.07)'; }}
+                                onMouseLeave={e => { e.currentTarget.style.backgroundColor = ''; }}
+                            >
+                                {/* Large editorial number */}
+                                <span
+                                    className="font-serif text-[#D8C3A5] leading-none select-none"
+                                    style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', fontWeight: 500 }}
+                                >
+                                    {mat.num}
+                                </span>
+
+                                {/* Name + code */}
+                                <div className="pt-1 lg:pt-2">
+                                    <h4
+                                        className="font-serif text-[#1C1915] leading-tight mb-2"
+                                        style={{
+                                            fontSize: 'clamp(1.4rem, 2.5vw, 1.875rem)',
+                                            fontWeight: 400,
+                                            transition: `color 200ms ${ease}`,
+                                            color: 'inherit',
+                                        }}
+                                    >
+                                        <span className="group-hover:text-[#8c7e71]" style={{ transition: `color 200ms ${ease}` }}>
+                                            {mat.name}
+                                        </span>
+                                    </h4>
+                                    <span className="text-[#8c7e71] text-sm uppercase tracking-[0.2em] font-semibold">{mat.code}</span>
+                                    {/* Mobile description */}
+                                    <p className="lg:hidden text-[#5c5048] text-lg font-light leading-relaxed mt-4 max-w-[60ch]">
+                                        {mat.desc}
+                                    </p>
+                                </div>
+
+                                {/* Desktop description */}
+                                <p className="hidden lg:block text-[#5c5048] text-lg font-light leading-relaxed pt-2 max-w-[55ch]">
+                                    {mat.desc}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* ── SECTION 2: NYLON PRINTING CARPETS — Dark editorial block ── */}
                 <div
                     ref={nylonRef}
-                    className={`mb-[clamp(5rem,12vw,9rem)] transition-all duration-[1400ms] ease-out ${nylonVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
+                    className="mb-[clamp(5rem,14vw,10rem)]"
+                    {...reveal(nylonVisible)}
                 >
-                    <div className="bg-[#1C1915] rounded-2xl p-10 lg:p-16 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D8C3A5]/5 rounded-full blur-[100px] pointer-events-none" />
-                        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D8C3A5]/30 to-transparent" />
+                    <div className="bg-[#1C1915] rounded-2xl overflow-hidden">
 
-                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                        {/* Top: headline + description + CTA */}
+                        <div className="px-5 sm:px-10 lg:px-16 pt-14 pb-12 border-b border-[#D8C3A5]/10
+                            grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-16 items-end">
                             <div>
-                                <span className="text-[#D8C3A5] uppercase text-sm md:text-[0.6rem] tracking-[0.3em] font-semibold inline-flex items-center gap-3 mb-6">
+                                <span className="text-[#D8C3A5] uppercase text-[0.6rem] tracking-[0.38em] font-semibold inline-flex items-center gap-3 mb-7">
                                     <span className="w-8 h-px bg-[#D8C3A5]" />
                                     Custom Designs
                                 </span>
-                                <h3 className="font-serif text-[#F4F1EA] leading-tight mb-6" style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 400 }}>
-                                    Printed Logo <br />
+                                <h3
+                                    className="font-serif text-[#F4F1EA] leading-[0.9]"
+                                    style={{ fontSize: 'clamp(2.75rem, 5.5vw, 4.5rem)', fontWeight: 400 }}
+                                >
+                                    Printed Logo<br />
                                     <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 300 }}>Carpets.</em>
                                 </h3>
-                                <p className="text-[#F4F1EA]/70 text-[clamp(1rem,1.5vw,1.1rem)] leading-relaxed mb-8">
-                                    Make a great first impression with your own logo or design. Our printed carpets use bright, fade-resistant colors that look great in lobbies, offices, and storefronts.
-                                </p>
-                                <div className="inline-block border border-[#D8C3A5]/30 bg-[#F4F1EA]/5 px-6 py-4 rounded-lg mb-8">
-                                    <p className="text-[#D8C3A5] text-sm md:text-[0.7rem] font-medium">
-                                        <strong className="text-[#F4F1EA] font-semibold">Material:</strong> Durable nylon top with a non-slip rubber bottom. Safe, washable, and built to last.
-                                    </p>
-                                </div>
-                                <div>
-                                    <a
-                                        href="/RJ%20Nylon%20Printing%20Carpet%20brochure.pdf"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 px-8 py-3 bg-[#D8C3A5] text-[#1C1915] hover:bg-[#F4F1EA] transition-colors duration-300 text-[0.7rem] font-bold uppercase tracking-widest rounded-sm"
-                                    >
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                                        </svg>
-                                        Download Specs & Brochure
-                                    </a>
-                                </div>
                             </div>
+                            <div className="flex flex-col gap-8 lg:pb-1">
+                                <p className="text-[#F4F1EA]/75 text-lg font-light leading-relaxed max-w-[52ch]">
+                                    Widely used in hotels, shopping malls, office buildings, airports, apartments, and all kinds of entrances and indoor areas. Effectively collects and absorbs dust — built to last in high traffic environments.
+                                </p>
+                                <a
+                                    href="/RJ%20Nylon%20Printing%20Carpet%20brochure.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2.5 px-7 py-3 bg-[#D8C3A5] text-[#1C1915] text-[0.65rem] font-bold uppercase tracking-widest rounded-sm self-start
+                                        hover:bg-[#F4F1EA] active:scale-[0.97]"
+                                    style={{ transition: `background-color 160ms ${ease}, transform 160ms ${ease}` }}
+                                >
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                                    </svg>
+                                    Download Brochure
+                                </a>
+                            </div>
+                        </div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                {[
-                                    { title: "Bright & Clear Colors", desc: "Vibrant colors that won't easily fade over time." },
-                                    { title: "Safe & Non-Slip", desc: "Rubber bottom keeps the mat firmly in place." },
-                                    { title: "Easy to Clean", desc: "Fully machine washable for easy, hassle-free upkeep." },
-                                    { title: "Custom Sizes", desc: "Available in large roll widths to fit your exact space." },
-                                ].map((feature, idx) => (
-                                    <div key={idx} className="border-l border-[#D8C3A5]/30 pl-5 py-2">
-                                        <h4 className="text-[#F4F1EA] font-serif text-xl mb-1">{feature.title}</h4>
-                                        <p className="text-[#F4F1EA]/50 text-sm md:text-[0.7rem] font-light leading-relaxed">{feature.desc}</p>
+                        {/* Bottom: numbered feature rows — no border-l side stripes */}
+                        <div className="divide-y divide-[#D8C3A5]/10">
+                            {nylonFeatures.map((f, i) => (
+                                <div
+                                    key={f.num}
+                                    className="px-5 sm:px-10 lg:px-16 py-8
+                                        grid grid-cols-[3rem_1fr] lg:grid-cols-[3rem_200px_1fr] gap-x-6 lg:gap-x-12 items-start"
+                                    style={{
+                                        opacity: nylonVisible ? 1 : 0,
+                                        transform: nylonVisible ? 'none' : 'translateY(14px)',
+                                        transition: `opacity 550ms ${ease}, transform 550ms ${ease}`,
+                                        transitionDelay: nylonVisible ? `${180 + i * 65}ms` : '0ms',
+                                    }}
+                                >
+                                    <span className="text-[#D8C3A5]/35 text-[0.6rem] uppercase tracking-[0.3em] font-bold pt-1">{f.num}</span>
+                                    <h4 className="font-serif text-[#F4F1EA] text-2xl leading-snug">{f.title}</h4>
+                                    <p className="text-[#F4F1EA]/65 text-base font-light leading-relaxed hidden lg:block">{f.desc}</p>
+                                    {/* Mobile desc */}
+                                    <p className="lg:hidden text-[#F4F1EA]/65 text-base font-light leading-relaxed col-start-2 mt-2">{f.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* ── SECTION 3 & 4: SPECIALTY MATS & CLEANING ── */}
+                <div ref={commercialRef} {...reveal(commercialVisible)}>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+
+                        {/* Specialty Carpets — editorial divider list */}
+                        <div>
+                            <span className="text-[#8c7e71] uppercase text-[0.6rem] tracking-[0.38em] font-semibold mb-5 inline-flex items-center gap-3">
+                                <span className="w-8 h-px bg-[#8c7e71]" />
+                                Specialty Options
+                            </span>
+                            <h3
+                                className="font-serif text-[#1C1915] leading-tight mb-10"
+                                style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 400 }}
+                            >
+                                Specialty <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>Carpets.</em>
+                            </h3>
+
+                            <div className="border-t border-[#D8C3A5]/40">
+                                {specialtyCarpets.map((item, i) => (
+                                    <div
+                                        key={i}
+                                        className="group border-b border-[#D8C3A5]/40 py-7 cursor-default"
+                                        style={{
+                                            transition: `background-color 220ms ease`,
+                                            opacity: commercialVisible ? 1 : 0,
+                                            transitionDelay: commercialVisible ? `${i * 60}ms` : '0ms',
+                                        }}
+                                        onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(216,195,165,0.07)'; }}
+                                        onMouseLeave={e => { e.currentTarget.style.backgroundColor = ''; }}
+                                    >
+                                        <h4
+                                            className="font-serif text-[#1C1915] text-2xl mb-2 group-hover:text-[#8c7e71]"
+                                            style={{ transition: `color 200ms ${ease}` }}
+                                        >
+                                            {item.name}
+                                        </h4>
+                                        <p className="text-[#5c5048] text-lg font-light leading-relaxed">{item.desc}</p>
                                     </div>
                                 ))}
                             </div>
@@ -188,122 +340,28 @@ export default function Services() {
                                 ))}
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                {/* ── SECTION 3: MODULAR MAT SYSTEMS ── */}
-                <div
-                    ref={modularRef}
-                    className={`mb-[clamp(5rem,12vw,9rem)] transition-all duration-[1400ms] ease-out ${modularVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
-                >
-                    <div className="mb-[clamp(2.5rem,6vw,4rem)] text-center">
-                        <span className="text-[#8c7e71] uppercase text-sm md:text-[0.6rem] tracking-[0.3em] font-semibold inline-flex items-center gap-3">
-                            <span className="w-8 h-px bg-[#8c7e71]" />
-                            Modular Systems
-                            <span className="w-8 h-px bg-[#8c7e71]" />
-                        </span>
-                        <h3 className="font-serif text-[#1C1915] leading-tight mt-3" style={{ fontSize: 'clamp(2.25rem, 4vw, 3.5rem)', fontWeight: 500 }}>
-                            Interlocking <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>Mats</em>
-                        </h3>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#D8C3A5]/30 border border-[#D8C3A5]/30">
-                        {/* Three-in-One */}
-                        <div className="bg-[#F4F1EA] p-8 hover:bg-white transition-colors duration-300">
-                            <h4 className="font-serif text-[#1C1915] text-xl mb-3">Scraper Brush Tiles</h4>
-                            <p className="text-[#5c5048] text-base md:text-[0.78rem] font-light leading-relaxed mb-6">Combines scraping, brushing, and wiping in one mat to easily remove thick mud and dirt from shoes.</p>
-                            <div className="text-sm md:text-[0.7rem] font-medium text-[#1C1915] space-y-1">
-                                <p><strong className="text-[#8c7e71]">Size:</strong> 150x150mm squares</p>
-                                <p><strong className="text-[#8c7e71]">Best For:</strong> Outdoor entrances</p>
+                        {/* Deep Carpet Cleaning */}
+                        <div className="bg-[#1C1915] text-[#F4F1EA] p-10 lg:p-14 rounded-2xl flex flex-col justify-between min-h-[420px]">
+                            <div>
+                                <span className="text-[#D8C3A5] uppercase text-[0.6rem] tracking-[0.38em] font-semibold mb-6 block">
+                                    Cleaning Services
+                                </span>
+                                <h3
+                                    className="font-serif mb-7 leading-[0.95]"
+                                    style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 400 }}
+                                >
+                                    Deep Carpet<br />Cleaning.
+                                </h3>
+                                <p className="text-[#F4F1EA]/75 text-lg font-light leading-relaxed max-w-[44ch]">
+                                    Keep your carpets looking brand new and smelling fresh with our deep steam-cleaning service, made specifically for wall-to-wall carpets.
+                                </p>
                             </div>
-                        </div>
-                        {/* Amino */}
-                        <div className="bg-[#F4F1EA] p-8 hover:bg-white transition-colors duration-300">
-                            <h4 className="font-serif text-[#1C1915] text-xl mb-3">Carpet Insert Tiles</h4>
-                            <p className="text-[#5c5048] text-base md:text-[0.78rem] font-light leading-relaxed mb-6">Connectable square tiles with built-in carpet strips to easily wipe off moisture and fine dust.</p>
-                            <div className="text-sm md:text-[0.7rem] font-medium text-[#1C1915] space-y-1">
-                                <p><strong className="text-[#8c7e71]">Design:</strong> Interlocking tiles with carpet</p>
-                                <p><strong className="text-[#8c7e71]">Best For:</strong> Indoor lobbies</p>
-                            </div>
-                        </div>
-                        {/* M Series */}
-                        <div className="bg-[#F4F1EA] p-8 hover:bg-white transition-colors duration-300">
-                            <h4 className="font-serif text-[#1C1915] text-xl mb-3">Lightweight Tiles</h4>
-                            <p className="text-[#5c5048] text-base md:text-[0.78rem] font-light leading-relaxed mb-6">Super lightweight and flexible interlocking tiles. Very easy to install, clean, and replace.</p>
-                            <div className="text-sm md:text-[0.7rem] font-medium text-[#1C1915] space-y-1">
-                                <p><strong className="text-[#8c7e71]">Material:</strong> Lightweight PVC/EVA</p>
-                                <p><strong className="text-[#8c7e71]">Size:</strong> 300x300mm squares</p>
-                            </div>
-                        </div>
-                        {/* Rocca */}
-                        <div className="bg-[#F4F1EA] p-8 hover:bg-white transition-colors duration-300">
-                            <h4 className="font-serif text-[#1C1915] text-xl mb-3">Heavy Rubber Tiles</h4>
-                            <p className="text-[#5c5048] text-base md:text-[0.78rem] font-light leading-relaxed mb-6">Strong rubber-like tiles. You can choose to add carpet strips inside or keep it purely rubber.</p>
-                            <div className="text-sm md:text-[0.7rem] font-medium text-[#1C1915] space-y-1">
-                                <p><strong className="text-[#8c7e71]">Feature:</strong> Mix and match with carpet</p>
-                                <p><strong className="text-[#8c7e71]">Size:</strong> 500x500mm squares</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Divider */}
-                <div className="flex items-center gap-4 mb-[clamp(4rem,10vw,8rem)]">
-                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#D8C3A5]/40 to-transparent" />
-                    <span className="text-[#D8C3A5] text-xs tracking-[0.3em]">•</span>
-                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#D8C3A5]/40 to-transparent" />
-                </div>
-
-                {/* ── SECTION 4 & 5: SPECIALTY MATS & CLEANING (Split Layout) ── */}
-                <div
-                    ref={commercialRef}
-                    className={`transition-all duration-[1200ms] ease-out ${commercialVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                >
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-
-                        {/* Specialty Carpets List */}
-                        <div>
-                            <span className="text-[#8c7e71] uppercase text-sm md:text-[0.6rem] tracking-[0.35em] font-semibold mb-4 inline-flex items-center gap-3">
-                                <span className="w-8 h-px bg-[#8c7e71]" />
-                                Specialty Options
-                            </span>
-                            <h3 className="font-serif text-[#1C1915] leading-tight mb-8" style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 500 }}>
-                                Specialty <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>Carpets.</em>
-                            </h3>
-
-                            <div className="space-y-6">
-                                <div className="border-b border-[#D8C3A5]/30 pb-6">
-                                    <h4 className="text-[#1C1915] font-serif text-xl mb-2">Everyday Office Carpets</h4>
-                                    <p className="text-[#5c5048] text-base md:text-[0.9rem] font-light leading-relaxed">Tough, everyday carpets with a waterproof bottom. Comes in ribbed or square patterns, great for busy hallways and offices.</p>
-                                </div>
-                                <div className="border-b border-[#D8C3A5]/30 pb-6">
-                                    <h4 className="text-[#1C1915] font-serif text-xl mb-2">Bath & Pool Mats</h4>
-                                    <p className="text-[#5c5048] text-base md:text-[0.9rem] font-light leading-relaxed">Water-friendly plastic tiles that prevent slipping. Perfect for locker rooms, pools, and wet areas.</p>
-                                </div>
-                                <div>
-                                    <h4 className="text-[#1C1915] font-serif text-xl mb-2">Outdoor Scraping Mats</h4>
-                                    <p className="text-[#5c5048] text-base md:text-[0.9rem] font-light leading-relaxed">Purely scraping mats with no fabric. Best for outdoor use to scrape off heavy mud before stepping inside.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Carpet Cleaning Callout */}
-                        <div className="bg-[#1C1915] text-[#F4F1EA] p-10 lg:p-14 rounded-2xl flex flex-col justify-center">
-                            <span className="text-[#D8C3A5] uppercase text-sm md:text-[0.6rem] tracking-[0.35em] font-semibold mb-4 block">
-                                Cleaning Services
-                            </span>
-                            <h3 className="font-serif mb-6" style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 400 }}>
-                                Deep Carpet Cleaning
-                            </h3>
-                            <p className="text-[#F4F1EA]/70 text-base md:text-[0.9rem] font-light leading-relaxed mb-8">
-                                Keep your carpets looking brand new and smelling fresh with our deep steam-cleaning service, made specifically for wall-to-wall carpets.
-                            </p>
-
-                            <div className="bg-[#F4F1EA]/10 border border-[#D8C3A5]/20 p-5 rounded-lg">
-                                <span className="inline-flex items-center gap-2 text-[#D8C3A5] text-sm md:text-[0.7rem] uppercase tracking-[0.2em] font-semibold mb-2">
+                            <div className="pt-8 border-t border-[#D8C3A5]/15 mt-10">
+                                <span className="text-[#D8C3A5] text-[0.6rem] uppercase tracking-[0.22em] font-semibold block mb-2">
                                     Please Note
                                 </span>
-                                <p className="text-[#F4F1EA]/60 text-base md:text-[0.78rem] font-light leading-relaxed">
+                                <p className="text-[#F4F1EA]/60 text-base font-light leading-relaxed">
                                     Our cleaning service is only for wall-to-wall or fully installed carpets. We do not accept loose area rugs or small standalone mats.
                                 </p>
                             </div>
