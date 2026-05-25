@@ -37,30 +37,37 @@ export default function CTA() {
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
-    
-    // Pagsamahin ang oras para isama sa payload submission
     const combinedTime = `${inputHour}:${selectedMinute} ${selectedPeriod}`;
-    formData.append('preferred_time', combinedTime);
 
-    // Palitan ang 'YOUR_ENDPOINT_KEY' ng ibibigay na key mula sa Formspree/Web3Forms
-    const endpoint = 'https://submit-form.com/YOUR_ENDPOINT_KEY'; 
+    // I-compile ang form values bilang JSON payload
+    const payload = {
+      first_name: formData.get('first_name'),
+      last_name: formData.get('last_name'),
+      email: formData.get('email'),
+      contact_number: formData.get('contact_number'),
+      space_type: formData.get('space_type'),
+      target_date: formData.get('target_date'),
+      preferred_time: combinedTime,
+      requirements: formData.get('requirements'),
+    };
 
     try {
-      const response = await fetch(endpoint, {
+      // DITO ANG PAGBABAGO: Tinatawagan natin ang custom Vercel API Route mo para sa Resend
+      const response = await fetch('/api/send-email', {
         method: 'POST',
-        body: formData,
         headers: {
-          'Accept': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
         setIsSubmitted(true);
       } else {
-        alert('Something went wrong. Please try again.');
+        alert('Failed to send inquiry. Please check your inputs or try again.');
       }
     } catch (error) {
-      alert('Network error. Please check your connection.');
+      alert('Network configuration error. Please check your connection.');
     } finally {
       setIsSubmitting(false);
     }
@@ -137,7 +144,7 @@ export default function CTA() {
 
                 <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input type="text" name="first_name"尊 required placeholder="First Name" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
+                    <input type="text" name="first_name" required placeholder="First Name" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
                     <input type="text" name="last_name" required placeholder="Last Name" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
                   </div>
 
