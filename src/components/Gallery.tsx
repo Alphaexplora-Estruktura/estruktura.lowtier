@@ -32,7 +32,13 @@ const projectPairs = [
     { artwork: imgMd11, install: imgMd12 },
 ];
 
-const singleTiles = [imgCt1, imgCt2, imgCt3, imgCt4, imgCt5, imgCt7];
+const singleTiles = [
+    imgCt1, imgCt2, imgCt3, imgCt4, imgCt5, imgCt7,
+    '/assets/img-4.png',
+    '/assets/img-5.png',
+    '/assets/img-1.png',
+    '/assets/img-2.png'
+];
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function Gallery() {

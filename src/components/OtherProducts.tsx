@@ -35,7 +35,7 @@ export default function OtherProducts() {
                         <span className="w-10 h-px bg-estruktura-gold" />
                     </span>
                     <h2 className="font-serif text-estruktura-text mt-4 leading-tight" style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', fontWeight: 500 }}>
-                        Complete Your Interior Floors and Walls.
+                        Complete your interior: Floors, Walls, and Windows.
                     </h2>
                     <p className="text-estruktura-text/80 font-medium max-w-xl mx-auto mt-6 text-lg md:text-[1.1rem] leading-relaxed">
                         Beyond carpets, we are your partner for complete interior flooring, walls, and window solutions.

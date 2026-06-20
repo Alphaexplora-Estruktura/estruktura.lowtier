@@ -2,50 +2,50 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import imgBr22 from '../assets/carpets/bedroom-guestroom/br-2.2.jpg';
 import imgBr32 from '../assets/carpets/bedroom-guestroom/br-3.2.jpg';
 
-// ─── Product data with descriptions ──────────────────────────────────────────
 const products = [
   {
-    name: 'Axminster',
-    description: 'Woven on an Axminster loom for crisp pattern reproduction and consistent pile density — ideal for adding a classic touch to living rooms and welcoming reception areas.',
+    name: 'Axminster Carpet',
+    description: 'Machine-woven from premium wool and nylon. Custom colours and designs are woven deep into the pile to match your style and palette. Durable enough for heavy foot traffic, with excellent dimensional stability. Ideal for grand ballrooms, event venues, guestrooms, hallways, theaters, and hotel lobbies. Made to order.',
   },
   {
-    name: 'Handtufted',
-    description: 'Hand-crafted by artisans using a tufting gun to allow bespoke designs, rich textures, and custom color palettes — ideal for custom area rugs and adding a personalized touch to your home.',
+    name: 'Hand-tufted Carpet',
+    description: 'Artisan-made from a premium pure wool blend. Custom colours, intricate designs, unique textures, and exact shapes crafted to your requirements. Yarns anchored to a stable backing create a dense, resilient pile with great stability and soft comfort. Perfect for hotel lobbies, luxury suites, ballrooms, event spaces, guestrooms, hallways, elevator lobbies, and residential areas like living rooms or bedrooms — ideal for spaces needing a personal touch. Made to order.',
   },
   {
     name: 'Roll Carpet',
-    description: 'Available in broad widths to deliver seamless coverage that reduces seam lines and creates a unified, polished appearance — ideal for covering larger rooms or open office spaces.',
+    description: 'Practical, ready-to-use flooring. Machine-made in standard continuous lengths, available in plain colors and classic or modern patterns. These are standard designs (not custom-made) and crafted from durable materials: nylon, polypropylene, olefin, or premium wool blends. Ideal for offices, homes, and bedrooms.',
   },
   {
     name: 'Carpet Tiles',
-    description: 'Simplifying installation, replacement, and reconfiguration — ideal for home offices, playrooms, and everyday workspaces.',
+    description: 'Versatile, innovative flooring. Precision-made as modular units from quality nylon, polypropylene, olefin, polyester or wool-blend fibres, built for long-lasting use. Easy-fit edges enable fast installation and perfect alignment, with great sound insulation and a comfortable feel underfoot. Suitable for corporate offices, conference rooms, retail spaces, schools, healthcare facilities, airport terminals, hotel corridors and elevator entrances.',
   },
   {
     name: 'Wilton Carpet',
-    description: 'Tightly woven on a continuous loom for superior durability and depth of color — ideal for dining rooms, bedrooms, and spaces where you want lasting comfort.',
+    description: 'Precisely woven on specialized Wilton looms, with yarns fully interlaced through the backing. This premium carpet features intricate, highly detailed, and complex designs—with brilliant colours, deep tones, and elaborate patterns. A distinguished choice for hotels, casinos, ballrooms, function halls, and lobbies. Stocks Available.',
   },
   {
-    name: 'Wire Wilton',
-    description: 'Featuring structured loop piles that create a distinctive textured finish — ideal for hallways, stairs, and areas that see a lot of daily foot traffic.',
+    name: 'Wire Wilton Carpet',
+    description: 'Crafted on Wilton looms with special metal wires inserted during weaving. This precision engineering delivers uniform pile height, sharp patterns, and an exceptionally tight structure. It offers greater strength, stability, durability, and superior resistance to crushing under heavy use. Made to order, it is specified for shopping centers, busy hotel corridors, casinos, and high-traffic venues.',
   },
   {
-    name: 'Flocked Carpet',
-    description: 'Created by electrostatically applying ultra-short fibers for an exceptionally soft yet highly durable surface — ideal for pet-friendly homes and busy households that need easy cleaning.',
+    name: 'Electrostatic Flocked Carpet',
+    description: 'A modern flooring material combining the benefits of traditional carpets and hard surfaces, widely used in contemporary interiors. Made with high-voltage electrostatic flocking technology, it uses premium 100% nylon 6,6 fibers, plus stabilizing, fiberglass, and waterproof latex layers. With over 80 million fibers per square meter — 10 times more than standard bonded carpets — it delivers exceptional durability, color fastness, flame resistance, anti-static and anti-slip performance. It is also low-formaldehyde, antimicrobial, highly stain-resistant, and easy to maintain. Specified for airports, transport hubs, and areas with constant use of trolleys and wheeled equipment.',
   },
   {
     name: 'Matting',
-    description: 'Designed to trap dirt and moisture while offering optional custom branding — ideal for keeping your home or office entrances clean and inviting.',
+    description: 'This heavy duty floorcovering is engineered to scrape dirt, absorb moisture, trap dust and grit right at entrances before they spread further inside. Manufactured specifically for protection, safety, and cleanliness. It is produced in standard readily available stocks cut to size or indent for custom sizes and logos. An excellent solution for building entrances, main lobbies, lift lobbies, shopping mall doorways, office foyers, hotel entrances, industrial facilities, and all high- access points where hygiene and safety are priorities.',
   },
 ];
 
-// ─── Benefits data (no emojis) ────────────────────────────────────────────────
 const benefits = [
-  { label: 'Color & Visual Appeal', detail: 'Wide palette and pattern options allow carpets to define the character of any space.' },
-  { label: 'Exceptional Comfort', detail: 'Dense pile cushions every step, reducing fatigue in high-use residential and commercial areas.' },
-  { label: 'Safety Underfoot', detail: 'Slip-resistant surfaces and cushioned backing minimize fall risks across all environments.' },
-  { label: 'Sound Absorption', detail: 'Carpet fibre significantly reduces airborne and impact noise for quieter, more productive spaces.' },
-  { label: 'Area Definition', detail: 'Distinct flooring zones guide circulation and reinforce spatial hierarchy without structural walls.' },
-  { label: 'Floor Protection', detail: 'Acts as a protective layer that extends the lifespan of subfloor materials from wear and impact.' },
+  { label: 'Color & Visual Appeal', detail: 'Offers a vast palette and endless patterns, letting you define the unique character and style of any space instantly.' },
+  { label: 'Exceptional Comfort', detail: 'Dense, soft pile cushions every step, reducing physical fatigue in busy homes, offices, or commercial areas.' },
+  { label: 'Safety Underfoot', detail: 'Slip-resistant surface and cushioned backing minimize fall risks and soften impacts for better protection.' },
+  { label: 'Sound Absorption', detail: 'Fibers trap airborne noise and dampen footstep impact, creating quieter, calmer, and more focused environments.' },
+  { label: 'Area Definition', detail: 'Creates distinct flooring zones that guide movement and organize space — no walls or dividers needed.' },
+  { label: 'Floor Protection', detail: 'Acts as a durable shield, shielding your subfloor from scratches, wear, and damage to extend its lifespan.' },
+  { label: 'Air Quality Improvement', detail: 'Traps dust, pollen, and fine particles from the air, holding them until vacuumed — resulting in cleaner, healthier indoor air.' },
+  { label: 'Easy Transformation & Brand Identity', detail: 'Instantly refreshes or changes the entire theme of a space without major renovation; especially vital for hospitality businesses like hotels — carpet serves as your brand’s visual face, making a lasting first impression alongside your name and services.' },
 ];
 
 export default function Collection() {
@@ -57,14 +57,14 @@ export default function Collection() {
     <section id="products" className="overflow-hidden">
 
       {/* ── Section 1: Products header ── */}
-      <div className="relative min-h-[55dvh] flex items-end overflow-hidden bg-[#1C1915]">
+      <div className="relative min-h-[55dvh] flex items-end overflow-hidden bg-[#F4F1EA]">
         <img
           src={imgBr22}
           alt="Installed carpet bedroom"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.35 }}
+          style={{ opacity: 0.25 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1C1915] via-[#1C1915]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#F4F1EA] via-[#F4F1EA]/80 to-transparent" />
 
         <div
           ref={headerRef}
@@ -74,9 +74,9 @@ export default function Collection() {
             <span className="w-8 h-px bg-[#8c7e71]" />
             What We Provide
           </span>
-          <h2 className="font-serif text-[#F4F1EA] leading-tight" style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', fontWeight: 400 }}>
+          <h2 className="font-serif text-[#1C1915] leading-tight" style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', fontWeight: 400 }}>
             Carpets for<br />
-            <em style={{ color: '#D8C3A5', fontStyle: 'italic', fontWeight: 300 }}>Every Need.</em>
+            <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>Every Need.</em>
           </h2>
         </div>
       </div>
@@ -86,15 +86,15 @@ export default function Collection() {
         <div className="max-w-[90rem] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-[#D8C3A5]/40">
             {products.map((p, i) => (
-              <div key={i} className="bg-[#F4F1EA] p-[clamp(1.25rem,4vw,2rem)] group hover:bg-[#1C1915] transition-all duration-500 cursor-default flex flex-col gap-3" style={{ transitionDelay: `${i * 50}ms` }}>
-                <span className="text-[#8c7e71]/50 text-sm md:text-[0.6rem] uppercase tracking-[0.3em] font-semibold">
+              <div key={i} className="bg-[#F4F1EA] p-[clamp(1.25rem,4vw,2rem)] group hover:bg-white transition-all duration-500 cursor-default flex flex-col gap-3" style={{ transitionDelay: `${i * 50}ms` }}>
+                <span className="text-[#8c7e71]/80 text-sm md:text-[0.6rem] uppercase tracking-[0.3em] font-semibold">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <h4 className="font-serif text-[#2A2725] text-xl group-hover:text-[#D8C3A5] transition-colors duration-500 leading-tight">
+                <h4 className="font-serif text-[#1C1915] text-xl group-hover:text-[#8c7e71] transition-colors duration-500 leading-tight">
                   {p.name}
                 </h4>
-                <div className="w-8 h-px bg-[#D8C3A5]/60 group-hover:bg-[#D8C3A5]/30 transition-colors duration-500" />
-                <p className="text-[#5c5048] text-base md:text-[0.78rem] leading-relaxed font-light group-hover:text-[#F4F1EA]/60 transition-colors duration-500">
+                <div className="w-8 h-px bg-[#D8C3A5]/60 transition-colors duration-500" />
+                <p className="text-[#5c5048] text-base md:text-[0.78rem] leading-relaxed font-light transition-colors duration-500">
                   {p.description}
                 </p>
               </div>
@@ -104,55 +104,20 @@ export default function Collection() {
       </div>
 
       {/* ── Section 2.5: Ways We Work With You (Friendly & Elegant Layout) ── */}
-      <div className="bg-[#E8E2DA] py-[clamp(3rem,8vw,5rem)] px-6 lg:px-16 border-y border-[#D8C3A5]/30">
-        <div className="max-w-[90rem] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+      <div className="bg-[#E8E2DA] py-[clamp(4rem,10vw,6rem)] px-6 lg:px-16 border-y border-[#D8C3A5]/30">
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
 
-          {/* Left: Typography & Intro */}
-          <div className="flex-1 text-center lg:text-left">
-            <span className="text-[#8c7e71] uppercase text-sm md:text-[0.65rem] tracking-[0.3em] font-bold mb-4 block">
-              How We Work With You
-            </span>
-            <h3 className="font-serif text-[#1C1915] text-3xl md:text-4xl lg:text-5xl mb-6 font-medium leading-tight">
-              Ready-Made or<br className="hidden lg:block" /> Fully Custom.
-            </h3>
-            <p className="text-[#5c5048] text-lg md:text-[1rem] leading-relaxed max-w-xl mx-auto lg:mx-0">
-              We love helping you find the perfect match. Whether you are looking for a quick, stunning transformation or a deeply personalized masterpiece, we are happy to guide you to the right solution for your space.
-            </p>
-          </div>
+          {/* Typography & Intro */}
+          <span className="text-[#8c7e71] uppercase text-sm md:text-[0.65rem] tracking-[0.3em] font-bold mb-4 block">
+            How We Work With You
+          </span>
+          <h3 className="font-serif text-[#1C1915] text-3xl md:text-4xl lg:text-5xl mb-6 font-medium leading-tight">
+            Ready-Made or Fully Custom.
+          </h3>
+          <p className="text-[#5c5048] text-lg md:text-[1rem] leading-relaxed max-w-2xl mx-auto">
+            We love helping you find the perfect match. Whether you are looking for a quick, stunning transformation or a deeply personalized masterpiece, we are happy to guide you to the right solution for your space.
+          </p>
 
-          {/* Right: The Two Options Side-by-Side */}
-          <div className="flex-[1.5] w-full grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-
-            {/* Option 1: Available Collections */}
-            <div className="bg-[#F4F1EA] p-8 md:p-10 rounded-xl border border-[#D8C3A5]/30 hover:border-[#D8C3A5] hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
-              <div>
-                <h4 className="font-serif text-[#1C1915] text-xl mb-3">Available Collections</h4>
-                <p className="text-[#5c5048] text-base md:text-[0.9rem] leading-relaxed font-light mb-6">
-                  Perfect for homes, boutique offices, and intimate spaces. Choose from our curated, high-quality designs that are ready for immediate installation.
-                </p>
-              </div>
-              <span className="text-[#8c7e71] text-sm md:text-[0.7rem] uppercase tracking-[0.2em] font-bold">
-                No minimum required
-              </span>
-            </div>
-
-            {/* Option 2: Bespoke Customization */}
-            <div className="bg-[#F4F1EA] p-8 md:p-10 rounded-xl border border-[#D8C3A5]/30 hover:border-[#D8C3A5] hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
-              <div>
-                <h4 className="font-serif text-[#1C1915] text-xl mb-3">Bespoke Customization</h4>
-                <p className="text-[#5c5048] text-base md:text-[0.9rem] leading-relaxed font-light mb-6">
-                  Tailored for grand-scale commercial projects and hotels. We will collaborate closely with you to craft a totally unique design from scratch.
-                </p>
-              </div>
-              <div className="pt-4 border-t border-[#D8C3A5]/30 mt-auto">
-                <span className="text-[#8c7e71] text-sm md:text-[0.7rem] uppercase tracking-[0.2em] font-bold block leading-relaxed">
-                  Kindly Note: <br className="hidden xl:block" />
-                  <span className="text-[#1C1915]">Custom tiles start at 1,000 sqm.</span>
-                </span>
-              </div>
-            </div>
-
-          </div>
         </div>
       </div>
 
@@ -179,18 +144,18 @@ export default function Collection() {
                 <span className="w-8 h-px bg-[#8c7e71]" />
               </span>
               <h3 className="font-serif text-[#1C1915] font-medium" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
-                Why Carpet Matters.
+                Why Carpet?
               </h3>
             </div>
 
             {/* Editorial Grid Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#D8C3A5]/50 bg-[#F4F1EA]/60 backdrop-blur-md shadow-xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-[#D8C3A5]/50 bg-[#F4F1EA]/60 backdrop-blur-md shadow-xl">
               {benefits.map((b, i) => (
                 <div key={i} className="group relative p-[clamp(1.25rem,4vw,2.5rem)] border-b border-r border-[#D8C3A5]/50 hover:bg-white/90 transition-all duration-500 flex flex-col h-full overflow-hidden">
 
                   {/* Massive watermark numeral */}
                   <span className="absolute -bottom-4 -right-2 text-[8rem] font-serif font-bold text-[#D8C3A5]/15 group-hover:text-[#D8C3A5]/25 transition-colors duration-500 pointer-events-none select-none leading-none">
-                    {['I', 'II', 'III', 'IV', 'V', 'VI'][i]}
+                    {['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'][i]}
                   </span>
 
                   {/* Standard numeral indicator */}
