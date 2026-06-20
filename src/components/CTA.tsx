@@ -4,8 +4,9 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 export default function CTA() {
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // States para sa pinag-gupit-gupit na time field
+  // States para sa form processing
   const [inputHour, setInputHour] = useState<string>('09');
   const [selectedMinute, setSelectedMinute] = useState<string>('00');
   const [selectedPeriod, setSelectedPeriod] = useState<string>('AM');
@@ -18,33 +19,64 @@ export default function CTA() {
   })();
 
   const handleHourChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Numero lang ang tinatanggap at maximum of 2 characters
     const val = e.target.value.replace(/[^0-9]/g, '').slice(0, 2);
     setInputHour(val);
   };
 
   const handleHourBlur = () => {
-    // Validation para siguradong 01-12 lang ang ilalagay na oras
     let num = parseInt(inputHour, 10);
-    if (isNaN(num) || num < 1) {
-      setInputHour('12');
-    } else if (num > 12) {
+    if (isNaN(num) || num < 1 || num > 12) {
       setInputHour('12');
     } else {
       setInputHour(String(num).padStart(2, '0'));
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const combinedTime = `${inputHour}:${selectedMinute} ${selectedPeriod}`;
+
+    // I-compile ang form values bilang JSON payload
+    const payload = {
+      first_name: formData.get('first_name'),
+      last_name: formData.get('last_name'),
+      email: formData.get('email'),
+      contact_number: formData.get('contact_number'),
+      space_type: formData.get('space_type'),
+      target_date: formData.get('target_date'),
+      preferred_time: combinedTime,
+      requirements: formData.get('requirements'),
+    };
+
+    try {
+      // DITO ANG PAGBABAGO: Tinatawagan natin ang custom Vercel API Route mo para sa Resend
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert('Failed to send inquiry. Please check your inputs or try again.');
+      }
+    } catch (error) {
+      alert('Network configuration error. Please check your connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contact" className="bg-estruktura-text relative overflow-hidden">
       <div className="w-full h-px bg-gradient-to-r from-transparent via-estruktura-accent/40 to-transparent" />
 
-      {/* Background decorations */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-estruktura-accent/5 rounded-full blur-[200px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-estruktura-gold/10 rounded-full blur-[150px] pointer-events-none" />
 
@@ -53,7 +85,7 @@ export default function CTA() {
           ref={ref}
           className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 transition-all duration-[1200ms] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          {/* Left Panel: Content info */}
+          {/* Left Panel */}
           <div>
             <span className="text-estruktura-gold uppercase text-sm md:text-[0.75rem] tracking-[0.35em] font-bold mb-5 flex items-center gap-3">
               <span className="w-10 h-px bg-estruktura-gold" />
@@ -91,7 +123,7 @@ export default function CTA() {
                 </div>
                 <h3 className="font-serif text-estruktura-cream text-3xl mb-3">Inquiry Sent</h3>
                 <p className="text-estruktura-cream/70 text-[0.95rem] font-light leading-relaxed max-w-sm mb-8">
-                  Thank you for reaching out. We will get back to you shortly to confirm your scheduled site visit slot at {inputHour || '09'}:{selectedMinute} {selectedPeriod}.
+                  Thank you for reaching out. We will get back to you shortly to confirm your scheduled site visit slot at {inputHour}:{selectedMinute} {selectedPeriod}.
                 </p>
                 <button
                   type="button"
@@ -112,29 +144,26 @@ export default function CTA() {
 
                 <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input type="text" required placeholder="First Name" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
-                    <input type="text" required placeholder="Last Name" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
+                    <input type="text" name="first_name" required placeholder="First Name" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
+                    <input type="text" name="last_name" required placeholder="Last Name" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input type="email" required placeholder="Email Address" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
-                    <input type="tel" required onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }} placeholder="Contact Number" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
+                    <input type="email" name="email" required placeholder="Email Address" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
+                    <input type="tel" name="contact_number" required onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, ''); }} placeholder="Contact Number" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
                   </div>
 
-                  <input type="text" required placeholder="Space Type (e.g., Office, Living Room)" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
+                  <input type="text" name="space_type" required placeholder="Space Type (e.g., Office, Living Room)" className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light" />
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-end">
                     <div className="flex flex-col gap-2">
                       <label className="text-estruktura-cream/50 text-xs uppercase tracking-wider font-medium">Select Target Date</label>
-                      <input type="date" required min={minDate} className="w-full px-2 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream focus:outline-none focus:border-estruktura-accent text-base font-light" style={{ colorScheme: 'dark' }} />
+                      <input type="date" name="target_date" required min={minDate} className="w-full px-2 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream focus:outline-none focus:border-estruktura-accent text-base font-light" style={{ colorScheme: 'dark' }} />
                     </div>
 
-                    {/* ── CLEAN TYPOGRAPHIC TIME PICKER FIELDS ── */}
                     <div className="flex flex-col gap-2">
                       <label className="text-estruktura-cream/50 text-xs uppercase tracking-wider font-medium">Preferred Time</label>
                       <div className="flex items-center gap-2 border-b border-estruktura-cream/20 py-2">
-                        
-                        {/* Hour: Text Field Input */}
                         <input
                           type="text"
                           required
@@ -146,7 +175,6 @@ export default function CTA() {
                         />
                         <span className="text-estruktura-cream/40 text-base font-light">:</span>
 
-                        {/* Minute: 2 Choices Select Grid Option */}
                         <select
                           value={selectedMinute}
                           onChange={(e) => setSelectedMinute(e.target.value)}
@@ -156,7 +184,6 @@ export default function CTA() {
                           <option value="30">30</option>
                         </select>
 
-                        {/* Period: 2 Choices Select Grid Option */}
                         <select
                           value={selectedPeriod}
                           onChange={(e) => setSelectedPeriod(e.target.value)}
@@ -169,10 +196,14 @@ export default function CTA() {
                     </div>
                   </div>
 
-                  <textarea rows={2} required placeholder="Tell us your requirements..." className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light resize-none mt-2" />
+                  <textarea name="requirements" rows={2} required placeholder="Tell us your requirements..." className="w-full px-1 py-3 bg-transparent border-b border-estruktura-cream/20 text-estruktura-cream placeholder:text-estruktura-cream/30 focus:outline-none focus:border-estruktura-accent text-base font-light resize-none mt-2" />
 
-                  <button type="submit" className="w-full px-8 min-h-[48px] bg-estruktura-accent text-estruktura-text font-bold uppercase text-[0.75rem] tracking-[0.3em] hover:bg-estruktura-cream transition-all duration-300 mt-2 shadow-lg shadow-black/20">
-                    Confirm Booking Slot
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full px-8 min-h-[48px] bg-estruktura-accent text-estruktura-text font-bold uppercase text-[0.75rem] tracking-[0.3em] hover:bg-estruktura-cream transition-all duration-300 mt-2 shadow-lg shadow-black/20 disabled:opacity-50"
+                  >
+                    {isSubmitting ? 'Sending Inquiries...' : 'Confirm Booking Slot'}
                   </button>
                 </form>
               </div>
