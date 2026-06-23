@@ -19,8 +19,8 @@ export default function Home() {
         <Collection />
         <Craftsmanship />
         <Gallery />
-        <OtherProducts />
         <Services />
+        <OtherProducts />
         <CTA />
       </main>
 
@@ -74,7 +74,7 @@ export default function Home() {
 
               {/* Facebook Icon */}
               <a
-                href="#"
+                href="https://www.facebook.com/marie.deleon.522066"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"

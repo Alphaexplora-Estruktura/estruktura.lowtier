@@ -13,11 +13,11 @@ export default function Hero() {
         src={imgBr12}
         alt="Estruktura carpet in a room"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ opacity: 0.15 }}
+        style={{ opacity: 0.35 }}
       />
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-estruktura-bg/80 via-transparent to-estruktura-bg/90" />
-      <div className="absolute inset-0 bg-gradient-to-r from-estruktura-bg/90 via-estruktura-bg/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-estruktura-bg/60 via-transparent to-estruktura-bg/80" />
+      <div className="absolute inset-0 bg-gradient-to-r from-estruktura-bg/70 via-estruktura-bg/20 to-transparent" />
 
       {/* Content: vertically centered */}
       <div className="relative z-10 flex flex-col justify-center flex-1 max-w-[90rem] mx-auto w-full px-6 lg:px-16 pt-[clamp(6rem,15vw,9rem)] pb-[clamp(3rem,8vw,6rem)]">
