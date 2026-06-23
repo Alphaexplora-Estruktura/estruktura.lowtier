@@ -76,7 +76,7 @@ export default function Gallery() {
 
             {/* Single Tiles Section */}
             <div className="max-w-[90rem] mx-auto px-6 lg:px-16 pb-20">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                <div className="flex flex-wrap gap-2">
                     {singleTiles.map((src, idx) => (
                         <SingleCard key={idx} src={src} delay={idx * 70} />
                     ))}
@@ -137,7 +137,7 @@ function SingleCard({ src, delay }: any) {
     return (
         <div
             ref={ref}
-            className="group relative aspect-square overflow-hidden bg-estruktura-bg cursor-pointer"
+            className="group relative flex-auto basis-[45%] md:basis-[22%] lg:basis-[15%] h-[200px] sm:h-[240px] md:h-[280px] overflow-hidden bg-estruktura-bg cursor-pointer"
             style={{
                 transitionDelay: `${delay}ms`,
                 opacity: isVisible ? 1 : 0,

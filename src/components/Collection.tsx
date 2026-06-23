@@ -57,26 +57,32 @@ export default function Collection() {
     <section id="products" className="overflow-hidden">
 
       {/* ── Section 1: Products header ── */}
-      <div className="relative min-h-[55dvh] flex items-end overflow-hidden bg-[#F4F1EA]">
+      <div className="relative min-h-[60dvh] flex items-center justify-center overflow-hidden bg-[#1C1915]">
         <img
           src={imgBr22}
           alt="Installed carpet bedroom"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.25 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#F4F1EA] via-[#F4F1EA]/80 to-transparent" />
+        {/* Light brown overlay - adjusted for better base contrast */}
+        <div className="absolute inset-0 bg-[#A49381]/80" />
+        
+        {/* Subtle center darkening for white text contrast, fading to the off-white bottom */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(28,25,21,0.25)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#F4F1EA] via-transparent to-transparent opacity-90" />
 
         <div
           ref={headerRef}
-          className={`relative z-10 max-w-[90rem] mx-auto px-6 lg:px-16 pb-16 transition-all duration-[1000ms] ease-out ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`relative z-10 w-full max-w-[90rem] mx-auto px-6 lg:px-16 flex flex-col items-center text-center transition-all duration-[1000ms] ease-out ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <span className="text-[#8c7e71] uppercase text-sm md:text-[0.6rem] tracking-[0.35em] font-semibold mb-5 flex items-center gap-3">
-            <span className="w-8 h-px bg-[#8c7e71]" />
+          <span className="text-[#F4F1EA] drop-shadow-sm uppercase text-sm md:text-[0.65rem] tracking-[0.35em] font-semibold mb-5 flex items-center justify-center gap-4">
+            <span className="w-12 md:w-20 h-px bg-[#F4F1EA]/80" />
             What We Provide
+            <span className="w-12 md:w-20 h-px bg-[#F4F1EA]/80" />
           </span>
-          <h2 className="font-serif text-[#1C1915] leading-tight" style={{ fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', fontWeight: 400 }}>
+          <h2 className="font-serif text-[#F4F1EA] leading-tight drop-shadow-md" style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: 400 }}>
             Carpets for<br />
-            <em style={{ color: '#8c7e71', fontStyle: 'italic', fontWeight: 300 }}>Every Need.</em>
+            {/* Darkened text to #1C1915 for maximum contrast against light brown */}
+            <em style={{ color: '#1C1915', fontStyle: 'italic', fontWeight: 400 }} className="drop-shadow-none">Every Need.</em>
           </h2>
         </div>
       </div>
@@ -122,14 +128,15 @@ export default function Collection() {
       </div>
 
       {/* ── Section 3: Benefits (Editorial Architectural Grid) ── */}
-      <div className="relative min-h-[600px] overflow-hidden bg-[#F4F1EA]">
+      <div className="relative min-h-[600px] overflow-hidden bg-[#1C1915]">
         {/* More visible background image */}
         <img
           src={imgBr32}
           alt="Benefits of carpet"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.35 }}
         />
+        {/* Light brown overlay */}
+        <div className="absolute inset-0 bg-[#D8C3A5]/60" />
         {/* Frosted glass overlay so the text remains easy to read */}
         <div className="absolute inset-0 bg-[#F4F1EA]/60 backdrop-blur-[3px]" />
 
